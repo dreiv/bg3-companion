@@ -2,9 +2,11 @@
 import { computed, ref } from 'vue'
 import { useContentStore } from '@/stores/content'
 import { useProgressStore } from '@/stores/progress'
+import { useItemsStore } from '@/stores/itemsStore'
 import { useSearch } from '@/composables/useSearch'
 import AreaTodoItem from '@/components/AreaTodoItem.vue'
 import SearchInput from '@/components/ui/SearchInput.vue'
+import ActItemsTable from '@/components/features/ActItemsTable.vue'
 import type { Area } from '@/data/types'
 
 const props = defineProps<{
@@ -13,10 +15,17 @@ const props = defineProps<{
 
 const content = useContentStore()
 const progress = useProgressStore()
+const itemsStore = useItemsStore()
 
 const act = computed(() => content.getAct(props.actId))
 const areaList = computed(() => content.getAreasForAct(props.actId))
 const quests = computed(() => content.getQuestsForAct(props.actId))
+
+/** Numeric act extracted from the actId string (e.g. "act-1" → 1). */
+const actNumber = computed(() => {
+  const match = props.actId.match(/act-(\d+)/)
+  return match ? Number.parseInt(match[1] ?? "0", 10) : 0
+})
 
 // One shared search instance drives both tabs; the query persists across them.
 const searchInput = ref<InstanceType<typeof SearchInput> | null>(null)
@@ -29,13 +38,26 @@ const search = useSearch({
 const filteredAreas = computed(() => search.filter(areaList.value, (a) => a.name))
 const filteredQuests = computed(() => search.filter(quests.value, (q) => q.text))
 
-type ViewMode = 'list' | 'quests'
+type ViewMode = 'list' | 'quests' | 'items'
 const activeView = ref<ViewMode>('list')
 
 const tabs: { id: ViewMode; label: string }[] = [
   { id: 'list', label: 'List' },
   { id: 'quests', label: 'Quests' },
+  { id: 'items', label: 'Items' },
 ]
+
+/**
+ * Switch the active tab. Resets the global search query and item filters
+ * whenever the user toggles between tabs.
+ */
+function selectTab(tab: ViewMode) {
+  if (activeView.value === tab) return
+  activeView.value = tab
+  // Reset search + item filters on every tab switch.
+  search.query.value = ''
+  itemsStore.resetSearchAndFilters()
+}
 
 function onTabKeydown(e: KeyboardEvent) {
   const i = tabs.findIndex((t) => t.id === activeView.value)
@@ -48,7 +70,7 @@ function onTabKeydown(e: KeyboardEvent) {
   const tab = tabs[next]
   if (!tab) return
   e.preventDefault()
-  activeView.value = tab.id
+  selectTab(tab.id)
   document.getElementById(`tab-${tab.id}`)?.focus()
 }
 
@@ -75,7 +97,7 @@ function areaRoute(areaId: string) {
       <button v-for="tab in tabs" :key="tab.id" :id="`tab-${tab.id}`" type="button" role="tab"
         :aria-selected="activeView === tab.id" :aria-controls="`panel-${tab.id}`"
         :tabindex="activeView === tab.id ? 0 : -1" class="tab" :class="{ active: activeView === tab.id }"
-        @click="activeView = tab.id" @keydown="onTabKeydown">
+        @click="selectTab(tab.id)" @keydown="onTabKeydown">
         {{ tab.label }}
       </button>
     </div>
@@ -134,6 +156,11 @@ function areaRoute(areaId: string) {
           </li>
         </TransitionGroup>
       </template>
+    </section>
+
+    <section v-else-if="activeView === 'items'" id="panel-items" role="tabpanel" aria-labelledby="tab-items"
+      class="tab-panel">
+      <ActItemsTable :act="actNumber" />
     </section>
   </div>
 </template>

@@ -1,0 +1,4458 @@
+[
+  {
+    "id": "act-1-bracers-of-defence",
+    "name": "Bracers of Defence",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-1-uncovered-mysteries",
+    "name": "Uncovered Mysteries",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-1-amulet-of-branding",
+    "name": "Amulet of Branding",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-1-aberration-hunters-amulet",
+    "name": "Aberration Hunters' Amulet",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-1-necklace-of-elemental-augmentation",
+    "name": "Necklace of Elemental Augmentation",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-1-the-amulet-of-lost-voices",
+    "name": "The Amulet of Lost Voices",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-1-amulet-of-silvanus",
+    "name": "Amulet of Silvanus",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-1-broodmother-s-revenge",
+    "name": "Broodmother's Revenge",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-1-komira-s-locket",
+    "name": "Komira's Locket",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-1-silver-pendant",
+    "name": "Silver Pendant",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-1-tarnished-charm",
+    "name": "Tarnished Charm",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-1-amulet-of-elemental-torment",
+    "name": "Amulet of Elemental Torment",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-1-sentient-amulet-rare",
+    "name": "Sentient Amulet (Rare)",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-1-amulet-of-restoration",
+    "name": "Amulet of Restoration",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-1-champion-s-chain",
+    "name": "Champion's Chain",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-1-envoy-s-amulet",
+    "name": "Envoy's Amulet",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-1-pearl-of-power-amulet",
+    "name": "Pearl of Power Amulet",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-1-psychic-spark",
+    "name": "Psychic Spark",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-1-moondrop-pendant",
+    "name": "Moondrop Pendant",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-1-periapt-of-wound-closure",
+    "name": "Periapt of Wound Closure",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-1-the-blast-pendant",
+    "name": "The Blast Pendant",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-1-absolute-s-talisman",
+    "name": "Absolute's Talisman",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-1-amulet-of-misty-step",
+    "name": "Amulet of Misty Step",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-1-amulet-of-sel-ne-s-chosen",
+    "name": "Amulet of Selûne's Chosen",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-1-beastmaster-s-chain",
+    "name": "Beastmaster's Chain",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-1-amulet-of-the-unworthy",
+    "name": "Amulet of the Unworthy",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-1-the-spectator-eyes",
+    "name": "The Spectator Eyes",
+    "act": 1,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-1-witchbreaker",
+    "name": "Witchbreaker",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Battleaxe"
+  },
+  {
+    "id": "act-1-ceremonial-battleaxe",
+    "name": "Ceremonial Battleaxe",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Battleaxe"
+  },
+  {
+    "id": "act-1-mystra-s-grace",
+    "name": "Mystra's Grace",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Boots"
+  },
+  {
+    "id": "act-1-hoarfrost-boots",
+    "name": "Hoarfrost Boots",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Boots"
+  },
+  {
+    "id": "act-1-varsh-ko-kuu-s-boots",
+    "name": "Varsh Ko'kuu's Boots",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Boots"
+  },
+  {
+    "id": "act-1-swiresy-shoes",
+    "name": "Swiresy Shoes",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Boots"
+  },
+  {
+    "id": "act-1-boots-of-aid-and-comfort",
+    "name": "Boots of Aid and Comfort",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Boots"
+  },
+  {
+    "id": "act-1-disintegrating-night-walkers",
+    "name": "Disintegrating Night Walkers",
+    "act": 1,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Boots"
+  },
+  {
+    "id": "act-1-boots-of-genial-striding",
+    "name": "Boots of Genial Striding",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Boots"
+  },
+  {
+    "id": "act-1-boots-of-speed",
+    "name": "Boots of Speed",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Boots"
+  },
+  {
+    "id": "act-1-boots-of-stormy-clamour",
+    "name": "Boots of Stormy Clamour",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Boots"
+  },
+  {
+    "id": "act-1-cinder-shoes",
+    "name": "Cinder Shoes",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Boots"
+  },
+  {
+    "id": "act-1-linebreaker-boots",
+    "name": "Linebreaker Boots",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Boots"
+  },
+  {
+    "id": "act-1-springstep-boots",
+    "name": "Springstep Boots",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Boots"
+  },
+  {
+    "id": "act-1-the-watersparkers",
+    "name": "The Watersparkers",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Boots"
+  },
+  {
+    "id": "act-1-spiderstep-boots",
+    "name": "Spiderstep Boots",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Boots"
+  },
+  {
+    "id": "act-1-the-deathstalker-mantle",
+    "name": "The Deathstalker Mantle",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Cloak"
+  },
+  {
+    "id": "act-1-infernal-robe",
+    "name": "Infernal Robe",
+    "act": 1,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Clothing"
+  },
+  {
+    "id": "act-1-robe-of-summer",
+    "name": "Robe of Summer",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Clothing"
+  },
+  {
+    "id": "act-1-the-protecty-sparkswall",
+    "name": "The Protecty Sparkswall",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Clothing"
+  },
+  {
+    "id": "act-1-armour-of-uninhibited-kushigo",
+    "name": "Armour of Uninhibited Kushigo",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Clothing"
+  },
+  {
+    "id": "act-1-the-graceful-cloth-esther",
+    "name": "The Graceful Cloth (Esther)",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Clothing"
+  },
+  {
+    "id": "act-1-bloodguzzler-garb",
+    "name": "Bloodguzzler Garb",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Clothing"
+  },
+  {
+    "id": "act-1-poisoner-s-robe",
+    "name": "Poisoner's Robe",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Clothing"
+  },
+  {
+    "id": "act-1-club-of-hill-giant-strength",
+    "name": "Club of Hill Giant Strength",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Club"
+  },
+  {
+    "id": "act-1-sussur-dagger",
+    "name": "Sussur Dagger",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Dagger"
+  },
+  {
+    "id": "act-1-assassin-s-touch",
+    "name": "Assassin's Touch",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Dagger"
+  },
+  {
+    "id": "act-1-hunter-s-dagger",
+    "name": "Hunter's Dagger",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Dagger"
+  },
+  {
+    "id": "act-1-ritual-dagger",
+    "name": "Ritual Dagger",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Dagger"
+  },
+  {
+    "id": "act-1-worgfang",
+    "name": "Worgfang",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Dagger"
+  },
+  {
+    "id": "act-1-defender-flail",
+    "name": "Defender Flail",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Flail"
+  },
+  {
+    "id": "act-1-corrosive-flail",
+    "name": "Corrosive Flail",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Flail"
+  },
+  {
+    "id": "act-1-sorrow",
+    "name": "Sorrow",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Glaive"
+  },
+  {
+    "id": "act-1-monster-slayer-glaive",
+    "name": "Monster Slayer Glaive",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Glaive"
+  },
+  {
+    "id": "act-1-daredevil-gloves",
+    "name": "Daredevil Gloves",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-1-gloves-of-missile-snaring",
+    "name": "Gloves of Missile Snaring",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-1-wondrous-gloves",
+    "name": "Wondrous Gloves",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-1-gloves-of-uninhibited-kushigo",
+    "name": "Gloves of Uninhibited Kushigo",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-1-gloves-of-cinder-and-sizzle",
+    "name": "Gloves of Cinder and Sizzle",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-1-the-sparkle-hands",
+    "name": "The Sparkle Hands",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-1-ring-of-arcane-synergy",
+    "name": "Ring of Arcane Synergy",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-1-ring-of-protection",
+    "name": "Ring of Protection",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-1-fetish-of-callarduran-smoothhands",
+    "name": "Fetish of Callarduran Smoothhands",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-1-ring-of-mind-shielding",
+    "name": "Ring of Mind-Shielding",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-1-ring-of-poison-resistance",
+    "name": "Ring of Poison Resistance",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-1-the-ever-seeing-eye",
+    "name": "The Ever-Seeing Eye",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-1-gloves-of-belligerent-skies",
+    "name": "Gloves of Belligerent Skies",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-1-gloves-of-power",
+    "name": "Gloves of Power",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-1-fleetfingers",
+    "name": "Fleetfingers",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-1-gloves-of-archery",
+    "name": "Gloves of Archery",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-1-herbalist-s-gloves",
+    "name": "Herbalist's Gloves",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-1-gloves-of-baneful-striking",
+    "name": "Gloves of Baneful Striking",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-1-winter-s-clutches",
+    "name": "Winter's Clutches",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-1-gloves-of-the-growling-underdog",
+    "name": "Gloves of the Growling Underdog",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-1-gloves-of-heroism",
+    "name": "Gloves of Heroism",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-1-very-heavy-greataxe",
+    "name": "Very Heavy Greataxe",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Greataxe"
+  },
+  {
+    "id": "act-1-blooded-greataxe",
+    "name": "Blooded Greataxe",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Greataxe"
+  },
+  {
+    "id": "act-1-exterminator-s-axe",
+    "name": "Exterminator's Axe",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Greataxe"
+  },
+  {
+    "id": "act-1-sussur-greatsword",
+    "name": "Sussur Greatsword",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Greatsword"
+  },
+  {
+    "id": "act-1-soulbreaker-greatsword",
+    "name": "Soulbreaker Greatsword",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Greatsword"
+  },
+  {
+    "id": "act-1-jorgoral-s-greatsword",
+    "name": "Jorgoral's Greatsword",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Greatsword"
+  },
+  {
+    "id": "act-1-everburn-blade",
+    "name": "Everburn Blade",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Greatsword"
+  },
+  {
+    "id": "act-1-sword-of-justice",
+    "name": "Sword of Justice",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Greatsword"
+  },
+  {
+    "id": "act-1-svartlebee-s-woundseeker",
+    "name": "Svartlebee's Woundseeker",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Greatsword"
+  },
+  {
+    "id": "act-1-light-of-creation",
+    "name": "Light of Creation",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Halberd"
+  },
+  {
+    "id": "act-1-the-skinburster",
+    "name": "The Skinburster",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Halberd"
+  },
+  {
+    "id": "act-1-merregon-halberd",
+    "name": "Merregon Halberd",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Halberd"
+  },
+  {
+    "id": "act-1-firestoker",
+    "name": "Firestoker",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Hand Crossbow"
+  },
+  {
+    "id": "act-1-dragon-s-grasp",
+    "name": "Dragon's Grasp",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Handaxe"
+  },
+  {
+    "id": "act-1-ritual-axe",
+    "name": "Ritual Axe",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Handaxe"
+  },
+  {
+    "id": "act-1-adamantine-splint-armour",
+    "name": "Adamantine Splint Armour",
+    "act": 1,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Heavy Armour"
+  },
+  {
+    "id": "act-1-crossbow-of-arcane-force",
+    "name": "Crossbow of Arcane Force",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Heavy Crossbow"
+  },
+  {
+    "id": "act-1-gandrel-s-aspiration",
+    "name": "Gandrel's Aspiration",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Heavy Crossbow"
+  },
+  {
+    "id": "act-1-giantbreaker",
+    "name": "Giantbreaker",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Heavy Crossbow"
+  },
+  {
+    "id": "act-1-harold",
+    "name": "Harold",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Heavy Crossbow"
+  },
+  {
+    "id": "act-1-grymskull-helm",
+    "name": "Grymskull Helm",
+    "act": 1,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Heavy Helmet"
+  },
+  {
+    "id": "act-1-warped-headband-of-intellect",
+    "name": "Warped Headband of Intellect",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-1-mask-of-the-shapeshifter",
+    "name": "Mask of the Shapeshifter",
+    "act": 1,
+    "rarity": "legendary",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-1-circlet-of-psionic-revenge",
+    "name": "Circlet of Psionic Revenge",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-1-diadem-of-arcane-synergy",
+    "name": "Diadem of Arcane Synergy",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-1-cap-of-curing",
+    "name": "Cap of Curing",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-1-key-of-the-ancients",
+    "name": "Key of the Ancients",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-1-wapira-s-crown",
+    "name": "Wapira's Crown",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-1-cap-of-wrath",
+    "name": "Cap of Wrath",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-1-circlet-of-blasting",
+    "name": "Circlet of Blasting",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-1-the-lifebringer",
+    "name": "The Lifebringer",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-1-the-shadespell-circlet",
+    "name": "The Shadespell Circlet",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-1-blazer-of-benevolence",
+    "name": "Blazer of Benevolence",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Light Armour"
+  },
+  {
+    "id": "act-1-spidersilk-armour",
+    "name": "Spidersilk Armour",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Light Armour"
+  },
+  {
+    "id": "act-1-drow-studded-leather-armour",
+    "name": "Drow Studded Leather Armour",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Light Armour"
+  },
+  {
+    "id": "act-1-skybreaker",
+    "name": "Skybreaker",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Light Hammer"
+  },
+  {
+    "id": "act-1-shining-staver-of-skulls",
+    "name": "Shining Staver-of-Skulls",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Light Hammer"
+  },
+  {
+    "id": "act-1-haste-helm",
+    "name": "Haste Helm",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Light Helmet"
+  },
+  {
+    "id": "act-1-dark-justiciar-mask",
+    "name": "Dark Justiciar Mask",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Light Helmet"
+  },
+  {
+    "id": "act-1-shadow-of-menzoberranzan",
+    "name": "Shadow of Menzoberranzan",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Light Helmet"
+  },
+  {
+    "id": "act-1-helmet-of-autonomy",
+    "name": "Helmet of Autonomy",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Light Helmet"
+  },
+  {
+    "id": "act-1-spellthief",
+    "name": "Spellthief",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Longbow"
+  },
+  {
+    "id": "act-1-the-joltshooter",
+    "name": "The Joltshooter",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Longbow"
+  },
+  {
+    "id": "act-1-titanstring-bow",
+    "name": "Titanstring Bow",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Longbow"
+  },
+  {
+    "id": "act-1-larethian-s-wrath",
+    "name": "Larethian's Wrath",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Longsword"
+  },
+  {
+    "id": "act-1-ceremonial-longsword",
+    "name": "Ceremonial Longsword",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Longsword"
+  },
+  {
+    "id": "act-1-adamantine-longsword",
+    "name": "Adamantine Longsword",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Longsword"
+  },
+  {
+    "id": "act-1-phalar-aluve",
+    "name": "Phalar Aluve",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Longsword"
+  },
+  {
+    "id": "act-1-the-blood-of-lathander",
+    "name": "The Blood of Lathander",
+    "act": 1,
+    "rarity": "legendary",
+    "price": 0,
+    "category": "Mace"
+  },
+  {
+    "id": "act-1-ceremonial-mace",
+    "name": "Ceremonial Mace",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Mace"
+  },
+  {
+    "id": "act-1-loviatar-s-scourge",
+    "name": "Loviatar's Scourge",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Mace"
+  },
+  {
+    "id": "act-1-xyanyde",
+    "name": "Xyanyde",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Mace"
+  },
+  {
+    "id": "act-1-adamantine-mace",
+    "name": "Adamantine Mace",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Mace"
+  },
+  {
+    "id": "act-1-shattered-flail",
+    "name": "Shattered Flail",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Mace"
+  },
+  {
+    "id": "act-1-doom-hammer",
+    "name": "Doom Hammer",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Maul"
+  },
+  {
+    "id": "act-1-hamarhraft",
+    "name": "Hamarhraft",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Maul"
+  },
+  {
+    "id": "act-1-hedge-wanderer-armour",
+    "name": "Hedge Wanderer Armour",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Medium Armour"
+  },
+  {
+    "id": "act-1-dark-justiciar-mail",
+    "name": "Dark Justiciar Mail",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Medium Armour"
+  },
+  {
+    "id": "act-1-robust-chain-shirt",
+    "name": "Robust Chain Shirt",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Medium Armour"
+  },
+  {
+    "id": "act-1-the-oakfather-s-embrace",
+    "name": "The Oakfather's Embrace",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Medium Armour"
+  },
+  {
+    "id": "act-1-luminous-armour",
+    "name": "Luminous Armour",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Medium Armour"
+  },
+  {
+    "id": "act-1-adamantine-scale-mail",
+    "name": "Adamantine Scale Mail",
+    "act": 1,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Medium Armour"
+  },
+  {
+    "id": "act-1-slippery-chain-shirt",
+    "name": "Slippery Chain Shirt",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Medium Armour"
+  },
+  {
+    "id": "act-1-the-jolty-vest",
+    "name": "The Jolty Vest",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Medium Armour"
+  },
+  {
+    "id": "act-1-the-speedy-lightfeet",
+    "name": "The Speedy Lightfeet",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Medium Boots"
+  },
+  {
+    "id": "act-1-vital-conduit-boots",
+    "name": "Vital Conduit Boots",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Medium Boots"
+  },
+  {
+    "id": "act-1-boots-of-elemental-momentum",
+    "name": "Boots of Elemental Momentum",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Medium Boots"
+  },
+  {
+    "id": "act-1-boots-of-striding",
+    "name": "Boots of Striding",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Medium Boots"
+  },
+  {
+    "id": "act-1-hellrider-s-pride",
+    "name": "Hellrider's Pride",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Medium Gloves"
+  },
+  {
+    "id": "act-1-holy-lance-helm",
+    "name": "Holy Lance Helm",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Medium Helmet"
+  },
+  {
+    "id": "act-1-helmet-of-smiting",
+    "name": "Helmet of Smiting",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Medium Helmet"
+  },
+  {
+    "id": "act-1-unseen-menace",
+    "name": "Unseen Menace",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Pike"
+  },
+  {
+    "id": "act-1-returning-pike",
+    "name": "Returning Pike",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Pike"
+  },
+  {
+    "id": "act-1-staff-of-crones",
+    "name": "Staff of Crones",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Quarterstaff"
+  },
+  {
+    "id": "act-1-staff-of-arcane-blessing",
+    "name": "Staff of Arcane Blessing",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Quarterstaff"
+  },
+  {
+    "id": "act-1-pale-oak",
+    "name": "Pale Oak",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Quarterstaff"
+  },
+  {
+    "id": "act-1-nature-s-snare",
+    "name": "Nature's Snare",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Quarterstaff"
+  },
+  {
+    "id": "act-1-rain-dancer",
+    "name": "Rain Dancer",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Quarterstaff"
+  },
+  {
+    "id": "act-1-creation-s-echo",
+    "name": "Creation's Echo",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Quarterstaff"
+  },
+  {
+    "id": "act-1-melf-s-first-staff",
+    "name": "Melf's First Staff",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Quarterstaff"
+  },
+  {
+    "id": "act-1-corellon-s-grace",
+    "name": "Corellon's Grace",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Quarterstaff"
+  },
+  {
+    "id": "act-1-cacophony",
+    "name": "Cacophony",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Quarterstaff"
+  },
+  {
+    "id": "act-1-gold-wyrmling-staff",
+    "name": "Gold Wyrmling Staff",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Quarterstaff"
+  },
+  {
+    "id": "act-1-mourning-frost",
+    "name": "Mourning Frost",
+    "act": 1,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Quarterstaff"
+  },
+  {
+    "id": "act-1-the-spellsparkler",
+    "name": "The Spellsparkler",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Quarterstaff"
+  },
+  {
+    "id": "act-1-sword-of-screams",
+    "name": "Sword of Screams",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Rapier"
+  },
+  {
+    "id": "act-1-rupturing-blade",
+    "name": "Rupturing Blade",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Rapier"
+  },
+  {
+    "id": "act-1-reason-s-grasp",
+    "name": "Reason's Grasp",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-1-gloves-of-hail-of-thorns",
+    "name": "Gloves of Hail of Thorns",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-1-gloves-of-thievery",
+    "name": "Gloves of Thievery",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-1-guiding-light",
+    "name": "Guiding Light",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-1-mage-s-friend",
+    "name": "Mage's Friend",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-1-the-sparkswall",
+    "name": "The Sparkswall",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-1-ring-of-elemental-infusion",
+    "name": "Ring of Elemental Infusion",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-1-strange-conduit-ring",
+    "name": "Strange Conduit Ring",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-1-ring-of-flinging",
+    "name": "Ring of Flinging",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-1-shapeshifter-s-boon-ring",
+    "name": "Shapeshifter's Boon Ring",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-1-crusher-s-ring",
+    "name": "Crusher's Ring",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-1-the-whispering-promise",
+    "name": "The Whispering Promise",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-1-bracing-band",
+    "name": "Bracing Band",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-1-ring-of-absolute-force",
+    "name": "Ring of Absolute Force",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-1-caustic-band",
+    "name": "Caustic Band",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-1-ring-of-jumping",
+    "name": "Ring of Jumping",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-1-ring-of-restorative-gravity",
+    "name": "Ring of Restorative Gravity",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-1-ring-of-salving",
+    "name": "Ring of Salving",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-1-sunwalker-s-gift",
+    "name": "Sunwalker's Gift",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-1-ring-of-colour-spray",
+    "name": "Ring of Colour Spray",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-1-smuggler-s-ring",
+    "name": "Smuggler's Ring",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-1-explorer-s-ring",
+    "name": "Explorer's Ring",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-1-spurred-band",
+    "name": "Spurred Band",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-1-gloves-of-dexterity",
+    "name": "Gloves of Dexterity",
+    "act": 1,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-1-abyss-beckoners",
+    "name": "Abyss Beckoners",
+    "act": 1,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-1-ring-of-evasion",
+    "name": "Ring of Evasion",
+    "act": 1,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-1-adamantine-scimitar",
+    "name": "Adamantine Scimitar",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Scimitar"
+  },
+  {
+    "id": "act-1-speedy-reply",
+    "name": "Speedy Reply",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Scimitar"
+  },
+  {
+    "id": "act-1-safeguard-shield",
+    "name": "Safeguard Shield",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Shield"
+  },
+  {
+    "id": "act-1-glowing-shield",
+    "name": "Glowing Shield",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Shield"
+  },
+  {
+    "id": "act-1-the-real-sparky-sparkswall",
+    "name": "The Real Sparky Sparkswall",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Shield"
+  },
+  {
+    "id": "act-1-absolute-s-warboard",
+    "name": "Absolute's Warboard",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Shield"
+  },
+  {
+    "id": "act-1-wood-woad-shield",
+    "name": "Wood Woad Shield",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Shield"
+  },
+  {
+    "id": "act-1-adamantine-shield",
+    "name": "Adamantine Shield",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Shield"
+  },
+  {
+    "id": "act-1-hunting-shortbow",
+    "name": "Hunting Shortbow",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Shortbow"
+  },
+  {
+    "id": "act-1-bow-of-the-banshee",
+    "name": "Bow of the Banshee",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Shortbow"
+  },
+  {
+    "id": "act-1-bow-of-awareness",
+    "name": "Bow of Awareness",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Shortbow"
+  },
+  {
+    "id": "act-1-steelforge-sword",
+    "name": "Steelforge Sword",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Shortsword"
+  },
+  {
+    "id": "act-1-knife-of-the-undermountain-king",
+    "name": "Knife of the Undermountain King",
+    "act": 1,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Shortsword"
+  },
+  {
+    "id": "act-1-the-baneful",
+    "name": "The Baneful",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Shortsword"
+  },
+  {
+    "id": "act-1-shortsword-of-first-blood",
+    "name": "Shortsword of First Blood",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Shortsword"
+  },
+  {
+    "id": "act-1-sussur-sickle",
+    "name": "Sussur Sickle",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Sickle"
+  },
+  {
+    "id": "act-1-sickle-of-boooal",
+    "name": "Sickle of BOOOAL",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Sickle"
+  },
+  {
+    "id": "act-1-the-watcher-s-guide",
+    "name": "The Watcher's Guide",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Spear"
+  },
+  {
+    "id": "act-1-vision-of-the-absolute",
+    "name": "Vision of the Absolute",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Spear"
+  },
+  {
+    "id": "act-1-jagged-spear",
+    "name": "Jagged Spear",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Spear"
+  },
+  {
+    "id": "act-1-the-sparky-points",
+    "name": "The Sparky Points",
+    "act": 1,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Trident"
+  },
+  {
+    "id": "act-1-",
+    "name": "А",
+    "act": 1,
+    "rarity": "common",
+    "price": 0,
+    "category": "Type"
+  },
+  {
+    "id": "act-1-deep-delver",
+    "name": "Deep Delver",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "War Pick"
+  },
+  {
+    "id": "act-1-intransigent-warhammer",
+    "name": "Intransigent Warhammer",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Warhammer"
+  },
+  {
+    "id": "act-1-ceremonial-warhammer",
+    "name": "Ceremonial Warhammer",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Warhammer"
+  },
+  {
+    "id": "act-1-faithbreaker",
+    "name": "Faithbreaker",
+    "act": 1,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Warhammer"
+  },
+  {
+    "id": "act-2-boots-of-brilliance",
+    "name": "Boots of Brilliance",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Boots"
+  },
+  {
+    "id": "act-2-moonlight-glaive",
+    "name": "Moonlight Glaive",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Glaive"
+  },
+  {
+    "id": "act-2-dark-justiciar-gauntlets-rare",
+    "name": "Dark Justiciar Gauntlets (Rare)",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-2-hellfire-hand-crossbow",
+    "name": "Hellfire Hand Crossbow",
+    "act": 2,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Hand Crossbow"
+  },
+  {
+    "id": "act-2-circle-of-bones",
+    "name": "Circle of Bones",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-2-dark-justiciar-half-plate-very-rare",
+    "name": "Dark Justiciar Half-Plate (Very Rare)",
+    "act": 2,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Medium Armour"
+  },
+  {
+    "id": "act-2-dark-justiciar-boots",
+    "name": "Dark Justiciar Boots",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Medium Boots"
+  },
+  {
+    "id": "act-2-dark-justiciar-helmet",
+    "name": "Dark Justiciar Helmet",
+    "act": 2,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Medium Helmet"
+  },
+  {
+    "id": "act-2-callous-glow-ring",
+    "name": "Callous Glow Ring",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-2-killer-s-sweetheart",
+    "name": "Killer's Sweetheart",
+    "act": 2,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-2-justiciar-s-scimitar",
+    "name": "Justiciar's Scimitar",
+    "act": 2,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Scimitar"
+  },
+  {
+    "id": "act-2-justiciar-s-greatshield",
+    "name": "Justiciar's Greatshield",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Shield"
+  },
+  {
+    "id": "act-2-least-expected",
+    "name": "Least Expected",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Shortbow"
+  },
+  {
+    "id": "act-2-sel-ne-s-spear-of-night",
+    "name": "Selûne's Spear of Night",
+    "act": 2,
+    "rarity": "legendary",
+    "price": 0,
+    "category": "Spear"
+  },
+  {
+    "id": "act-2-shar-s-spear-of-evening",
+    "name": "Shar’s Spear of Evening",
+    "act": 2,
+    "rarity": "legendary",
+    "price": 0,
+    "category": "Spear"
+  },
+  {
+    "id": "act-2-spear-of-night",
+    "name": "Spear of Night",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Spear"
+  },
+  {
+    "id": "act-2-vivacious-cloak",
+    "name": "Vivacious Cloak",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Cloak"
+  },
+  {
+    "id": "act-2-lightning-jabber",
+    "name": "Lightning Jabber",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Spear"
+  },
+  {
+    "id": "act-2-strange-tendril-amulet",
+    "name": "Strange Tendril Amulet",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-2-surgeon-s-subjugation-amulet",
+    "name": "Surgeon's Subjugation Amulet",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-2-shar-s-temptation",
+    "name": "Shar's Temptation",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-2-fleshmelter-cloak",
+    "name": "Fleshmelter Cloak",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Cloak"
+  },
+  {
+    "id": "act-2-bided-time",
+    "name": "Bided Time",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Clothing"
+  },
+  {
+    "id": "act-2-poisoner-s-gloves",
+    "name": "Poisoner's Gloves",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-2-protective-plate",
+    "name": "Protective Plate",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Heavy Armour"
+  },
+  {
+    "id": "act-2-true-love-s-embrace",
+    "name": "True Love's Embrace",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-2-eversight-ring",
+    "name": "Eversight Ring",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-2-firzu-s-ring-of-trading",
+    "name": "Firzu's Ring of Trading",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-2-watcher-s-shield",
+    "name": "Watcher's Shield",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Shield"
+  },
+  {
+    "id": "act-2-assassin-s-shortsword",
+    "name": "Assassin's Shortsword",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Shortsword"
+  },
+  {
+    "id": "act-2-amulet-of-the-harpers",
+    "name": "Amulet of the Harpers",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-2-thermodynamo-axe",
+    "name": "Thermodynamo Axe",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Battleaxe"
+  },
+  {
+    "id": "act-2-acrobat-shoes",
+    "name": "Acrobat Shoes",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Boots"
+  },
+  {
+    "id": "act-2-evasive-shoes",
+    "name": "Evasive Shoes",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Boots"
+  },
+  {
+    "id": "act-2-cloak-of-cunning-brume",
+    "name": "Cloak of Cunning Brume",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Cloak"
+  },
+  {
+    "id": "act-2-cloak-of-protection",
+    "name": "Cloak of Protection",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Cloak"
+  },
+  {
+    "id": "act-2-obsidian-laced-robe",
+    "name": "Obsidian Laced Robe",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Clothing"
+  },
+  {
+    "id": "act-2-the-mighty-cloth",
+    "name": "The Mighty Cloth",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Clothing"
+  },
+  {
+    "id": "act-2-moon-devotion-robe",
+    "name": "Moon Devotion Robe",
+    "act": 2,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Clothing"
+  },
+  {
+    "id": "act-2-potent-robe",
+    "name": "Potent Robe",
+    "act": 2,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Clothing"
+  },
+  {
+    "id": "act-2-cindersnap-gloves",
+    "name": "Cindersnap Gloves",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-2-flawed-helldusk-gloves",
+    "name": "Flawed Helldusk Gloves",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-2-gloves-of-the-automaton",
+    "name": "Gloves of the Automaton",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-2-gloves-of-the-balanced-hands",
+    "name": "Gloves of the Balanced Hands",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-2-swordmaster-gloves",
+    "name": "Swordmaster Gloves",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-2-defender-greataxe",
+    "name": "Defender Greataxe",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Greataxe"
+  },
+  {
+    "id": "act-2-harmonium-halberd",
+    "name": "Harmonium Halberd",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Halberd"
+  },
+  {
+    "id": "act-2-flawed-helldusk-armour",
+    "name": "Flawed Helldusk Armour",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Heavy Armour"
+  },
+  {
+    "id": "act-2-rippling-force-mail",
+    "name": "Rippling Force Mail",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Heavy Armour"
+  },
+  {
+    "id": "act-2-hat-of-uninhibited-kushigo",
+    "name": "Hat of Uninhibited Kushigo",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-2-hat-of-fire-acuity",
+    "name": "Hat of Fire Acuity",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-2-penumbral-armour",
+    "name": "Penumbral Armour",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Light Armour"
+  },
+  {
+    "id": "act-2-shadeclinger-armour",
+    "name": "Shadeclinger Armour",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Light Armour"
+  },
+  {
+    "id": "act-2-covert-cowl",
+    "name": "Covert Cowl",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Light Helmet"
+  },
+  {
+    "id": "act-2-blood-bound-blade",
+    "name": "Blood-Bound Blade",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Longsword"
+  },
+  {
+    "id": "act-2-barkskin-armour",
+    "name": "Barkskin Armour",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Medium Armour"
+  },
+  {
+    "id": "act-2-yuan-ti-scale-mail",
+    "name": "Yuan-Ti Scale Mail",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Medium Armour"
+  },
+  {
+    "id": "act-2-flawed-helldusk-helmet",
+    "name": "Flawed Helldusk Helmet",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Medium Helmet"
+  },
+  {
+    "id": "act-2-incandescent-staff",
+    "name": "Incandescent Staff",
+    "act": 2,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Quarterstaff"
+  },
+  {
+    "id": "act-2-shifting-corpus-ring",
+    "name": "Shifting Corpus Ring",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-2-coruscation-ring",
+    "name": "Coruscation Ring",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-2-ring-of-geniality",
+    "name": "Ring of Geniality",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-2-snowburst-ring",
+    "name": "Snowburst Ring",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-2-thorn-blade",
+    "name": "Thorn Blade",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Scimitar"
+  },
+  {
+    "id": "act-2-sylvan-scimitar",
+    "name": "Sylvan Scimitar",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Scimitar"
+  },
+  {
+    "id": "act-2-shield-of-scorching-reprisal",
+    "name": "Shield of Scorching Reprisal",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Shield"
+  },
+  {
+    "id": "act-2-shield-of-devotion",
+    "name": "Shield of Devotion",
+    "act": 2,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Shield"
+  },
+  {
+    "id": "act-2-darkfire-shortbow",
+    "name": "Darkfire Shortbow",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Shortbow"
+  },
+  {
+    "id": "act-2-sword-of-clutching-umbra",
+    "name": "Sword of Clutching Umbra",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Shortsword"
+  },
+  {
+    "id": "act-2-sword-of-life-stealing",
+    "name": "Sword of Life Stealing",
+    "act": 2,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Shortsword"
+  },
+  {
+    "id": "act-2-charge-bound-warhammer",
+    "name": "Charge-Bound Warhammer",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Warhammer"
+  },
+  {
+    "id": "act-2-helmet-of-arcane-acuity",
+    "name": "Helmet of Arcane Acuity",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Light Helmet"
+  },
+  {
+    "id": "act-2-jhannyl-s-gloves",
+    "name": "Jhannyl's Gloves",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-2-braindrain-gloves",
+    "name": "Braindrain Gloves",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-2-circlet-of-mental-anguish",
+    "name": "Circlet of Mental Anguish",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-2-blade-of-oppressed-souls",
+    "name": "Blade of Oppressed Souls",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Longsword"
+  },
+  {
+    "id": "act-2-infernal-rapier",
+    "name": "Infernal Rapier",
+    "act": 2,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Rapier"
+  },
+  {
+    "id": "act-2-spineshudder-amulet",
+    "name": "Spineshudder Amulet",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-2-spellcrux-amulet",
+    "name": "Spellcrux Amulet",
+    "act": 2,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-2-derivation-cloak",
+    "name": "Derivation Cloak",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Cloak"
+  },
+  {
+    "id": "act-2-enraging-heart-garb",
+    "name": "Enraging Heart Garb",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Clothing"
+  },
+  {
+    "id": "act-2-robe-of-exquisite-focus",
+    "name": "Robe of Exquisite Focus",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Clothing"
+  },
+  {
+    "id": "act-2-the-graceful-cloth-araj",
+    "name": "The Graceful Cloth (Araj)",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Clothing"
+  },
+  {
+    "id": "act-2-shadow-lantern",
+    "name": "Shadow Lantern",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Club"
+  },
+  {
+    "id": "act-2-gloves-of-crushing",
+    "name": "Gloves of Crushing",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-2-gloves-of-the-duellist",
+    "name": "Gloves of The Duellist",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-2-halberd-of-vigilance",
+    "name": "Halberd of Vigilance",
+    "act": 2,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Halberd"
+  },
+  {
+    "id": "act-2-ne-er-misser",
+    "name": "Ne'er Misser",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Hand Crossbow"
+  },
+  {
+    "id": "act-2-armour-of-devotion",
+    "name": "Armour of Devotion",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Heavy Armour"
+  },
+  {
+    "id": "act-2-dwarven-splintmail",
+    "name": "Dwarven Splintmail",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Heavy Armour"
+  },
+  {
+    "id": "act-2-reaper-s-embrace",
+    "name": "Reaper's Embrace",
+    "act": 2,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Heavy Armour"
+  },
+  {
+    "id": "act-2-fistbreaker-helm",
+    "name": "Fistbreaker Helm",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-2-circlet-of-hunting",
+    "name": "Circlet of Hunting",
+    "act": 2,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-2-sharpened-snare-cuirass",
+    "name": "Sharpened Snare Cuirass",
+    "act": 2,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Medium Armour"
+  },
+  {
+    "id": "act-2-ring-of-exalted-marrow",
+    "name": "Ring of Exalted Marrow",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-2-ring-of-free-action",
+    "name": "Ring of Free Action",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-2-risky-ring",
+    "name": "Risky Ring",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-2-ketheric-s-shield",
+    "name": "Ketheric's Shield",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Shield"
+  },
+  {
+    "id": "act-2-sentinel-shield",
+    "name": "Sentinel Shield",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Shield"
+  },
+  {
+    "id": "act-2-slicing-shortsword",
+    "name": "Slicing Shortsword",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Shortsword"
+  },
+  {
+    "id": "act-2-ketheric-s-warhammer",
+    "name": "Ketheric's Warhammer",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Warhammer"
+  },
+  {
+    "id": "act-2-boots-of-arcane-bolstering",
+    "name": "Boots of Arcane Bolstering",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Boots"
+  },
+  {
+    "id": "act-2-cloak-of-elemental-absorption",
+    "name": "Cloak of Elemental Absorption",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Cloak"
+  },
+  {
+    "id": "act-2-thunderskin-cloak",
+    "name": "Thunderskin Cloak",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Cloak"
+  },
+  {
+    "id": "act-2-myrkulite-scourge",
+    "name": "Myrkulite Scourge",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Flail"
+  },
+  {
+    "id": "act-2-drakethroat-glaive",
+    "name": "Drakethroat Glaive",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Glaive"
+  },
+  {
+    "id": "act-2-argument-solver",
+    "name": "Argument Solver",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Greatclub"
+  },
+  {
+    "id": "act-2-browbeaten-circlet",
+    "name": "Browbeaten Circlet",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-2-coldbrim-hat",
+    "name": "Coldbrim Hat",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-2-hat-of-storm-scion-s-power",
+    "name": "Hat of Storm Scion's Power",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-2-marksmanship-hat",
+    "name": "Marksmanship Hat",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-2-gauntlets-of-surging-accuracy",
+    "name": "Gauntlets of Surging Accuracy",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Medium Gloves"
+  },
+  {
+    "id": "act-2-bigboy-s-chew-toy",
+    "name": "Bigboy's Chew Toy",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Quarterstaff"
+  },
+  {
+    "id": "act-2-ring-of-spiteful-thunder",
+    "name": "Ring of Spiteful Thunder",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-2-absolute-s-protector",
+    "name": "Absolute's Protector",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Shield"
+  },
+  {
+    "id": "act-2-render-of-mind-and-body",
+    "name": "Render of Mind and Body",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Shortsword"
+  },
+  {
+    "id": "act-2-fireheart",
+    "name": "Fireheart",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-2-gloves-of-battlemage-s-power",
+    "name": "Gloves of Battlemage's Power",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-2-gloves-of-battlemage-s-power",
+    "name": "Gloves of Battlemage's Power",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-2-twist-of-fortune",
+    "name": "Twist of Fortune",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Morningstar"
+  },
+  {
+    "id": "act-2-ironvine-shield",
+    "name": "Ironvine Shield",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Shield"
+  },
+  {
+    "id": "act-2-hr-a-cknir-bracers",
+    "name": "Hr'a'cknir Bracers",
+    "act": 2,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-2-psionic-ward-armour",
+    "name": "Psionic Ward Armour",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Medium Armour"
+  },
+  {
+    "id": "act-2-frost-prince",
+    "name": "Frost Prince",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-2-ironwood-club",
+    "name": "Ironwood Club",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Club"
+  },
+  {
+    "id": "act-2-raven-gloves",
+    "name": "Raven Gloves",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-2-luminous-gloves",
+    "name": "Luminous Gloves",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-2-thermoarcanic-gloves",
+    "name": "Thermoarcanic Gloves",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-2-ring-of-twilight",
+    "name": "Ring of Twilight",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-2-family-ring",
+    "name": "Family Ring",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-2-ring-of-self-immolation",
+    "name": "Ring of Self Immolation",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-2-shadow-cloaked-ring",
+    "name": "Shadow-Cloaked Ring",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-2-gloomstrand-shield",
+    "name": "Gloomstrand Shield",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Shield"
+  },
+  {
+    "id": "act-2-hammergrim-mist-amulet",
+    "name": "Hammergrim Mist Amulet",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-2-boots-of-apparent-death",
+    "name": "Boots of Apparent Death",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Boots"
+  },
+  {
+    "id": "act-2-icebite-robe",
+    "name": "Icebite Robe",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Clothing"
+  },
+  {
+    "id": "act-2-cruel-sting",
+    "name": "Cruel Sting",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Longsword"
+  },
+  {
+    "id": "act-2-true-love-s-caress",
+    "name": "True Love's Caress",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-2-ring-of-mental-inhibition",
+    "name": "Ring of Mental Inhibition",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-2-ring-of-shadows",
+    "name": "Ring of Shadows",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-2-shadow-blade-ring",
+    "name": "Shadow Blade Ring",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-2-ritual-dagger-of-shar",
+    "name": "Ritual Dagger of Shar",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Dagger"
+  },
+  {
+    "id": "act-2-punch-drunk-bastard",
+    "name": "Punch-Drunk Bastard",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Greatclub"
+  },
+  {
+    "id": "act-2-rat-bat",
+    "name": "Rat Bat",
+    "act": 2,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Greatclub"
+  },
+  {
+    "id": "act-2-ichorous-gloves",
+    "name": "Ichorous Gloves",
+    "act": 2,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-3-amulet-of-greater-health",
+    "name": "Amulet of Greater Health",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-3-amulet-of-the-devout",
+    "name": "Amulet of the Devout",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-3-amulet-of-windrider",
+    "name": "Amulet of Windrider",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-3-corvid-token",
+    "name": "Corvid Token",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-3-fey-semblance-amulet",
+    "name": "Fey Semblance Amulet",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-3-magic-amulet",
+    "name": "Magic Amulet",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-3-khalid-s-gift",
+    "name": "Khalid's Gift",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-3-sentient-amulet-very-rare",
+    "name": "Sentient Amulet (Very Rare)",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-3-spell-savant-amulet",
+    "name": "Spell Savant Amulet",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-3-absolute-confidence-amulet",
+    "name": "Absolute Confidence Amulet",
+    "act": 3,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-3-amulet-of-the-drunkard",
+    "name": "Amulet of the Drunkard",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-3-unflinching-protector-amulet",
+    "name": "Unflinching Protector Amulet",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-3-amulet-of-bhaal",
+    "name": "Amulet of Bhaal",
+    "act": 3,
+    "rarity": "legendary",
+    "price": 0,
+    "category": "Amulet"
+  },
+  {
+    "id": "act-3-vicious-battleaxe",
+    "name": "Vicious Battleaxe",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Battleaxe"
+  },
+  {
+    "id": "act-3-boots-of-uninhibited-kushigo",
+    "name": "Boots of Uninhibited Kushigo",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Boots"
+  },
+  {
+    "id": "act-3-bonespike-boots",
+    "name": "Bonespike Boots",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Boots"
+  },
+  {
+    "id": "act-3-slinging-shoes",
+    "name": "Slinging Shoes",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Boots"
+  },
+  {
+    "id": "act-3-spaceshunt-boots",
+    "name": "Spaceshunt Boots",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Boots"
+  },
+  {
+    "id": "act-3-spaceshunt-boots",
+    "name": "Spaceshunt Boots",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Boots"
+  },
+  {
+    "id": "act-3-helldusk-boots",
+    "name": "Helldusk Boots",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Boots"
+  },
+  {
+    "id": "act-3-boots-of-very-fast-blinking",
+    "name": "Boots of Very Fast Blinking",
+    "act": 3,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Boots"
+  },
+  {
+    "id": "act-3-tyrannical-jackboots",
+    "name": "Tyrannical Jackboots",
+    "act": 3,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Boots"
+  },
+  {
+    "id": "act-3-wavemother-s-cloak",
+    "name": "Wavemother's Cloak",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Cloak"
+  },
+  {
+    "id": "act-3-cloak-of-the-weave",
+    "name": "Cloak of the Weave",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Cloak"
+  },
+  {
+    "id": "act-3-cindermoth-cloak",
+    "name": "Cindermoth Cloak",
+    "act": 3,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Cloak"
+  },
+  {
+    "id": "act-3-reverse-rain-cloak",
+    "name": "Reverse Rain Cloak",
+    "act": 3,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Cloak"
+  },
+  {
+    "id": "act-3-mantle-of-the-holy-warrior",
+    "name": "Mantle of the Holy Warrior",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Cloak"
+  },
+  {
+    "id": "act-3-nymph-cloak",
+    "name": "Nymph Cloak",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Cloak"
+  },
+  {
+    "id": "act-3-shade-slayer-cloak",
+    "name": "Shade-Slayer Cloak",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Cloak"
+  },
+  {
+    "id": "act-3-cloak-of-displacement",
+    "name": "Cloak of Displacement",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Cloak"
+  },
+  {
+    "id": "act-3-bonespike-garb",
+    "name": "Bonespike Garb",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Clothing"
+  },
+  {
+    "id": "act-3-drunken-cloth",
+    "name": "Drunken Cloth",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Clothing"
+  },
+  {
+    "id": "act-3-shelter-of-athkatla",
+    "name": "Shelter of Athkatla",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Clothing"
+  },
+  {
+    "id": "act-3-robe-of-supreme-defences",
+    "name": "Robe of Supreme Defences",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Clothing"
+  },
+  {
+    "id": "act-3-veil-of-the-morning",
+    "name": "Veil of the Morning",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Clothing"
+  },
+  {
+    "id": "act-3-vest-of-soul-rejuvenation",
+    "name": "Vest of Soul Rejuvenation",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Clothing"
+  },
+  {
+    "id": "act-3-wavemother-s-robe",
+    "name": "Wavemother's Robe",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Clothing"
+  },
+  {
+    "id": "act-3-viconia-s-priestess-robe",
+    "name": "Viconia's Priestess Robe",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Clothing"
+  },
+  {
+    "id": "act-3-garb-of-the-land-and-sky",
+    "name": "Garb of the Land and Sky",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Clothing"
+  },
+  {
+    "id": "act-3-cloth-of-authority",
+    "name": "Cloth of Authority",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Clothing"
+  },
+  {
+    "id": "act-3-robe-of-the-weave",
+    "name": "Robe of the Weave",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Clothing"
+  },
+  {
+    "id": "act-3-torch-of-revocation",
+    "name": "Torch of Revocation",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Club"
+  },
+  {
+    "id": "act-3-murderous-cut",
+    "name": "Murderous Cut",
+    "act": 3,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Dagger"
+  },
+  {
+    "id": "act-3-dread-iron-dagger",
+    "name": "Dread Iron Dagger",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Dagger"
+  },
+  {
+    "id": "act-3-rhapsody",
+    "name": "Rhapsody",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Dagger"
+  },
+  {
+    "id": "act-3-dolor-amarus",
+    "name": "Dolor Amarus",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Dagger"
+  },
+  {
+    "id": "act-3-gleamdance-dagger",
+    "name": "Gleamdance Dagger",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Dagger"
+  },
+  {
+    "id": "act-3-stillmaker",
+    "name": "Stillmaker",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Dagger"
+  },
+  {
+    "id": "act-3-bloodthirst",
+    "name": "Bloodthirst",
+    "act": 3,
+    "rarity": "legendary",
+    "price": 0,
+    "category": "Dagger"
+  },
+  {
+    "id": "act-3-cold-snap",
+    "name": "Cold Snap",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Dagger"
+  },
+  {
+    "id": "act-3-flail-of-ages",
+    "name": "Flail of Ages",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Flail"
+  },
+  {
+    "id": "act-3-the-dancing-breeze",
+    "name": "The Dancing Breeze",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Glaive"
+  },
+  {
+    "id": "act-3-gloves-of-soul-catching",
+    "name": "Gloves of Soul Catching",
+    "act": 3,
+    "rarity": "legendary",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-3-spellseeking-gloves",
+    "name": "Spellseeking Gloves",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-3-cerebral-citadel-gloves",
+    "name": "Cerebral Citadel Gloves",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-3-bhaalist-gloves",
+    "name": "Bhaalist Gloves",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-3-bonespike-gloves",
+    "name": "Bonespike Gloves",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-3-unwanted-masterwork-gauntlets",
+    "name": "Unwanted Masterwork Gauntlets",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-3-winkling-gloves",
+    "name": "Winkling Gloves",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-3-gauntlet-of-the-tyrant",
+    "name": "Gauntlet of the Tyrant",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-3-gauntlets-of-hill-giant-strength",
+    "name": "Gauntlets of Hill Giant Strength",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-3-craterflesh-gloves",
+    "name": "Craterflesh Gloves",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-3-gemini-gloves",
+    "name": "Gemini Gloves",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-3-helldusk-gloves",
+    "name": "Helldusk Gloves",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-3-dark-displacement-gloves",
+    "name": "Dark Displacement Gloves",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-3-martial-exertion-gloves",
+    "name": "Martial Exertion Gloves",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-3-nimblefinger-gloves",
+    "name": "Nimblefinger Gloves",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-3-seraphic-pugilist-gloves",
+    "name": "Seraphic Pugilist Gloves",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-3-stalker-gloves",
+    "name": "Stalker Gloves",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-3-thunderpalm-strikers",
+    "name": "Thunderpalm Strikers",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-3-unlucky-thief-s-gloves",
+    "name": "Unlucky Thief's Gloves",
+    "act": 3,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-3-quickspell-gloves",
+    "name": "Quickspell Gloves",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-3-spellmight-gloves",
+    "name": "Spellmight Gloves",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-3-knock-knuckle-gloves",
+    "name": "Knock Knuckle Gloves",
+    "act": 3,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-3-servitor-of-the-black-hand-gloves",
+    "name": "Servitor of the Black Hand Gloves",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-3-snow-dusted-monastery-gloves",
+    "name": "Snow-Dusted Monastery Gloves",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Gloves"
+  },
+  {
+    "id": "act-3-the-undead-bane",
+    "name": "The Undead Bane",
+    "act": 3,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Greataxe"
+  },
+  {
+    "id": "act-3-sethan",
+    "name": "Sethan",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Greataxe"
+  },
+  {
+    "id": "act-3-hellfire-greataxe",
+    "name": "Hellfire Greataxe",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Greataxe"
+  },
+  {
+    "id": "act-3-sword-of-chaos",
+    "name": "Sword of Chaos",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Greatsword"
+  },
+  {
+    "id": "act-3-silver-sword-of-the-astral-plane",
+    "name": "Silver Sword of the Astral Plane",
+    "act": 3,
+    "rarity": "legendary",
+    "price": 0,
+    "category": "Greatsword"
+  },
+  {
+    "id": "act-3-balduran-s-giantslayer",
+    "name": "Balduran's Giantslayer",
+    "act": 3,
+    "rarity": "legendary",
+    "price": 0,
+    "category": "Greatsword"
+  },
+  {
+    "id": "act-3-hellbeard-halberd",
+    "name": "Hellbeard Halberd",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Halberd"
+  },
+  {
+    "id": "act-3-cerebral-citadel-armour",
+    "name": "Cerebral Citadel Armour",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Heavy Armour"
+  },
+  {
+    "id": "act-3-blackguard-s-plate",
+    "name": "Blackguard's Plate",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Heavy Armour"
+  },
+  {
+    "id": "act-3-emblazoned-plate-of-the-marshal",
+    "name": "Emblazoned Plate of the Marshal",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Heavy Armour"
+  },
+  {
+    "id": "act-3-armour-of-persistence",
+    "name": "Armour of Persistence",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Heavy Armour"
+  },
+  {
+    "id": "act-3-helldusk-armour",
+    "name": "Helldusk Armour",
+    "act": 3,
+    "rarity": "legendary",
+    "price": 0,
+    "category": "Heavy Armour"
+  },
+  {
+    "id": "act-3-fabricated-arbalest",
+    "name": "Fabricated Arbalest",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Heavy Crossbow"
+  },
+  {
+    "id": "act-3-hellfire-engine-crossbow",
+    "name": "Hellfire Engine Crossbow",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Heavy Crossbow"
+  },
+  {
+    "id": "act-3-the-long-arm-of-the-gur",
+    "name": "The Long Arm of the Gur",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Heavy Crossbow"
+  },
+  {
+    "id": "act-3-hat-of-the-sharp-caster",
+    "name": "Hat of the Sharp Caster",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-3-gibus-of-the-worshipful-servant",
+    "name": "Gibus of the Worshipful Servant",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-3-assassin-of-bhaal-cowl",
+    "name": "Assassin of Bhaal Cowl",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-3-birthright",
+    "name": "Birthright",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-3-bonespike-helmet",
+    "name": "Bonespike Helmet",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-3-steelwatcher-helmet",
+    "name": "Steelwatcher Helmet",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-3-helldusk-helmet",
+    "name": "Helldusk Helmet",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-3-hood-of-the-weave",
+    "name": "Hood of the Weave",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-3-horns-of-the-berserker",
+    "name": "Horns of the Berserker",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-3-jannath-s-hat",
+    "name": "Jannath's Hat",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-3-scabby-pugilist-circlet",
+    "name": "Scabby Pugilist Circlet",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-3-the-pointy-hat",
+    "name": "The Pointy Hat",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-3-mask-of-soul-perception",
+    "name": "Mask of Soul Perception",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-3-pyroquickness-hat",
+    "name": "Pyroquickness Hat",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-3-circlet-of-fire",
+    "name": "Circlet of Fire",
+    "act": 3,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-3-shapeshifter-hat",
+    "name": "Shapeshifter Hat",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Helmet"
+  },
+  {
+    "id": "act-3-armour-of-moonbasking",
+    "name": "Armour of Moonbasking",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Light Armour"
+  },
+  {
+    "id": "act-3-scarlet-leather-armour",
+    "name": "Scarlet Leather Armour",
+    "act": 3,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Light Armour"
+  },
+  {
+    "id": "act-3-armour-of-landfall",
+    "name": "Armour of Landfall",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Light Armour"
+  },
+  {
+    "id": "act-3-armour-of-the-sporekeeper",
+    "name": "Armour of the Sporekeeper",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Light Armour"
+  },
+  {
+    "id": "act-3-bhaalist-armour",
+    "name": "Bhaalist Armour",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Light Armour"
+  },
+  {
+    "id": "act-3-elegant-studded-leather",
+    "name": "Elegant Studded Leather",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Light Armour"
+  },
+  {
+    "id": "act-3-helmet-of-grit",
+    "name": "Helmet of Grit",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Light Helmet"
+  },
+  {
+    "id": "act-3-hellrider-longbow",
+    "name": "Hellrider Longbow",
+    "act": 3,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Longbow"
+  },
+  {
+    "id": "act-3-the-dead-shot",
+    "name": "The Dead Shot",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Longbow"
+  },
+  {
+    "id": "act-3-gontr-mael",
+    "name": "Gontr Mael",
+    "act": 3,
+    "rarity": "legendary",
+    "price": 0,
+    "category": "Longbow"
+  },
+  {
+    "id": "act-3-voss-silver-sword",
+    "name": "Voss' Silver Sword",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Longsword"
+  },
+  {
+    "id": "act-3-sword-of-the-emperor",
+    "name": "Sword of the Emperor",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Longsword"
+  },
+  {
+    "id": "act-3-duke-ravengard-s-longsword",
+    "name": "Duke Ravengard's Longsword",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Longsword"
+  },
+  {
+    "id": "act-3-blackguard-s-sword",
+    "name": "Blackguard's Sword",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Longsword"
+  },
+  {
+    "id": "act-3-handmaiden-s-mace",
+    "name": "Handmaiden's Mace",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Mace"
+  },
+  {
+    "id": "act-3-devotee-s-mace",
+    "name": "Devotee's Mace",
+    "act": 3,
+    "rarity": "legendary",
+    "price": 0,
+    "category": "Mace"
+  },
+  {
+    "id": "act-3-infernal-mace",
+    "name": "Infernal Mace",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Mace"
+  },
+  {
+    "id": "act-3-foebreaker",
+    "name": "Foebreaker",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Maul"
+  },
+  {
+    "id": "act-3-corpsegrinder",
+    "name": "Corpsegrinder",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Maul"
+  },
+  {
+    "id": "act-3-elven-chain",
+    "name": "Elven Chain",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Medium Armour"
+  },
+  {
+    "id": "act-3-unwanted-masterwork-scalemail",
+    "name": "Unwanted Masterwork Scalemail",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Medium Armour"
+  },
+  {
+    "id": "act-3-flame-enamelled-armour",
+    "name": "Flame Enamelled Armour",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Medium Armour"
+  },
+  {
+    "id": "act-3-armour-of-agility",
+    "name": "Armour of Agility",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Medium Armour"
+  },
+  {
+    "id": "act-3-boots-of-persistence",
+    "name": "Boots of Persistence",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Medium Boots"
+  },
+  {
+    "id": "act-3-boots-of-psionic-movement",
+    "name": "Boots of Psionic Movement",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Medium Boots"
+  },
+  {
+    "id": "act-3-blackguard-s-greaves",
+    "name": "Blackguard's Greaves",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Medium Boots"
+  },
+  {
+    "id": "act-3-gauntlets-of-the-warmaster",
+    "name": "Gauntlets of the Warmaster",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Medium Gloves"
+  },
+  {
+    "id": "act-3-blackguard-s-gauntlets",
+    "name": "Blackguard's Gauntlets",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Medium Gloves"
+  },
+  {
+    "id": "act-3-legacy-of-the-masters",
+    "name": "Legacy of the Masters",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Medium Gloves"
+  },
+  {
+    "id": "act-3-the-reviving-hands",
+    "name": "The Reviving Hands",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Medium Gloves"
+  },
+  {
+    "id": "act-3-helm-of-balduran",
+    "name": "Helm of Balduran",
+    "act": 3,
+    "rarity": "legendary",
+    "price": 0,
+    "category": "Medium Helmet"
+  },
+  {
+    "id": "act-3-sarevok-s-horned-helmet",
+    "name": "Sarevok's Horned Helmet",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Medium Helmet"
+  },
+  {
+    "id": "act-3-the-sacred-star",
+    "name": "The Sacred Star",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Morningstar"
+  },
+  {
+    "id": "act-3-ravengard-s-scourger",
+    "name": "Ravengard's Scourger",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Morningstar"
+  },
+  {
+    "id": "act-3-breaching-pikestaff",
+    "name": "Breaching Pikestaff",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Pike"
+  },
+  {
+    "id": "act-3-staff-of-the-emperor",
+    "name": "Staff of the Emperor",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Quarterstaff"
+  },
+  {
+    "id": "act-3-staff-of-interruption",
+    "name": "Staff of Interruption",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Quarterstaff"
+  },
+  {
+    "id": "act-3-markoheshkir",
+    "name": "Markoheshkir",
+    "act": 3,
+    "rarity": "legendary",
+    "price": 0,
+    "category": "Quarterstaff"
+  },
+  {
+    "id": "act-3-staff-of-spellpower",
+    "name": "Staff of Spellpower",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Quarterstaff"
+  },
+  {
+    "id": "act-3-staff-of-the-ram",
+    "name": "Staff of the Ram",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Quarterstaff"
+  },
+  {
+    "id": "act-3-woe",
+    "name": "Woe",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Quarterstaff"
+  },
+  {
+    "id": "act-3-staff-of-cherished-necromancy",
+    "name": "Staff of Cherished Necromancy",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Quarterstaff"
+  },
+  {
+    "id": "act-3-caitiff-staff",
+    "name": "Caitiff Staff",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Quarterstaff"
+  },
+  {
+    "id": "act-3-despair-of-athkatla",
+    "name": "Despair of Athkatla",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Quarterstaff"
+  },
+  {
+    "id": "act-3-harper-sacredstriker",
+    "name": "Harper Sacredstriker",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Quarterstaff"
+  },
+  {
+    "id": "act-3-hollow-s-staff",
+    "name": "Hollow's Staff",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Quarterstaff"
+  },
+  {
+    "id": "act-3-harmonic-dueller",
+    "name": "Harmonic Dueller",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Rapier"
+  },
+  {
+    "id": "act-3-pelorsun-blade",
+    "name": "Pelorsun Blade",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Rapier"
+  },
+  {
+    "id": "act-3-duellist-s-prerogative",
+    "name": "Duellist's Prerogative",
+    "act": 3,
+    "rarity": "legendary",
+    "price": 0,
+    "category": "Rapier"
+  },
+  {
+    "id": "act-3-keepsake-ring",
+    "name": "Keepsake Ring",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-3-band-of-the-mystic-scoundrel",
+    "name": "Band of the Mystic Scoundrel",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-3-burnished-ring",
+    "name": "Burnished Ring",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-3-crypt-lord-ring",
+    "name": "Crypt Lord Ring",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-3-after-death-do-us-part",
+    "name": "After Death Do Us Part",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-3-til-death-do-us-part",
+    "name": "Til Death Do Us Part",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-3-djinni-ring",
+    "name": "Djinni Ring",
+    "act": 3,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-3-ring-of-blink",
+    "name": "Ring of Blink",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-3-ring-of-truthfulness",
+    "name": "Ring of Truthfulness",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-3-orphic-ring",
+    "name": "Orphic Ring",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-3-ring-of-feywild-sparks",
+    "name": "Ring of Feywild Sparks",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-3-ring-of-regeneration",
+    "name": "Ring Of Regeneration",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-3-seemingly-gleaming-ring",
+    "name": "Seemingly Gleaming Ring",
+    "act": 3,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Ring"
+  },
+  {
+    "id": "act-3-belm",
+    "name": "Belm",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Scimitar"
+  },
+  {
+    "id": "act-3-kurwin-s-cauteriser",
+    "name": "Kurwin's Cauteriser",
+    "act": 3,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Scimitar"
+  },
+  {
+    "id": "act-3-abdel-s-trusted-shield",
+    "name": "Abdel's Trusted Shield",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Shield"
+  },
+  {
+    "id": "act-3-shield-of-shielding",
+    "name": "Shield of Shielding",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Shield"
+  },
+  {
+    "id": "act-3-shield-of-the-undevout",
+    "name": "Shield of the Undevout",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Shield"
+  },
+  {
+    "id": "act-3-swires-sledboard",
+    "name": "Swires' Sledboard",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Shield"
+  },
+  {
+    "id": "act-3-viconia-s-walking-fortress",
+    "name": "Viconia's Walking Fortress",
+    "act": 3,
+    "rarity": "legendary",
+    "price": 0,
+    "category": "Shield"
+  },
+  {
+    "id": "act-3-shield-hope",
+    "name": "Shield (Hope)",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Shield"
+  },
+  {
+    "id": "act-3-vicious-shortbow",
+    "name": "Vicious Shortbow",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Shortbow"
+  },
+  {
+    "id": "act-3-blightbringer",
+    "name": "Blightbringer",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Shortbow"
+  },
+  {
+    "id": "act-3-ambusher",
+    "name": "Ambusher",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Shortsword"
+  },
+  {
+    "id": "act-3-fleshrender",
+    "name": "Fleshrender",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Shortsword"
+  },
+  {
+    "id": "act-3-crimson-mischief",
+    "name": "Crimson Mischief",
+    "act": 3,
+    "rarity": "legendary",
+    "price": 0,
+    "category": "Shortsword"
+  },
+  {
+    "id": "act-3-wavemother-s-sickle",
+    "name": "Wavemother's Sickle",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Sickle"
+  },
+  {
+    "id": "act-3-infernal-spear",
+    "name": "Infernal Spear",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Spear"
+  },
+  {
+    "id": "act-3-staff-of-a-mumbling-wizard",
+    "name": "Staff of a Mumbling Wizard",
+    "act": 3,
+    "rarity": "uncommon",
+    "price": 0,
+    "category": "Staff"
+  },
+  {
+    "id": "act-3-trident-of-the-waves",
+    "name": "Trident of the Waves",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Trident"
+  },
+  {
+    "id": "act-3-nyrulna",
+    "name": "Nyrulna",
+    "act": 3,
+    "rarity": "legendary",
+    "price": 0,
+    "category": "Trident"
+  },
+  {
+    "id": "act-3-dwarven-thrower",
+    "name": "Dwarven Thrower",
+    "act": 3,
+    "rarity": "epic",
+    "price": 0,
+    "category": "Warhammer"
+  },
+  {
+    "id": "act-3-orphic-hammer",
+    "name": "Orphic Hammer",
+    "act": 3,
+    "rarity": "legendary",
+    "price": 0,
+    "category": "Warhammer"
+  },
+  {
+    "id": "act-3-clown-hammer",
+    "name": "Clown Hammer",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Warhammer"
+  },
+  {
+    "id": "act-3-hammer-of-the-just",
+    "name": "Hammer of the Just",
+    "act": 3,
+    "rarity": "rare",
+    "price": 0,
+    "category": "Warhammer"
+  }
+]

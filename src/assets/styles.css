@@ -28,6 +28,23 @@
   --conf-medium-surface: #fff7ed;
   --conf-low: #b91c1c;
   --conf-low-surface: #fdeeee;
+
+  /* Rarity colors */
+  --rarity-common-text: #64748b;
+  --rarity-common-bg: #f1f5f9;
+  --rarity-common-border: #cbd5e1;
+  --rarity-uncommon-text: #059669;
+  --rarity-uncommon-bg: #ecfdf5;
+  --rarity-uncommon-border: #a7f3d0;
+  --rarity-rare-text: #2563eb;
+  --rarity-rare-bg: #eff6ff;
+  --rarity-rare-border: #bfdbfe;
+  --rarity-epic-text: #7c3aed;
+  --rarity-epic-bg: #f5f3ff;
+  --rarity-epic-border: #ddd6fe;
+  --rarity-legendary-text: #d97706;
+  --rarity-legendary-bg: #fffbeb;
+  --rarity-legendary-border: #fde68a;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -61,6 +78,23 @@
     --conf-medium-surface: #2a2113;
     --conf-low: #f87171;
     --conf-low-surface: #2a1515;
+
+    /* Rarity colors */
+    --rarity-common-text: #94a3b8;
+    --rarity-common-bg: #1e293b;
+    --rarity-common-border: #334155;
+    --rarity-uncommon-text: #34d399;
+    --rarity-uncommon-bg: #064e3b;
+    --rarity-uncommon-border: #065f46;
+    --rarity-rare-text: #60a5fa;
+    --rarity-rare-bg: #1e3a5f;
+    --rarity-rare-border: #1e40af;
+    --rarity-epic-text: #a78bfa;
+    --rarity-epic-bg: #2e1065;
+    --rarity-epic-border: #4c1d95;
+    --rarity-legendary-text: #fbbf24;
+    --rarity-legendary-bg: #451a03;
+    --rarity-legendary-border: #92400e;
   }
 }
 
