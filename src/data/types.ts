@@ -14,6 +14,13 @@ export interface CompanionSuggestion {
   // class-specific dialogue option, companion quest trigger, etc.
 }
 
+export interface PartyRecommendation {
+  quest: string;
+  recommendedComp: string[];
+  reason: string;
+  confidence: "high" | "medium" | "low";
+}
+
 export interface MapHotspot {
   x: number; // 0–100, percentage position on the act's map image
   y: number; // 0–100
@@ -50,6 +57,7 @@ export interface Area {
   // AreaTodo.timed, which is about not leaving too early.
   todos: AreaTodo[];
   suggestedCompanions: CompanionSuggestion[];
+  partyRecommendation?: PartyRecommendation;
   mapHotspot?: MapHotspot;
   mapImages: AreaMapImage[]; // this area's own detailed map(s), separate from
   // the act-level overview map (`Act.map` + `mapHotspot`, unchanged)

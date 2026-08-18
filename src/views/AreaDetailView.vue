@@ -14,7 +14,7 @@ const content = useContentStore()
 const area = computed(() => content.getArea(props.areaId))
 const act = computed(() => content.getAct(props.actId))
 
-const activeTab = ref<'todos' | 'companions' | 'map'>('todos')
+const activeTab = ref<'todos' | 'companions' | 'party' | 'map'>('todos')
 </script>
 
 <template>
@@ -51,6 +51,10 @@ const activeTab = ref<'todos' | 'companions' | 'map'>('todos')
           :class="{ active: activeTab === 'companions' }" @click="activeTab = 'companions'">
           Companions
         </button>
+        <button v-if="area.partyRecommendation" role="tab" :aria-selected="activeTab === 'party'" class="tab"
+          :class="{ active: activeTab === 'party' }" @click="activeTab = 'party'">
+          Party
+        </button>
         <button role="tab" :aria-selected="activeTab === 'map'" class="tab" :class="{ active: activeTab === 'map' }"
           @click="activeTab = 'map'">
           Map
@@ -68,6 +72,21 @@ const activeTab = ref<'todos' | 'companions' | 'map'>('todos')
 
       <section v-else-if="activeTab === 'companions'" class="tab-panel">
         <CompanionSuggestions :companions="area.suggestedCompanions" />
+      </section>
+
+      <section v-else-if="activeTab === 'party'" class="tab-panel">
+        <div v-if="area.partyRecommendation" class="party-rec">
+          <h3 class="party-rec-quest">{{ area.partyRecommendation.quest }}</h3>
+          <p class="party-rec-reason">{{ area.partyRecommendation.reason }}</p>
+          <ul class="party-rec-list">
+            <li v-for="(comp, i) in area.partyRecommendation.recommendedComp" :key="i">
+              {{ comp }}
+            </li>
+          </ul>
+          <p class="party-rec-confidence">
+            Confidence: {{ area.partyRecommendation.confidence }}
+          </p>
+        </div>
       </section>
 
       <section v-else-if="activeTab === 'map'" class="tab-panel">
@@ -178,5 +197,39 @@ const activeTab = ref<'todos' | 'companions' | 'map'>('todos')
   margin: 0.15rem 0 0;
   font-size: 0.9rem;
   color: var(--text);
+}
+
+.party-rec {
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+}
+
+.party-rec-quest {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+}
+
+.party-rec-reason {
+  margin: 0 0 0.75rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.party-rec-list {
+  margin: 0 0 0.75rem;
+  padding-left: 1.25rem;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.party-rec-confidence {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: capitalize;
 }
 </style>
