@@ -1,0 +1,1430 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+.github/
+  workflows/
+    deploy.yml
+public/
+  favicon.ico
+src/
+  __tests__/
+    App.spec.ts
+  components/
+    AreaTodoItem.vue
+    VendorCard.vue
+  data/
+    acts.ts
+    areas.ts
+    types.ts
+  router/
+    index.ts
+  stores/
+    content.ts
+    progress.ts
+  views/
+    ActListView.vue
+    AreaDetailView.vue
+    AreaListView.vue
+  App.vue
+  main.ts
+.editorconfig
+.gitattributes
+.gitignore
+.oxfmtrc.json
+.oxlintrc.json
+env.d.ts
+eslint.config.ts
+index.html
+package.json
+README.md
+tsconfig.app.json
+tsconfig.json
+tsconfig.node.json
+tsconfig.vitest.json
+vite.config.ts
+vitest.config.ts
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="src/components/AreaTodoItem.vue">
+<script setup lang="ts">
+import { computed } from 'vue'
+import { useProgressStore } from '@/stores/progress'
+import type { AreaTodo } from '@/data/types'
+
+const props = defineProps<{
+  todo: AreaTodo
+}>()
+
+const progress = useProgressStore()
+
+const done = computed(() => progress.isDone(props.todo.id))
+
+function onToggle() {
+  progress.toggle(props.todo.id)
+}
+</script>
+
+<template>
+  <li class="todo-item" :class="{ done: done, timed: todo.timed }">
+    <label class="todo-row">
+      <input
+        type="checkbox"
+        class="todo-checkbox"
+        :checked="done"
+        @change="onToggle"
+      />
+      <span class="todo-text">{{ todo.text }}</span>
+    </label>
+
+    <span class="badge" :data-category="todo.category">{{ todo.category }}</span>
+
+    <span v-if="todo.timed" class="timed-warning">
+      <svg
+        class="timed-icon"
+        viewBox="0 0 24 24"
+        width="16"
+        height="16"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 7v5l3 2" />
+      </svg>
+      <span class="timed-label">Do this before leaving</span>
+    </span>
+
+    <p v-if="todo.note" class="todo-note">{{ todo.note }}</p>
+  </li>
+</template>
+
+<style scoped>
+.todo-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.todo-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1 1 auto;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.todo-checkbox {
+  width: 1.05rem;
+  height: 1.05rem;
+  accent-color: var(--accent);
+  flex-shrink: 0;
+}
+
+.todo-text {
+  min-width: 0;
+}
+
+.todo-item.done .todo-text {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  background: var(--surface-2);
+}
+
+/* Timed / missable items: impossible to miss. */
+.todo-item.timed {
+  border-left: 4px solid var(--warning);
+  background: var(--warning-surface);
+}
+
+.timed-warning {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--warning);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.todo-note {
+  flex-basis: 100%;
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+</style>
+</file>
+
+<file path="src/components/VendorCard.vue">
+<script setup lang="ts">
+import type { Vendor } from '@/data/types'
+
+defineProps<{
+  vendor: Vendor
+}>()
+</script>
+
+<template>
+  <article class="vendor-card">
+    <h3 class="vendor-name">{{ vendor.name }}</h3>
+
+    <p v-if="vendor.items.length === 0" class="vendor-empty">
+      No entries yet — add some in <code>src/data/areas.ts</code>.
+    </p>
+
+    <ul v-else class="vendor-items">
+      <li v-for="(item, i) in vendor.items" :key="i" class="vendor-item">
+        <span class="item-name">{{ item.name }}</span>
+        <span v-if="item.price" class="item-price">{{ item.price }}</span>
+        <span v-if="item.note" class="item-note">{{ item.note }}</span>
+      </li>
+    </ul>
+  </article>
+</template>
+
+<style scoped>
+.vendor-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  padding: 0.75rem 1rem;
+}
+
+.vendor-name {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+
+.vendor-empty {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.vendor-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.vendor-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.6rem;
+  font-size: 0.92rem;
+}
+
+.item-price {
+  color: var(--accent);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.item-note {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+</style>
+</file>
+
+<file path="src/data/acts.ts">
+import type { Act } from "./types";
+
+export const acts: Act[] = [
+  {
+    id: "act-1",
+    name: "Act 1 — Wilderness & Underdark",
+    areaIds: [
+      "ravaged-beach",
+      "emerald-grove",
+      "blighted-village",
+      "goblin-camp",
+      "grymforge",
+      "act-1-placeholder",
+    ],
+  },
+  {
+    id: "act-2",
+    name: "Act 2 — Shadow-Cursed Lands",
+    areaIds: ["last-light-inn", "reithwin-town", "moonrise-towers", "act-2-placeholder"],
+  },
+  {
+    id: "act-3",
+    name: "Act 3 — Baldur's Gate",
+    areaIds: ["rivington", "wyrms-crossing", "lower-city", "act-3-placeholder"],
+  },
+];
+</file>
+
+<file path="src/data/areas.ts">
+import type { Area } from "./types";
+
+export const areas: Area[] = [
+  // ── Act 1 — Wilderness & Underdark ─────────────────────────────────────────
+  {
+    id: "ravaged-beach",
+    name: "Ravaged Beach",
+    actId: "act-1",
+    todos: [],
+    vendors: [],
+  },
+  {
+    id: "emerald-grove",
+    name: "Emerald Grove",
+    actId: "act-1",
+    todos: [],
+    vendors: [],
+  },
+  {
+    id: "blighted-village",
+    name: "Blighted Village",
+    actId: "act-1",
+    todos: [],
+    vendors: [],
+  },
+  {
+    id: "goblin-camp",
+    name: "Goblin Camp",
+    actId: "act-1",
+    todos: [],
+    vendors: [],
+  },
+  {
+    id: "grymforge",
+    name: "Underdark – Grymforge",
+    actId: "act-1",
+    todos: [],
+    vendors: [],
+  },
+  // TODO(user): add more areas here
+  {
+    id: "act-1-placeholder",
+    name: "Act 1 — (add more areas)",
+    actId: "act-1",
+    summary: "Placeholder area so the list has something to render. Replace with real content.",
+    todos: [],
+    vendors: [],
+  },
+
+  // ── Act 2 — Shadow-Cursed Lands ────────────────────────────────────────────
+  {
+    id: "last-light-inn",
+    name: "Last Light Inn",
+    actId: "act-2",
+    todos: [],
+    vendors: [],
+  },
+  {
+    id: "reithwin-town",
+    name: "Reithwin Town",
+    actId: "act-2",
+    todos: [],
+    vendors: [],
+  },
+  {
+    id: "moonrise-towers",
+    name: "Moonrise Towers",
+    actId: "act-2",
+    todos: [],
+    vendors: [],
+  },
+  // TODO(user): add more areas here
+  {
+    id: "act-2-placeholder",
+    name: "Act 2 — (add more areas)",
+    actId: "act-2",
+    summary: "Placeholder area so the list has something to render. Replace with real content.",
+    todos: [],
+    vendors: [],
+  },
+
+  // ── Act 3 — Baldur's Gate ──────────────────────────────────────────────────
+  {
+    id: "rivington",
+    name: "Rivington",
+    actId: "act-3",
+    todos: [],
+    vendors: [],
+  },
+  {
+    id: "wyrms-crossing",
+    name: "Wyrm's Crossing",
+    actId: "act-3",
+    todos: [],
+    vendors: [],
+  },
+  {
+    id: "lower-city",
+    name: "Lower City",
+    actId: "act-3",
+    todos: [],
+    vendors: [],
+  },
+  // TODO(user): add more areas here
+  {
+    id: "act-3-placeholder",
+    name: "Act 3 — (add more areas)",
+    actId: "act-3",
+    summary: "Placeholder area so the list has something to render. Replace with real content.",
+    todos: [],
+    vendors: [],
+  },
+];
+</file>
+
+<file path="src/data/types.ts">
+export interface VendorItem {
+  name: string;
+  price?: string; // e.g. "150 gp" — optional, prices can vary by charisma/rep
+  note?: string;
+}
+
+export interface Vendor {
+  id: string;
+  name: string;
+  items: VendorItem[];
+}
+
+export type TodoCategory = "quest" | "companion" | "loot" | "lore" | "other";
+
+export interface AreaTodo {
+  id: string;
+  text: string;
+  category: TodoCategory;
+  timed: boolean; // true = missable if you leave the area / progress the main plot
+  note?: string;
+}
+
+export interface Area {
+  id: string;
+  name: string;
+  actId: string;
+  summary?: string;
+  todos: AreaTodo[];
+  vendors: Vendor[];
+}
+
+export interface Act {
+  id: string;
+  name: string;
+  areaIds: string[];
+}
+</file>
+
+<file path="src/stores/content.ts">
+import { defineStore } from "pinia";
+import { acts } from "@/data/acts";
+import { areas } from "@/data/areas";
+import type { Act, Area } from "@/data/types";
+
+export const useContentStore = defineStore("content", () => {
+  function getArea(id: string): Area | undefined {
+    return areas.find((a) => a.id === id);
+  }
+
+  function getAct(id: string): Act | undefined {
+    return acts.find((a) => a.id === id);
+  }
+
+  function getAreasForAct(actId: string): Area[] {
+    return areas.filter((a) => a.actId === actId);
+  }
+
+  return { acts, areas, getArea, getAct, getAreasForAct };
+});
+</file>
+
+<file path="src/stores/progress.ts">
+import { defineStore } from "pinia";
+import { useLocalStorage } from "@vueuse/core";
+
+export const useProgressStore = defineStore("progress", () => {
+  // Record<todoId, boolean>
+  const completed = useLocalStorage<Record<string, boolean>>("bg3-progress", {});
+
+  function toggle(todoId: string) {
+    completed.value[todoId] = !completed.value[todoId];
+  }
+  function isDone(todoId: string) {
+    return !!completed.value[todoId];
+  }
+
+  return { completed, toggle, isDone };
+});
+</file>
+
+<file path="src/views/ActListView.vue">
+<script setup lang="ts">
+import { useContentStore } from '@/stores/content'
+
+const content = useContentStore()
+</script>
+
+<template>
+  <div class="view">
+    <header class="view-header">
+      <h1>BG3 Companion</h1>
+      <p class="subtitle">Pick an act to see its areas.</p>
+    </header>
+
+    <nav class="act-list">
+      <RouterLink
+        v-for="act in content.acts"
+        :key="act.id"
+        :to="{ name: 'area-list', params: { actId: act.id } }"
+        class="act-card"
+      >
+        <span class="act-name">{{ act.name }}</span>
+        <span class="act-count">{{ act.areaIds.length }} areas</span>
+      </RouterLink>
+    </nav>
+  </div>
+</template>
+
+<style scoped>
+.view {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.view-header h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.8rem;
+}
+
+.subtitle {
+  margin: 0 0 1.5rem;
+  color: var(--text-muted);
+}
+
+.act-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.act-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.act-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.act-name {
+  font-weight: 600;
+}
+
+.act-count {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+</style>
+</file>
+
+<file path="src/views/AreaDetailView.vue">
+<script setup lang="ts">
+import { computed, ref } from 'vue'
+import { useContentStore } from '@/stores/content'
+import AreaTodoItem from '@/components/AreaTodoItem.vue'
+import VendorCard from '@/components/VendorCard.vue'
+
+const props = defineProps<{
+  actId: string
+  areaId: string
+}>()
+
+const content = useContentStore()
+const area = computed(() => content.getArea(props.areaId))
+const act = computed(() => content.getAct(props.actId))
+
+const activeTab = ref<'todos' | 'vendors'>('todos')
+</script>
+
+<template>
+  <div class="view">
+    <RouterLink
+      :to="{ name: 'area-list', params: { actId: actId } }"
+      class="back-link"
+    >
+      ← {{ act?.name ?? 'Back' }}
+    </RouterLink>
+
+    <header class="view-header">
+      <h1>{{ area?.name ?? 'Unknown area' }}</h1>
+      <p v-if="area?.summary" class="summary">{{ area.summary }}</p>
+    </header>
+
+    <template v-if="area">
+      <div class="tabs" role="tablist">
+        <button
+          role="tab"
+          :aria-selected="activeTab === 'todos'"
+          class="tab"
+          :class="{ active: activeTab === 'todos' }"
+          @click="activeTab = 'todos'"
+        >
+          Todos
+        </button>
+        <button
+          role="tab"
+          :aria-selected="activeTab === 'vendors'"
+          class="tab"
+          :class="{ active: activeTab === 'vendors' }"
+          @click="activeTab = 'vendors'"
+        >
+          Vendors
+        </button>
+      </div>
+
+      <section v-if="activeTab === 'todos'" class="tab-panel">
+        <p v-if="area.todos.length === 0" class="empty">
+          No entries yet — add some in <code>src/data/areas.ts</code>.
+        </p>
+        <ul v-else class="todo-list">
+          <AreaTodoItem v-for="todo in area.todos" :key="todo.id" :todo="todo" />
+        </ul>
+      </section>
+
+      <section v-else class="tab-panel">
+        <p v-if="area.vendors.length === 0" class="empty">
+          No entries yet — add some in <code>src/data/areas.ts</code>.
+        </p>
+        <div v-else class="vendor-grid">
+          <VendorCard
+            v-for="vendor in area.vendors"
+            :key="vendor.id"
+            :vendor="vendor"
+          />
+        </div>
+      </section>
+    </template>
+  </div>
+</template>
+
+<style scoped>
+.view {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.view-header h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.6rem;
+}
+
+.summary {
+  margin: 0 0 1.25rem;
+  color: var(--text-muted);
+}
+
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.tab {
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+
+.tab.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.empty {
+  color: var(--text-muted);
+}
+
+.todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.vendor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0.75rem;
+}
+</style>
+</file>
+
+<file path="src/views/AreaListView.vue">
+<script setup lang="ts">
+import { computed } from 'vue'
+import { useContentStore } from '@/stores/content'
+import { useProgressStore } from '@/stores/progress'
+import type { Area } from '@/data/types'
+
+const props = defineProps<{
+  actId: string
+}>()
+
+const content = useContentStore()
+const progress = useProgressStore()
+
+const act = computed(() => content.getAct(props.actId))
+const areaList = computed(() => content.getAreasForAct(props.actId))
+
+function completion(area: Area) {
+  const total = area.todos.length
+  const done = area.todos.filter((t) => progress.isDone(t.id)).length
+  return { done, total }
+}
+</script>
+
+<template>
+  <div class="view">
+    <RouterLink :to="{ name: 'act-list' }" class="back-link">← All acts</RouterLink>
+
+    <header class="view-header">
+      <h1>{{ act?.name ?? 'Unknown act' }}</h1>
+    </header>
+
+    <p v-if="!areaList.length" class="empty">
+      No areas yet — add some in <code>src/data/areas.ts</code>.
+    </p>
+
+    <nav v-else class="area-list">
+      <RouterLink
+        v-for="area in areaList"
+        :key="area.id"
+        :to="{ name: 'area-detail', params: { actId: actId, areaId: area.id } }"
+        class="area-card"
+      >
+        <span class="area-name">{{ area.name }}</span>
+        <span class="area-progress">
+          {{ completion(area).done }}/{{ completion(area).total }} done
+        </span>
+      </RouterLink>
+    </nav>
+  </div>
+</template>
+
+<style scoped>
+.view {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.view-header h1 {
+  margin: 0 0 1.5rem;
+  font-size: 1.6rem;
+}
+
+.empty {
+  color: var(--text-muted);
+}
+
+.area-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.area-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color 0.15s ease;
+}
+
+.area-card:hover {
+  border-color: var(--accent);
+}
+
+.area-name {
+  font-weight: 600;
+}
+
+.area-progress {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+</style>
+</file>
+
+<file path=".github/workflows/deploy.yml">
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: ['main']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 'lts/*'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Application
+        run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: './dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
+</file>
+
+<file path="src/__tests__/App.spec.ts">
+import { describe, it, expect } from "vitest";
+
+import { mount } from "@vue/test-utils";
+import { createPinia } from "pinia";
+
+import App from "../App.vue";
+import router from "../router";
+
+describe("App", () => {
+  it("renders the act list on the home route", async () => {
+    const pinia = createPinia();
+
+    await router.push("/");
+    await router.isReady();
+
+    const wrapper = mount(App, {
+      global: {
+        plugins: [pinia, router],
+      },
+    });
+
+    expect(wrapper.text()).toContain("BG3 Companion");
+    expect(wrapper.text()).toContain("Act 1 — Wilderness & Underdark");
+    expect(wrapper.text()).toContain("Act 3 — Baldur's Gate");
+  });
+});
+</file>
+
+<file path="src/router/index.ts">
+import { createRouter, createWebHistory } from "vue-router";
+
+import ActListView from "@/views/ActListView.vue";
+import AreaListView from "@/views/AreaListView.vue";
+import AreaDetailView from "@/views/AreaDetailView.vue";
+
+const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: [
+    {
+      path: "/",
+      name: "act-list",
+      component: ActListView,
+    },
+    {
+      path: "/act/:actId",
+      name: "area-list",
+      component: AreaListView,
+      props: true,
+    },
+    {
+      path: "/act/:actId/:areaId",
+      name: "area-detail",
+      component: AreaDetailView,
+      props: true,
+    },
+  ],
+});
+
+export default router;
+</file>
+
+<file path="src/App.vue">
+<script setup lang="ts"></script>
+
+<template>
+  <RouterView />
+</template>
+
+<style>
+:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --surface-2: #eef0f3;
+  --text: #1a1d21;
+  --text-muted: #5b636e;
+  --border: #d9dde3;
+  --accent: #2f6fed;
+  --warning: #b45309;
+  --warning-surface: #fff7ed;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14161a;
+    --surface: #1d2025;
+    --surface-2: #262a31;
+    --text: #e6e8eb;
+    --text-muted: #9aa3ad;
+    --border: #333842;
+    --accent: #5b93f5;
+    --warning: #f5a524;
+    --warning-surface: #2a2113;
+  }
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+code {
+  background: var(--surface-2);
+  padding: 0.1rem 0.3rem;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+</style>
+</file>
+
+<file path="src/main.ts">
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+
+import App from './App.vue'
+import router from './router'
+
+const app = createApp(App)
+
+app.use(createPinia())
+app.use(router)
+
+app.mount('#app')
+</file>
+
+<file path=".editorconfig">
+[*.{js,jsx,mjs,cjs,ts,tsx,mts,cts,vue,css,scss,sass,less,styl}]
+charset = utf-8
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+end_of_line = lf
+max_line_length = 100
+</file>
+
+<file path=".gitattributes">
+* text=auto eol=lf
+</file>
+
+<file path=".gitignore">
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+.DS_Store
+dist
+dist-ssr
+coverage
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+*.tsbuildinfo
+
+.eslintcache
+
+# Cypress
+/cypress/videos/
+/cypress/screenshots/
+
+# Vitest
+__screenshots__/
+
+# Vite
+*.timestamp-*-*.mjs
+</file>
+
+<file path=".oxfmtrc.json">
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "semi": false,
+  "singleQuote": true
+}
+</file>
+
+<file path=".oxlintrc.json">
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["eslint", "typescript", "unicorn", "oxc", "vue", "vitest"],
+  "env": {
+    "browser": true
+  },
+  "categories": {
+    "correctness": "error"
+  }
+}
+</file>
+
+<file path="env.d.ts">
+/// <reference types="vite/client" />
+</file>
+
+<file path="eslint.config.ts">
+import { globalIgnores } from 'eslint/config'
+import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript'
+import pluginVue from 'eslint-plugin-vue'
+import pluginVitest from '@vitest/eslint-plugin'
+import pluginOxlint from 'eslint-plugin-oxlint'
+import skipFormatting from 'eslint-config-prettier/flat'
+
+// To allow more languages other than `ts` in `.vue` files, uncomment the following lines:
+// import { configureVueProject } from '@vue/eslint-config-typescript'
+// configureVueProject({ scriptLangs: ['ts', 'tsx'] })
+// More info at https://github.com/vuejs/eslint-config-typescript/#advanced-setup
+
+export default defineConfigWithVueTs(
+  {
+    name: 'app/files-to-lint',
+    files: ['**/*.{vue,ts,mts,tsx}'],
+  },
+
+  globalIgnores(['**/dist/**', '**/dist-ssr/**', '**/coverage/**']),
+
+  ...pluginVue.configs['flat/essential'],
+  vueTsConfigs.recommended,
+
+  {
+    ...pluginVitest.configs.recommended,
+    files: ['src/**/__tests__/*'],
+  },
+
+  ...pluginOxlint.buildFromOxlintConfigFile('.oxlintrc.json'),
+
+  skipFormatting,
+)
+</file>
+
+<file path="index.html">
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
+</file>
+
+<file path="README.md">
+# bg3-companion
+
+This template should help get you started developing with Vue 3 in Vite.
+
+## Recommended IDE Setup
+
+[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+
+## Recommended Browser Setup
+
+- Chromium-based browsers (Chrome, Edge, Brave, etc.):
+  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
+  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
+- Firefox:
+  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
+  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+
+## Type Support for `.vue` Imports in TS
+
+TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+
+## Customize configuration
+
+See [Vite Configuration Reference](https://vite.dev/config/).
+
+## Project Setup
+
+```sh
+npm install
+```
+
+### Compile and Hot-Reload for Development
+
+```sh
+npm run dev
+```
+
+### Type-Check, Compile and Minify for Production
+
+```sh
+npm run build
+```
+
+### Run Unit Tests with [Vitest](https://vitest.dev/)
+
+```sh
+npm run test:unit
+```
+
+### Lint with [ESLint](https://eslint.org/)
+
+```sh
+npm run lint
+```
+</file>
+
+<file path="tsconfig.app.json">
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+  "exclude": ["src/**/__tests__/*"],
+  "compilerOptions": {
+    // Extra safety for array and object lookups, but may have false positives.
+    "noUncheckedIndexedAccess": true,
+
+    // Path mapping for cleaner imports.
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+
+    // `vue-tsc --build` produces a .tsbuildinfo file for incremental type-checking.
+    // Specified here to keep it out of the root directory.
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo"
+  }
+}
+</file>
+
+<file path="tsconfig.json">
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    },
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.vitest.json"
+    }
+  ]
+}
+</file>
+
+<file path="tsconfig.node.json">
+// TSConfig for modules that run in Node.js environment via either transpilation or type-stripping.
+{
+  "extends": "@tsconfig/node24/tsconfig.json",
+  "include": [
+    "vite.config.*",
+    "vitest.config.*",
+    "cypress.config.*",
+    "playwright.config.*",
+    "eslint.config.*"
+  ],
+  "compilerOptions": {
+    // Most tools use transpilation instead of Node.js's native type-stripping.
+    // Bundler mode provides a smoother developer experience.
+    "module": "preserve",
+    "moduleResolution": "bundler",
+
+    // Include Node.js types and avoid accidentally including other `@types/*` packages.
+    "types": ["node"],
+
+    // Disable emitting output during `vue-tsc --build`, which is used for type-checking only.
+    "noEmit": true,
+
+    // `vue-tsc --build` produces a .tsbuildinfo file for incremental type-checking.
+    // Specified here to keep it out of the root directory.
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo"
+  }
+}
+</file>
+
+<file path="tsconfig.vitest.json">
+{
+  "extends": "./tsconfig.app.json",
+
+  // Override to include only test files and clear exclusions.
+  // Application code imported in tests is automatically included via module resolution.
+  "include": ["src/**/__tests__/*", "env.d.ts"],
+  "exclude": [],
+
+  "compilerOptions": {
+    // Vitest runs in a different environment than the application code.
+    // Adjust lib and types accordingly.
+    "lib": [],
+    "types": ["node", "jsdom"],
+
+    // `vue-tsc --build` produces a .tsbuildinfo file for incremental type-checking.
+    // Specified here to keep it out of the root directory.
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.vitest.tsbuildinfo"
+  }
+}
+</file>
+
+<file path="package.json">
+{
+  "name": "bg3-companion",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "preview": "vite preview",
+    "test:unit": "vitest",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --build",
+    "lint": "run-s \"lint:*\"",
+    "lint:oxlint": "oxlint . --fix",
+    "lint:eslint": "eslint . --fix --cache",
+    "format": "oxfmt src/"
+  },
+  "dependencies": {
+    "@vueuse/core": "^14.4.0",
+    "pinia": "^4.0.2",
+    "vue": "^3.5.40",
+    "vue-router": "^5.2.0"
+  },
+  "devDependencies": {
+    "@tsconfig/node24": "^24.0.4",
+    "@types/jsdom": "^28.0.3",
+    "@types/node": "^24.13.3",
+    "@vitejs/plugin-vue": "^6.0.8",
+    "@vitest/eslint-plugin": "^1.6.23",
+    "@vue/eslint-config-typescript": "^14.9.0",
+    "@vue/test-utils": "^2.4.11",
+    "@vue/tsconfig": "^0.9.1",
+    "eslint": "^10.7.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-oxlint": "~1.73.0",
+    "eslint-plugin-vue": "~10.9.2",
+    "jiti": "^2.7.0",
+    "jsdom": "^29.1.1",
+    "npm-run-all2": "^9.0.2",
+    "oxfmt": "^0.59.0",
+    "oxlint": "~1.73.0",
+    "typescript": "~6.0.0",
+    "vite": "^8.1.5",
+    "vite-plugin-vue-devtools": "^8.1.5",
+    "vitest": "^4.1.10",
+    "vue-eslint-parser": "^10.4.1",
+    "vue-tsc": "^3.3.7"
+  },
+  "engines": {
+    "node": "^22.18.0 || >=24.12.0"
+  }
+}
+</file>
+
+<file path="vite.config.ts">
+import { fileURLToPath, URL } from "node:url";
+
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import vueDevTools from "vite-plugin-vue-devtools";
+
+// https://vite.dev/config/
+export default defineConfig({
+  base: "/bg3-companion/",
+  plugins: [vue(), vueDevTools()],
+  resolve: {
+    alias: {
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
+    },
+  },
+});
+</file>
+
+<file path="vitest.config.ts">
+import { fileURLToPath } from "node:url";
+import { mergeConfig, defineConfig, configDefaults } from "vitest/config";
+import viteConfig from "./vite.config";
+
+export default mergeConfig(
+  viteConfig,
+  defineConfig({
+    base: "/tut-v-ssg/",
+    test: {
+      environment: "jsdom",
+      exclude: [...configDefaults.exclude, "e2e/**"],
+      root: fileURLToPath(new URL("./", import.meta.url)),
+    },
+    resolve: { alias: { "@": fileURLToPath(new URL("./src", import.meta.url)) } },
+  }),
+);
+</file>
+
+</files>
