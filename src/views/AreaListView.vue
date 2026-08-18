@@ -4,6 +4,7 @@ import { useContentStore } from '@/stores/content'
 import { useProgressStore } from '@/stores/progress'
 import InteractiveMap from '@/components/InteractiveMap.vue'
 import AreaTodoItem from '@/components/AreaTodoItem.vue'
+import EmptyState from '@/components/EmptyState.vue'
 import type { Area } from '@/data/types'
 
 const props = defineProps<{
@@ -62,9 +63,7 @@ function areaRoute(areaId: string) {
     </div>
 
     <section v-if="activeView === 'list'" class="tab-panel">
-      <p v-if="!areaList.length" class="empty">
-        No areas yet — add some in <code>src/data/areas.ts</code>.
-      </p>
+      <EmptyState v-if="!areaList.length" message="No areas yet — add some in src/data/areas.ts." />
 
       <template v-else>
         <input v-if="areaList.length >= 10" v-model="filter" type="text" class="area-filter"
@@ -106,9 +105,7 @@ function areaRoute(areaId: string) {
     </section>
 
     <section v-else-if="activeView === 'quests'" class="tab-panel">
-      <p v-if="quests.length === 0" class="empty">
-        No quests yet — add some in <code>src/data/areas.ts</code>.
-      </p>
+      <EmptyState v-if="quests.length === 0" message="No quests yet — add some in src/data/areas.ts." />
       <ul v-else class="flat-list">
         <li v-for="item in quests" :key="item.id" class="flat-item">
           <RouterLink :to="areaRoute(item.areaId)" class="flat-area">

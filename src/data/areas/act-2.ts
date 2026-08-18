@@ -1,0 +1,116 @@
+import type { Area } from "../types";
+import { template } from "./factory";
+
+export const act2Areas: Area[] = [
+  template("ruined-battlefield", "Ruined Battlefield", "act-2", undefined, [], { x: 10, y: 10 }),
+  template(
+    "house-in-deep-shadows",
+    "House in Deep Shadows",
+    "act-2",
+    undefined,
+    [{ src: "house-in-deep-shadows-location.webp" }],
+    { x: 15, y: 15 },
+  ),
+  template(
+    "last-light-inn",
+    "Last Light Inn",
+    "act-2",
+    "A warded sanctuary in the Shadow-Cursed Lands, held by Harpers and Flaming Fist.",
+    [],
+    { x: 20, y: 20 },
+    undefined,
+    [
+      {
+        id: "isobel-nightsong-ritual",
+        text: "Isobel / Nightsong ritual events",
+        category: "quest",
+        timed: true,
+        note: "Long-resting at the wrong moments during the Last Light siege sequence — can fail defenders or push the Shadow-Cursed Lands questline down an unintended path.",
+      },
+    ],
+  ),
+  template("reithwin-town", "Reithwin Town", "act-2", undefined, [], { x: 25, y: 25 }),
+  template(
+    "house-of-healing",
+    "House of Healing",
+    "act-2",
+    undefined,
+    [{ src: "map-house-of-healing-morgue.webp" }],
+    { x: 28, y: 22 },
+  ),
+  template("reithwin-graveyard", "Reithwin Graveyard", "act-2", undefined, [], { x: 30, y: 28 }),
+  template("sharran-sanctuary", "Sharran Sanctuary", "act-2", undefined, [], { x: 35, y: 30 }),
+  template("grand-mausoleum", "Grand Mausoleum", "act-2", undefined, [], { x: 40, y: 35 }),
+  template(
+    "gauntlet-of-shar",
+    "Gauntlet of Shar",
+    "act-2",
+    undefined,
+    [
+      { src: "gauntlet-shar-lower-east.webp", label: "Lower East" },
+      { src: "gauntlet-shar-upper.webp", label: "Upper" },
+      { src: "trials-shar-all.webp", label: "Trials" },
+    ],
+    { x: 45, y: 40 },
+    {
+      quest: "Trials of Shar",
+      recommendedComp: [
+        "Shadowheart strongly recommended",
+        "a Persuasion/Insight-capable Tav for the trial dialogues",
+      ],
+      reason: "Shadowheart has unique reactions and stakes in this dungeon",
+      confidence: "high",
+    },
+  ),
+  template(
+    "moonrise-towers",
+    "Moonrise Towers",
+    "act-2",
+    "Seat of the Absolute's cult and a major story hub for Act 2.",
+    [
+      { src: "moonrise-docks-map.webp", label: "Docks" },
+      { src: "moonrise-main-floor-map.webp", label: "Main Floor" },
+      { src: "moonrise-rafters.webp", label: "Rafters" },
+      { src: "moonrise-rooms-map.webp", label: "Rooms" },
+    ],
+    { x: 50, y: 50 },
+    {
+      quest: "Infiltrate / confront the cult",
+      recommendedComp: [
+        "Balanced comp with strong AC front line — several forced fights",
+        "a Disguise Self / high-Deception member for the infiltration approach",
+      ],
+      reason: "Multiple forced encounters plus a social infiltration path",
+      confidence: "low",
+    },
+  ),
+  template(
+    "mind-flayer-colony",
+    "Mind Flayer Colony",
+    "act-2",
+    undefined,
+    [{ src: "mind-flayer-colony-map.webp" }, { src: "mindflayer-colony-map-quest.webp" }],
+    { x: 55, y: 55 },
+  ),
+  template("oubliette", "Oubliette", "act-2", undefined, [], { x: 60, y: 60 }),
+  template(
+    "moonrise-towers-prison",
+    "Moonrise Towers Prison",
+    "act-2",
+    undefined,
+    [{ src: "moonrise-prison-map.webp" }, { src: "moonrise-towers-prison-map-quest.webp" }],
+    { x: 52, y: 48 },
+  ),
+  template(
+    "moonrise-towers-rooftop",
+    "Moonrise Towers Rooftop",
+    "act-2",
+    undefined,
+    [{ src: "moonrise-rooftop-map.webp" }],
+    { x: 53, y: 52 },
+  ),
+  template("shadowfell", "Shadowfell", "act-2", undefined, [{ src: "verge-shadowfell-map.webp" }], {
+    x: 80,
+    y: 80,
+  }),
+];

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { CompanionSuggestion } from '@/data/types'
+import EmptyState from './EmptyState.vue'
 
 defineProps<{
   companions: CompanionSuggestion[]
@@ -8,9 +9,7 @@ defineProps<{
 
 <template>
   <div class="companion-suggestions">
-    <p v-if="companions.length === 0" class="empty">
-      No entries yet — add some in <code>src/data/areas.ts</code>.
-    </p>
+    <EmptyState v-if="companions.length === 0" message="No entries yet — add some in src/data/areas.ts." />
 
     <ul v-else class="companion-list">
       <li v-for="companion in companions" :key="companion.name" class="companion">
@@ -45,10 +44,6 @@ defineProps<{
 .companion-reason {
   margin: 0.25rem 0 0;
   font-size: 0.88rem;
-  color: var(--text-muted);
-}
-
-.empty {
   color: var(--text-muted);
 }
 </style>
