@@ -2,7 +2,6 @@
 import { computed, ref } from 'vue'
 import { useContentStore } from '@/stores/content'
 import AreaTodoItem from '@/components/AreaTodoItem.vue'
-import VendorCard from '@/components/VendorCard.vue'
 import CompanionSuggestions from '@/components/CompanionSuggestions.vue'
 
 const props = defineProps<{
@@ -14,7 +13,7 @@ const content = useContentStore()
 const area = computed(() => content.getArea(props.areaId))
 const act = computed(() => content.getAct(props.actId))
 
-const activeTab = ref<'todos' | 'vendors' | 'companions'>('todos')
+const activeTab = ref<'todos' | 'companions'>('todos')
 </script>
 
 <template>
@@ -29,14 +28,23 @@ const activeTab = ref<'todos' | 'vendors' | 'companions'>('todos')
     </header>
 
     <template v-if="area">
+      <div v-if="area.entryWarning" class="entry-warning">
+        <svg class="entry-warning-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+          <line x1="12" y1="9" x2="12" y2="13" />
+          <line x1="12" y1="17" x2="12.01" y2="17" />
+        </svg>
+        <div class="entry-warning-body">
+          <span class="entry-warning-label">Warning</span>
+          <p class="entry-warning-text">{{ area.entryWarning }}</p>
+        </div>
+      </div>
+
       <div class="tabs" role="tablist">
         <button role="tab" :aria-selected="activeTab === 'todos'" class="tab" :class="{ active: activeTab === 'todos' }"
           @click="activeTab = 'todos'">
           Todos
-        </button>
-        <button role="tab" :aria-selected="activeTab === 'vendors'" class="tab"
-          :class="{ active: activeTab === 'vendors' }" @click="activeTab = 'vendors'">
-          Vendors
         </button>
         <button role="tab" :aria-selected="activeTab === 'companions'" class="tab"
           :class="{ active: activeTab === 'companions' }" @click="activeTab = 'companions'">
@@ -51,15 +59,6 @@ const activeTab = ref<'todos' | 'vendors' | 'companions'>('todos')
         <ul v-else class="todo-list">
           <AreaTodoItem v-for="todo in area.todos" :key="todo.id" :todo="todo" />
         </ul>
-      </section>
-
-      <section v-else-if="activeTab === 'vendors'" class="tab-panel">
-        <p v-if="area.vendors.length === 0" class="empty">
-          No entries yet — add some in <code>src/data/areas.ts</code>.
-        </p>
-        <div v-else class="vendor-grid">
-          <VendorCard v-for="vendor in area.vendors" :key="vendor.id" :vendor="vendor" />
-        </div>
       </section>
 
       <section v-else class="tab-panel">
@@ -136,9 +135,39 @@ const activeTab = ref<'todos' | 'vendors' | 'companions'>('todos')
   gap: 0.6rem;
 }
 
-.vendor-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 0.75rem;
+.entry-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--warning);
+  border-left: 4px solid var(--warning);
+  border-radius: 8px;
+  background: var(--warning-surface);
+  color: var(--warning);
+}
+
+.entry-warning-icon {
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.entry-warning-body {
+  min-width: 0;
+}
+
+.entry-warning-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.entry-warning-text {
+  margin: 0.15rem 0 0;
+  font-size: 0.9rem;
+  color: var(--text);
 }
 </style>

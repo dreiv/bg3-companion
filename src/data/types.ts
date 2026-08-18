@@ -1,15 +1,3 @@
-export interface VendorItem {
-  name: string;
-  price?: string; // e.g. "150 gp" — optional, prices can vary by charisma/rep
-  note?: string;
-}
-
-export interface Vendor {
-  id: string;
-  name: string;
-  items: VendorItem[];
-}
-
 export type TodoCategory = "quest" | "companion" | "loot" | "lore" | "other";
 
 export interface AreaTodo {
@@ -41,8 +29,11 @@ export interface Area {
   name: string;
   actId: string;
   summary?: string;
+  entryWarning?: string; // shown BEFORE the player commits — something irreversible
+  // triggers on entry (a fight starts, a companion reacts,
+  // another area/quest becomes unreachable). Distinct from
+  // AreaTodo.timed, which is about not leaving too early.
   todos: AreaTodo[];
-  vendors: Vendor[];
   suggestedCompanions: CompanionSuggestion[];
   mapHotspot?: MapHotspot;
 }

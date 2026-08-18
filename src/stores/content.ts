@@ -26,14 +26,6 @@ export const useContentStore = defineStore("content", () => {
     );
   }
 
-  function getWildItemsForAct(actId: string): AreaTodoWithArea[] {
-    return getAreasForAct(actId).flatMap((area) =>
-      area.todos
-        .filter((t) => t.category === "loot")
-        .map((t) => ({ ...t, areaName: area.name, areaId: area.id })),
-    );
-  }
-
   return {
     acts,
     areas,
@@ -41,6 +33,5 @@ export const useContentStore = defineStore("content", () => {
     getAct,
     getAreasForAct,
     getQuestsForAct,
-    getWildItemsForAct,
   };
 });

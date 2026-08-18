@@ -23,7 +23,8 @@ const pinnedAreas = computed(() =>
       <img class="map-image" :src="act.map.image" :alt="`${act.name} map`" />
 
       <RouterLink v-for="area in pinnedAreas" :key="area.id"
-        :to="{ name: 'area-detail', params: { actId: act.id, areaId: area.id } }" class="map-pin" :title="area.name"
+        :to="{ name: 'area-detail', params: { actId: act.id, areaId: area.id } }" class="map-pin"
+        :class="{ warning: area.entryWarning }" :title="area.name"
         :style="{ left: `${area.mapHotspot!.x}%`, top: `${area.mapHotspot!.y}%` }">
         {{ area.name }}
       </RouterLink>
@@ -76,5 +77,9 @@ const pinnedAreas = computed(() =>
 
 .map-pin:hover {
   transform: translate(-50%, -50%) scale(1.2);
+}
+
+.map-pin.warning {
+  background: var(--warning);
 }
 </style>
