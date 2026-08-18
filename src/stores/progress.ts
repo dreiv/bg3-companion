@@ -2,7 +2,6 @@ import { defineStore } from "pinia";
 import { useLocalStorage } from "@vueuse/core";
 
 export const useProgressStore = defineStore("progress", () => {
-  // Record<todoId, boolean>
   const completed = useLocalStorage<Record<string, boolean>>("bg3-progress", {});
 
   function toggle(todoId: string) {

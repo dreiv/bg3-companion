@@ -19,30 +19,15 @@ function onToggle() {
 <template>
   <li class="todo-item" :class="{ done: done, timed: todo.timed }">
     <label class="todo-row">
-      <input
-        type="checkbox"
-        class="todo-checkbox"
-        :checked="done"
-        @change="onToggle"
-      />
+      <input type="checkbox" class="todo-checkbox" :checked="done" @change="onToggle" />
       <span class="todo-text">{{ todo.text }}</span>
     </label>
 
     <span class="badge" :data-category="todo.category">{{ todo.category }}</span>
 
     <span v-if="todo.timed" class="timed-warning">
-      <svg
-        class="timed-icon"
-        viewBox="0 0 24 24"
-        width="16"
-        height="16"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true"
-      >
+      <svg class="timed-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <circle cx="12" cy="12" r="9" />
         <path d="M12 7v5l3 2" />
       </svg>
@@ -102,7 +87,6 @@ function onToggle() {
   background: var(--surface-2);
 }
 
-/* Timed / missable items: impossible to miss. */
 .todo-item.timed {
   border-left: 4px solid var(--warning);
   background: var(--warning-surface);

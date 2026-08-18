@@ -1,10 +1,6 @@
 import type { Area, AreaTodo, CompanionSuggestion, PartyRecommendation } from "../types";
 
-/**
- * Build an `Area` from its core fields, filling in the optional collections
- * (`todos`, `suggestedCompanions`) with sensible defaults so callers can omit
- * anything they don't need.
- */
+/** Build an `Area`, defaulting optional collections so callers can omit them. */
 export const template = (
   id: string,
   name: string,
