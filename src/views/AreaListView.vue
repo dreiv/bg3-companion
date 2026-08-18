@@ -2,9 +2,7 @@
 import { computed, ref } from 'vue'
 import { useContentStore } from '@/stores/content'
 import { useProgressStore } from '@/stores/progress'
-import InteractiveMap from '@/components/InteractiveMap.vue'
 import AreaTodoItem from '@/components/AreaTodoItem.vue'
-import EmptyState from '@/components/EmptyState.vue'
 import type { Area } from '@/data/types'
 
 const props = defineProps<{
@@ -25,7 +23,7 @@ const filteredAreas = computed(() => {
   return areaList.value.filter((a) => a.name.toLowerCase().includes(q))
 })
 
-type ViewMode = 'list' | 'map' | 'quests'
+type ViewMode = 'list' | 'quests'
 const activeView = ref<ViewMode>('list')
 
 function completion(area: Area) {
@@ -52,10 +50,6 @@ function areaRoute(areaId: string) {
         @click="activeView = 'list'">
         List
       </button>
-      <button role="tab" :aria-selected="activeView === 'map'" class="tab" :class="{ active: activeView === 'map' }"
-        @click="activeView = 'map'">
-        Map
-      </button>
       <button role="tab" :aria-selected="activeView === 'quests'" class="tab"
         :class="{ active: activeView === 'quests' }" @click="activeView = 'quests'">
         Quests
@@ -63,9 +57,7 @@ function areaRoute(areaId: string) {
     </div>
 
     <section v-if="activeView === 'list'" class="tab-panel">
-      <EmptyState v-if="!areaList.length" message="No areas yet — add some in src/data/areas.ts." />
-
-      <template v-else>
+      <template v-if="areaList.length">
         <input v-if="areaList.length >= 10" v-model="filter" type="text" class="area-filter"
           placeholder="Filter areas by name…" aria-label="Filter areas by name" />
 
@@ -94,19 +86,8 @@ function areaRoute(areaId: string) {
       </template>
     </section>
 
-    <section v-else-if="activeView === 'map'" class="tab-panel">
-      <a class="map-linkout" href="https://bg3.wiki/wiki/Interactive_Map" target="_blank" rel="noopener">
-        Open full interactive map ↗
-      </a>
-      <p class="map-linkout-caption">
-        For full item/NPC detail — this app's map only tracks your own progress.
-      </p>
-      <InteractiveMap :act="act!" :areas="areaList" />
-    </section>
-
     <section v-else-if="activeView === 'quests'" class="tab-panel">
-      <EmptyState v-if="quests.length === 0" message="No quests yet — add some in src/data/areas.ts." />
-      <ul v-else class="flat-list">
+      <ul v-if="quests.length" class="flat-list">
         <li v-for="item in quests" :key="item.id" class="flat-item">
           <RouterLink :to="areaRoute(item.areaId)" class="flat-area">
             {{ item.areaName }}
@@ -258,23 +239,5 @@ function areaRoute(areaId: string) {
 .area-filter:focus {
   outline: none;
   border-color: var(--accent);
-}
-
-.map-linkout {
-  display: inline-block;
-  margin-bottom: 0.25rem;
-  color: var(--accent);
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.map-linkout:hover {
-  text-decoration: underline;
-}
-
-.map-linkout-caption {
-  margin: 0 0 1rem;
-  font-size: 0.82rem;
-  color: var(--text-muted);
 }
 </style>

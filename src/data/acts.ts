@@ -9,7 +9,6 @@ export const acts: Act[] = [
   {
     id: "act-1",
     name: "Act 1 — Wilderness & Underdark",
-    map: { image: "map-wilderness.webp" },
     areaIds: [
       "ravaged-beach",
       "overgrown-ruins",
@@ -45,7 +44,6 @@ export const acts: Act[] = [
   {
     id: "act-2",
     name: "Act 2 — Shadow-Cursed Lands",
-    map: { image: "map-shadow-cursed-lands.webp" },
     areaIds: [
       "ruined-battlefield",
       "house-in-deep-shadows",

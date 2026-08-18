@@ -21,31 +21,6 @@ export interface PartyRecommendation {
   confidence: "high" | "medium" | "low";
 }
 
-export interface MapHotspot {
-  x: number; // 0–100, percentage position on the act's map image
-  y: number; // 0–100
-}
-
-export interface MapItem {
-  id: string;
-  label: string;
-  emoji: string; // single emoji used as the pin, e.g. "⚔️", "📖", "🧪", "🔑"
-  x: number; // 0–100, percentage position on THIS specific map image
-  y: number; // 0–100
-}
-
-export interface AreaMapImage {
-  src: string;
-  label?: string; // required when an area has more than one image, e.g. "Ground Floor",
-  // "1st Floor", "Basement" — omit for single-image areas
-  items?: MapItem[]; // defaults to [] — pins for this specific image only
-}
-
-export interface ActMap {
-  image?: string; // path under /public/maps/, e.g. "/maps/act-1.png" — user-supplied,
-  // do not fabricate or reference an image that doesn't exist yet
-}
-
 export interface Area {
   id: string;
   name: string;
@@ -58,14 +33,10 @@ export interface Area {
   todos: AreaTodo[];
   suggestedCompanions: CompanionSuggestion[];
   partyRecommendation?: PartyRecommendation;
-  mapHotspot?: MapHotspot;
-  mapImages: AreaMapImage[]; // this area's own detailed map(s), separate from
-  // the act-level overview map (`Act.map` + `mapHotspot`, unchanged)
 }
 
 export interface Act {
   id: string;
   name: string;
   areaIds: string[];
-  map?: ActMap;
 }

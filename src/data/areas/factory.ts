@@ -1,17 +1,15 @@
-import type { Area, AreaMapImage, AreaTodo, PartyRecommendation } from "../types";
+import type { Area, AreaTodo, PartyRecommendation } from "../types";
 
 /**
  * Build an `Area` from its core fields, filling in the optional collections
- * (`todos`, `suggestedCompanions`, `mapImages`) with sensible defaults so
- * callers can omit anything they don't need.
+ * (`todos`, `suggestedCompanions`) with sensible defaults so callers can omit
+ * anything they don't need.
  */
 export const template = (
   id: string,
   name: string,
   actId: string,
   summary?: string,
-  mapImages: AreaMapImage[] = [],
-  mapHotspot?: { x: number; y: number },
   partyRecommendation?: PartyRecommendation,
   todos: AreaTodo[] = [],
 ): Area => ({
@@ -21,7 +19,5 @@ export const template = (
   ...(summary ? { summary } : {}),
   todos,
   suggestedCompanions: [],
-  mapImages,
-  ...(mapHotspot ? { mapHotspot } : {}),
   ...(partyRecommendation ? { partyRecommendation } : {}),
 });

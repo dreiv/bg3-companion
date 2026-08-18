@@ -7,11 +7,9 @@ export const act1Areas: Area[] = [
     "Ravaged Beach",
     "act-1",
     "Where you wash up after the Nautiloid crashes — the start of Act 1 proper.",
-    [],
-    { x: 10, y: 80 },
   ),
-  template("overgrown-ruins", "Overgrown Ruins", "act-1", undefined, [], { x: 20, y: 70 }),
-  template("mountain-pass", "Mountain Pass", "act-1", undefined, [], { x: 30, y: 50 }, undefined, [
+  template("overgrown-ruins", "Overgrown Ruins", "act-1", undefined),
+  template("mountain-pass", "Mountain Pass", "act-1", undefined, undefined, [
     {
       id: "karlach-hunt-devil",
       text: "Karlach's 'Hunt the Devil' — kill Anders & the Paladins of Tyr",
@@ -32,46 +30,30 @@ export const act1Areas: Area[] = [
     "Sunlit Wetlands",
     "act-1",
     undefined,
-    [{ src: "sunlit-wetlands-map.webp" }],
-    { x: 15, y: 60 },
   ),
   template(
     "overgrown-tunnel",
     "Overgrown Tunnel",
     "act-1",
     undefined,
-    [{ src: "overgrown-tunnel-map.webp" }],
-    { x: 25, y: 55 },
   ),
   template(
     "blighted-village",
     "Blighted Village",
     "act-1",
     "An abandoned village occupied by goblins, with a hidden cellar and a route down into the Underdark.",
-    [],
-    { x: 35, y: 45 },
   ),
   template(
     "whispering-depths",
     "Whispering Depths",
     "act-1",
     undefined,
-    [{ src: "whispering-depths-map.webp" }],
-    { x: 40, y: 40 },
   ),
   template(
     "emerald-grove",
     "Emerald Grove",
     "act-1",
     "Druid grove sheltering tiefling refugees — an early hub for companions and quests.",
-    [
-      {
-        src: "underground-passage-map.webp",
-        items: [{ id: "sacred-pool", label: "Sacred Pool", emoji: "📖", x: 50, y: 50 }],
-      },
-      { src: "grove-underground-passage-map.webp" },
-    ],
-    { x: 45, y: 35 },
     {
       quest: "Tiefling vs. druid conflict",
       recommendedComp: [
@@ -97,39 +79,21 @@ export const act1Areas: Area[] = [
     "Inner Sanctum",
     "act-1",
     undefined,
-    [{ src: "inner-sanctum-map.webp" }, { src: "map-emerald-grove-inner-sanctum.webp" }],
-    { x: 48, y: 32 },
   ),
   template(
     "secluded-cove",
     "Secluded Cove",
     "act-1",
     undefined,
-    [{ src: "secluded-cove-map.webp" }],
-    { x: 12, y: 85 },
   ),
-  template("the-hollow", "The Hollow", "act-1", undefined, [{ src: "hollow-map-combined.webp" }], {
-    x: 50,
-    y: 30,
-  }),
-  template("forest", "Forest", "act-1", undefined, [], { x: 55, y: 25 }),
-  template("owlbear-nest", "Owlbear Nest", "act-1", undefined, [{ src: "owlbear-nest-map.webp" }], {
-    x: 60,
-    y: 20,
-  }),
+  template("the-hollow", "The Hollow", "act-1", undefined),
+  template("forest", "Forest", "act-1", undefined),
+  template("owlbear-nest", "Owlbear Nest", "act-1", undefined),
   template(
     "goblin-camp",
     "Goblin Camp",
     "act-1",
     "Cult of the Absolute stronghold occupying a ruined temple — can be approached peacefully or violently.",
-    [
-      {
-        src: "goblin-camp-outer-map.webp",
-        items: [{ id: "worg-pens", label: "Worg Pens", emoji: "📜", x: 70, y: 30 }],
-      },
-      { src: "screen-map-shattered-sanctum.webp" },
-    ],
-    { x: 50, y: 40 },
     {
       quest: "Goblin camp approach (stealth or assault)",
       recommendedComp: [
@@ -155,10 +119,8 @@ export const act1Areas: Area[] = [
     "The Risen Road",
     "act-1",
     undefined,
-    [{ src: "risen-road-map.webp" }],
-    { x: 65, y: 30 },
   ),
-  template("waukeens-rest", "Waukeen's Rest", "act-1", undefined, [], { x: 70, y: 25 }, undefined, [
+  template("waukeens-rest", "Waukeen's Rest", "act-1", undefined, undefined, [
     {
       id: "rescue-fire-survivors",
       text: "Rescue the fire survivors (Grand Duke's man + trapped man)",
@@ -172,77 +134,46 @@ export const act1Areas: Area[] = [
     "Zhentarim Basement",
     "act-1",
     undefined,
-    [{ src: "zhentarim-basement-map.webp" }],
-    { x: 72, y: 28 },
   ),
   template(
     "rosymorn-monastery-trail",
     "Rosymorn Monastery Trail",
     "act-1",
     undefined,
-    [{ src: "rosymorn-monastery-trail.webp" }],
-    { x: 75, y: 20 },
   ),
   template(
     "rosymorn-monastery",
     "Rosymorn Monastery",
     "act-1",
     undefined,
-    [
-      { src: "rosymorn-monastery-lower.webp", label: "Lower" },
-      { src: "rosymorn-monastery-upper.webp", label: "Upper" },
-      { src: "rosymorn-monastery-roof.webp", label: "Roof" },
-    ],
-    { x: 80, y: 15 },
   ),
   template(
     "creche-yllek",
     "Crèche Y'llek",
     "act-1",
     undefined,
-    [
-      {
-        src: "map-cr-che-y-llek-a-terrain-tex.webp",
-        items: [{ id: "secret-chamber", label: "Secret Chamber", emoji: "🗝️", x: 60, y: 40 }],
-      },
-    ],
-    { x: 85, y: 10 },
   ),
   template(
     "arcane-tower",
     "Arcane Tower",
     "act-1",
     undefined,
-    [
-      { src: "arcane-tower-basement-map.webp", label: "Basement" },
-      { src: "arcane-tower-ground-floor-map.webp", label: "Ground Floor" },
-      { src: "arcane-tower-mezzanine-map.webp", label: "Mezzanine" },
-      { src: "arcane-tower-1st-floor-map.webp", label: "1st Floor" },
-      { src: "arcane-tower-2nd-floor-map.webp", label: "2nd Floor" },
-      { src: "arcane-tower-3rd-floor-map.webp", label: "3rd Floor" },
-      { src: "arcane-tower-4th-floor-map.webp", label: "4th Floor" },
-    ],
-    { x: 55, y: 45 },
   ),
-  template("ebonlake-grotto", "Ebonlake Grotto", "act-1", undefined, [], { x: 60, y: 50 }),
-  template("decrepit-village", "Decrepit Village", "act-1", undefined, [], { x: 65, y: 55 }),
-  template("dread-hollow", "Dread Hollow", "act-1", undefined, [], { x: 70, y: 60 }),
+  template("ebonlake-grotto", "Ebonlake Grotto", "act-1", undefined),
+  template("decrepit-village", "Decrepit Village", "act-1", undefined),
+  template("dread-hollow", "Dread Hollow", "act-1", undefined),
   template(
     "festering-cove",
     "Festering Cove",
     "act-1",
     undefined,
-    [{ src: "festering-cove-map.webp" }],
-    { x: 75, y: 65 },
   ),
-  template("selunite-outpost", "Selûnite Outpost", "act-1", undefined, [], { x: 80, y: 70 }),
+  template("selunite-outpost", "Selûnite Outpost", "act-1", undefined),
   template(
     "grymforge",
     "Grymforge",
     "act-1",
     "Ancient dwarven forge deep in the Underdark, gateway to the Adamantine Forge.",
-    [],
-    { x: 45, y: 55 },
     {
       quest: "Adamantine Forge / Nere",
       recommendedComp: [
@@ -267,15 +198,11 @@ export const act1Areas: Area[] = [
     "Abandoned Refuge",
     "act-1",
     undefined,
-    [{ src: "screen-map-abandoned-refuge.webp" }],
-    { x: 50, y: 60 },
   ),
   template(
     "astral-plane-act1",
     "Astral Plane",
     "act-1",
     undefined,
-    [{ src: "astral-map-1.webp" }, { src: "astral-map-2.webp" }],
-    { x: 90, y: 50 },
   ),
 ];

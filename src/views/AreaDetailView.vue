@@ -3,8 +3,6 @@ import { computed } from 'vue'
 import { useContentStore } from '@/stores/content'
 import AreaTodoItem from '@/components/AreaTodoItem.vue'
 import CompanionSuggestions from '@/components/CompanionSuggestions.vue'
-import AreaMapCarousel from '@/components/AreaMapCarousel.vue'
-import EmptyState from '@/components/EmptyState.vue'
 
 const props = defineProps<{
   actId: string
@@ -27,8 +25,6 @@ const act = computed(() => content.getAct(props.actId))
     </header>
 
     <template v-if="area">
-      <AreaMapCarousel :images="area.mapImages" />
-
       <p v-if="area.summary" class="summary">{{ area.summary }}</p>
 
       <div v-if="area.entryWarning" class="entry-warning">
@@ -46,8 +42,7 @@ const act = computed(() => content.getAct(props.actId))
 
       <section class="section">
         <h2 class="section-title">Todos</h2>
-        <EmptyState v-if="area.todos.length === 0" message="No entries yet — add some in src/data/areas.ts." />
-        <ul v-else class="todo-list">
+        <ul v-if="area.todos.length" class="todo-list">
           <AreaTodoItem v-for="todo in area.todos" :key="todo.id" :todo="todo" />
         </ul>
       </section>
