@@ -4,13 +4,13 @@ export interface AreaTodo {
   id: string;
   text: string;
   category: TodoCategory;
-  timed: boolean; // missable if you leave the area or progress the main plot
+  timed: boolean; // Missable if leaving area or advancing major plot triggers
   note?: string;
 }
 
 export interface CompanionSuggestion {
   name: string;
-  reason?: string; // why bring them: approval check, banter, class dialogue, quest trigger
+  reason?: string;
 }
 
 export interface PartyRecommendation {
@@ -25,7 +25,7 @@ export interface Area {
   name: string;
   actId: string;
   summary?: string;
-  entryWarning?: string; // irreversible consequence of entering (vs. timed: leaving too early)
+  entryWarning?: string; // Point of no return warning
   todos: AreaTodo[];
   suggestedCompanions: CompanionSuggestion[];
   partyRecommendation?: PartyRecommendation;

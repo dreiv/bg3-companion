@@ -31,10 +31,10 @@ function onToggle() {
         <circle cx="12" cy="12" r="9" />
         <path d="M12 7v5l3 2" />
       </svg>
-      <span class="timed-label">Do this before leaving</span>
+      <span class="timed-label">Do before leaving area</span>
     </span>
 
-    <p v-if="todo.note" class="todo-note">{{ todo.note }}</p>
+    <p v-if="todo.note" class="todo-note" v-html="todo.note"></p>
   </li>
 </template>
 
@@ -106,5 +106,9 @@ function onToggle() {
   margin: 0;
   font-size: 0.85rem;
   color: var(--text-muted);
+}
+
+.todo-note :deep(a) {
+  color: var(--accent);
 }
 </style>
