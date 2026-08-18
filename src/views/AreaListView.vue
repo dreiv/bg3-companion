@@ -68,6 +68,30 @@ function completion(area: Area) {
 function areaRoute(areaId: string) {
   return { name: 'area-detail', params: { actId: props.actId, areaId } }
 }
+
+interface NameSegment {
+  text: string
+  match: boolean
+}
+
+function highlightName(name: string): NameSegment[] {
+  const q = filter.value.trim().toLowerCase()
+  if (!q) return [{ text: name, match: false }]
+
+  const lower = name.toLowerCase()
+  const segments: NameSegment[] = []
+  let last = 0
+
+  let idx = lower.indexOf(q, last)
+  while (idx !== -1) {
+    if (idx > last) segments.push({ text: name.slice(last, idx), match: false })
+    segments.push({ text: name.slice(idx, idx + q.length), match: true })
+    last = idx + q.length
+    idx = lower.indexOf(q, last)
+  }
+  if (last < name.length) segments.push({ text: name.slice(last), match: false })
+  return segments
+}
 </script>
 
 <template>
@@ -101,7 +125,12 @@ function areaRoute(areaId: string) {
           <RouterLink v-for="area in filteredAreas" :key="area.id"
             :to="{ name: 'area-detail', params: { actId: actId, areaId: area.id } }" class="area-card">
             <span class="area-name">
-              {{ area.name }}
+              <span class="area-name-text">
+                <template v-for="(seg, i) in highlightName(area.name)" :key="i">
+                  <mark v-if="seg.match" class="search-highlight">{{ seg.text }}</mark>
+                  <template v-else>{{ seg.text }}</template>
+                </template>
+              </span>
               <svg v-if="area.entryWarning" class="area-warning-icon" viewBox="0 0 24 24" width="14" height="14"
                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                 aria-hidden="true">
@@ -248,6 +277,13 @@ function areaRoute(areaId: string) {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
+}
+
+.search-highlight {
+  background: color-mix(in srgb, var(--accent) 40%, transparent);
+  color: inherit;
+  border-radius: 2px;
+  padding: 0.05em 0;
 }
 
 .area-warning-icon {

@@ -67,7 +67,10 @@ const act = computed(() => content.getAct(props.actId))
             <li v-for="(comp, i) in area.partyRecommendation.recommendedComp" :key="i" v-html="comp"></li>
           </ul>
           <p class="party-rec-confidence">
-            Confidence: {{ area.partyRecommendation.confidence }}
+            Confidence:
+            <span class="confidence-badge" :data-confidence="area.partyRecommendation.confidence">
+              {{ area.partyRecommendation.confidence }}
+            </span>
           </p>
         </div>
       </section>
@@ -190,7 +193,36 @@ const act = computed(() => content.getAct(props.actId))
   margin: 0;
   font-size: 0.8rem;
   color: var(--text-muted);
-  text-transform: capitalize;
+}
+
+.confidence-badge {
+  display: inline-block;
+  margin-left: 0.25rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+}
+
+.confidence-badge[data-confidence="high"] {
+  color: var(--conf-high);
+  background: var(--conf-high-surface);
+  border-color: var(--conf-high);
+}
+
+.confidence-badge[data-confidence="medium"] {
+  color: var(--conf-medium);
+  background: var(--conf-medium-surface);
+  border-color: var(--conf-medium);
+}
+
+.confidence-badge[data-confidence="low"] {
+  color: var(--conf-low);
+  background: var(--conf-low-surface);
+  border-color: var(--conf-low);
 }
 
 .companion-list {

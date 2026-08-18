@@ -93,6 +93,36 @@ function onToggle() {
   background: var(--surface-2);
 }
 
+.badge[data-category="quest"] {
+  color: var(--cat-quest);
+  background: var(--cat-quest-surface);
+  border-color: var(--cat-quest);
+}
+
+.badge[data-category="companion"] {
+  color: var(--cat-companion);
+  background: var(--cat-companion-surface);
+  border-color: var(--cat-companion);
+}
+
+.badge[data-category="loot"] {
+  color: var(--cat-loot);
+  background: var(--cat-loot-surface);
+  border-color: var(--cat-loot);
+}
+
+.badge[data-category="lore"] {
+  color: var(--cat-lore);
+  background: var(--cat-lore-surface);
+  border-color: var(--cat-lore);
+}
+
+.badge[data-category="other"] {
+  color: var(--cat-other);
+  background: var(--cat-other-surface);
+  border-color: var(--cat-other);
+}
+
 .todo-item.timed {
   border-left: 4px solid var(--warning);
   background: var(--warning-surface);
