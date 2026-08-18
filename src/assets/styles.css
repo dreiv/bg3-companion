@@ -95,6 +95,15 @@ code {
   outline-offset: 2px;
 }
 
+/* Inline search match highlight. Shared by any component that renders
+   search segments (area names, quest text, etc.). */
+.search-highlight {
+  background: color-mix(in srgb, var(--accent) 40%, transparent);
+  color: inherit;
+  border-radius: 2px;
+  padding: 0.05em 0;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(12px);

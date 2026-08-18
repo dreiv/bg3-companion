@@ -2,14 +2,24 @@
 import { computed } from 'vue'
 import { useProgressStore } from '@/stores/progress'
 import type { AreaTodo } from '@/data/types'
+import type { SearchSegment } from '@/types/search'
 
-const props = defineProps<{
-  todo: AreaTodo
-}>()
+const props = withDefaults(
+  defineProps<{
+    todo: AreaTodo
+    /** Optional; renders the todo text as search-highlight segments. */
+    highlight?: (text: string) => SearchSegment[]
+  }>(),
+  { highlight: undefined },
+)
 
 const progress = useProgressStore()
 
 const done = computed(() => progress.isDone(props.todo.id))
+
+const textSegments = computed<SearchSegment[]>(() =>
+  props.highlight ? props.highlight(props.todo.text) : [{ text: props.todo.text, match: false }],
+)
 
 function onToggle() {
   progress.toggle(props.todo.id)
@@ -20,7 +30,12 @@ function onToggle() {
   <li class="todo-item" :class="{ done: done, timed: todo.timed }">
     <label class="todo-row">
       <input type="checkbox" class="todo-checkbox" :checked="done" @change="onToggle" />
-      <span class="todo-text">{{ todo.text }}</span>
+      <span class="todo-text">
+        <template v-for="(seg, i) in textSegments" :key="i">
+          <mark v-if="seg.match" class="search-highlight">{{ seg.text }}</mark>
+          <template v-else>{{ seg.text }}</template>
+        </template>
+      </span>
     </label>
 
     <span class="badge" :data-category="todo.category">{{ todo.category }}</span>

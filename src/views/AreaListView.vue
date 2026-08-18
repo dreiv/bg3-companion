@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import { computed, ref, onMounted, onBeforeUnmount } from 'vue'
+import { computed, ref } from 'vue'
 import { useContentStore } from '@/stores/content'
 import { useProgressStore } from '@/stores/progress'
+import { useSearch } from '@/composables/useSearch'
 import AreaTodoItem from '@/components/AreaTodoItem.vue'
+import SearchInput from '@/components/ui/SearchInput.vue'
 import type { Area } from '@/data/types'
 
 const props = defineProps<{
@@ -16,25 +18,16 @@ const act = computed(() => content.getAct(props.actId))
 const areaList = computed(() => content.getAreasForAct(props.actId))
 const quests = computed(() => content.getQuestsForAct(props.actId))
 
-const filter = ref('')
-const filteredAreas = computed(() => {
-  const q = filter.value.trim().toLowerCase()
-  if (!q) return areaList.value
-  return areaList.value.filter((a) => a.name.toLowerCase().includes(q))
+// One shared search instance drives both tabs; the query persists across them.
+const searchInput = ref<InstanceType<typeof SearchInput> | null>(null)
+const search = useSearch({
+  hotkey: true,
+  // Getter so the template ref is resolved when the hotkey fires, not at setup.
+  input: () => searchInput.value?.el() ?? null,
 })
 
-const filterInput = ref<HTMLInputElement | null>(null)
-
-function onGlobalKeydown(e: KeyboardEvent) {
-  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
-    e.preventDefault()
-    filterInput.value?.focus()
-    filterInput.value?.select()
-  }
-}
-
-onMounted(() => window.addEventListener('keydown', onGlobalKeydown))
-onBeforeUnmount(() => window.removeEventListener('keydown', onGlobalKeydown))
+const filteredAreas = computed(() => search.filter(areaList.value, (a) => a.name))
+const filteredQuests = computed(() => search.filter(quests.value, (q) => q.text))
 
 type ViewMode = 'list' | 'quests'
 const activeView = ref<ViewMode>('list')
@@ -68,30 +61,6 @@ function completion(area: Area) {
 function areaRoute(areaId: string) {
   return { name: 'area-detail', params: { actId: props.actId, areaId } }
 }
-
-interface NameSegment {
-  text: string
-  match: boolean
-}
-
-function highlightName(name: string): NameSegment[] {
-  const q = filter.value.trim().toLowerCase()
-  if (!q) return [{ text: name, match: false }]
-
-  const lower = name.toLowerCase()
-  const segments: NameSegment[] = []
-  let last = 0
-
-  let idx = lower.indexOf(q, last)
-  while (idx !== -1) {
-    if (idx > last) segments.push({ text: name.slice(last, idx), match: false })
-    segments.push({ text: name.slice(idx, idx + q.length), match: true })
-    last = idx + q.length
-    idx = lower.indexOf(q, last)
-  }
-  if (last < name.length) segments.push({ text: name.slice(last), match: false })
-  return segments
-}
 </script>
 
 <template>
@@ -111,14 +80,13 @@ function highlightName(name: string): NameSegment[] {
       </button>
     </div>
 
-    <section v-if="activeView === 'list'" id="panel-list" role="tabpanel" aria-labelledby="tab-list" tabindex="0"
-      class="tab-panel">
+    <section v-if="activeView === 'list'" id="panel-list" role="tabpanel" aria-labelledby="tab-list" class="tab-panel">
       <template v-if="areaList.length">
-        <input v-if="areaList.length >= 10" v-model="filter" ref="filterInput" type="text" class="area-filter"
-          placeholder="Filter areas by name… (Ctrl+K)" aria-label="Filter areas by name" />
+        <SearchInput v-if="areaList.length >= 10" v-model="search.query.value" ref="searchInput"
+          placeholder="Filter areas by name…" label="Filter areas by name" :show-hotkey-hint="true" />
 
         <p v-if="!filteredAreas.length" class="empty">
-          No areas match “{{ filter }}”.
+          No areas match “{{ search.query.value }}”.
         </p>
 
         <TransitionGroup v-else name="list" tag="nav" class="area-list">
@@ -126,7 +94,7 @@ function highlightName(name: string): NameSegment[] {
             :to="{ name: 'area-detail', params: { actId: actId, areaId: area.id } }" class="area-card">
             <span class="area-name">
               <span class="area-name-text">
-                <template v-for="(seg, i) in highlightName(area.name)" :key="i">
+                <template v-for="(seg, i) in search.highlight(area.name)" :key="i">
                   <mark v-if="seg.match" class="search-highlight">{{ seg.text }}</mark>
                   <template v-else>{{ seg.text }}</template>
                 </template>
@@ -148,15 +116,24 @@ function highlightName(name: string): NameSegment[] {
     </section>
 
     <section v-else-if="activeView === 'quests'" id="panel-quests" role="tabpanel" aria-labelledby="tab-quests"
-      tabindex="0" class="tab-panel">
-      <TransitionGroup v-if="quests.length" name="list" tag="ul" class="flat-list">
-        <li v-for="item in quests" :key="item.id" class="flat-item">
-          <RouterLink :to="areaRoute(item.areaId)" class="flat-area">
-            {{ item.areaName }}
-          </RouterLink>
-          <AreaTodoItem :todo="item" />
-        </li>
-      </TransitionGroup>
+      class="tab-panel">
+      <template v-if="quests.length">
+        <SearchInput v-if="quests.length >= 10" v-model="search.query.value" ref="searchInput"
+          placeholder="Filter quests…" label="Filter quests" :show-hotkey-hint="true" />
+
+        <p v-if="!filteredQuests.length" class="empty">
+          No quests match “{{ search.query.value }}”.
+        </p>
+
+        <TransitionGroup v-else name="list" tag="ul" class="flat-list">
+          <li v-for="item in filteredQuests" :key="item.id" class="flat-item">
+            <RouterLink :to="areaRoute(item.areaId)" class="flat-area">
+              {{ item.areaName }}
+            </RouterLink>
+            <AreaTodoItem :todo="item" :highlight="search.highlight" />
+          </li>
+        </TransitionGroup>
+      </template>
     </section>
   </div>
 </template>
@@ -279,13 +256,6 @@ function highlightName(name: string): NameSegment[] {
   gap: 0.35rem;
 }
 
-.search-highlight {
-  background: color-mix(in srgb, var(--accent) 40%, transparent);
-  color: inherit;
-  border-radius: 2px;
-  padding: 0.05em 0;
-}
-
 .area-warning-icon {
   color: var(--warning);
   flex-shrink: 0;
@@ -295,24 +265,6 @@ function highlightName(name: string): NameSegment[] {
   color: var(--text-muted);
   font-size: 0.85rem;
   white-space: nowrap;
-}
-
-.area-filter {
-  width: 100%;
-  box-sizing: border-box;
-  margin-bottom: 0.75rem;
-  padding: 0.55rem 0.75rem;
-  font-size: 0.9rem;
-  color: var(--text);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-}
-
-.area-filter:focus {
-  border-color: var(--accent);
-  outline: 2px solid var(--accent);
-  outline-offset: 1px;
 }
 
 .list-move,
