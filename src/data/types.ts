@@ -38,5 +38,4 @@ export interface Area {
 export interface Act {
   id: string;
   name: string;
-  areaIds: string[];
 }

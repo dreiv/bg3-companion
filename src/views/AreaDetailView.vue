@@ -2,7 +2,6 @@
 import { computed } from 'vue'
 import { useContentStore } from '@/stores/content'
 import AreaTodoItem from '@/components/AreaTodoItem.vue'
-import CompanionSuggestions from '@/components/CompanionSuggestions.vue'
 
 const props = defineProps<{
   actId: string
@@ -49,7 +48,14 @@ const act = computed(() => content.getAct(props.actId))
 
       <section class="section">
         <h2 class="section-title">Companions</h2>
-        <CompanionSuggestions :companions="area.suggestedCompanions" />
+        <div class="companion-suggestions">
+          <ul v-if="area.suggestedCompanions.length" class="companion-list">
+            <li v-for="companion in area.suggestedCompanions" :key="companion.name" class="companion">
+              <span class="companion-name">{{ companion.name }}</span>
+              <p v-if="companion.reason" class="companion-reason">{{ companion.reason }}</p>
+            </li>
+          </ul>
+        </div>
       </section>
 
       <section v-if="area.partyRecommendation" class="section">
@@ -188,5 +194,31 @@ const act = computed(() => content.getAct(props.actId))
   font-size: 0.8rem;
   color: var(--text-muted);
   text-transform: capitalize;
+}
+
+.companion-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.companion {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.companion-name {
+  font-weight: 600;
+}
+
+.companion-reason {
+  margin: 0.25rem 0 0;
+  font-size: 0.88rem;
+  color: var(--text-muted);
 }
 </style>

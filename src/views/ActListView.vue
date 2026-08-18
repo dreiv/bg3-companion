@@ -12,14 +12,10 @@ const content = useContentStore()
     </header>
 
     <nav class="act-list">
-      <RouterLink
-        v-for="act in content.acts"
-        :key="act.id"
-        :to="{ name: 'area-list', params: { actId: act.id } }"
-        class="act-card"
-      >
+      <RouterLink v-for="act in content.acts" :key="act.id" :to="{ name: 'area-list', params: { actId: act.id } }"
+        class="act-card">
         <span class="act-name">{{ act.name }}</span>
-        <span class="act-count">{{ act.areaIds.length }} areas</span>
+        <span class="act-count">{{ content.getAreaCountForAct(act.id) }} areas</span>
       </RouterLink>
     </nav>
   </div>

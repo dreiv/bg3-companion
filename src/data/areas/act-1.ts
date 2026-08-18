@@ -9,7 +9,7 @@ export const act1Areas: Area[] = [
     "Where you wash up after the Nautiloid crashes — the start of Act 1 proper.",
   ),
   template("overgrown-ruins", "Overgrown Ruins", "act-1", undefined),
-  template("mountain-pass", "Mountain Pass", "act-1", undefined, undefined, [
+  template("mountain-pass", "Mountain Pass", "act-1", undefined, undefined, undefined, [
     {
       id: "karlach-hunt-devil",
       text: "Karlach's 'Hunt the Devil' — kill Anders & the Paladins of Tyr",
@@ -25,30 +25,15 @@ export const act1Areas: Area[] = [
       note: "Entering Mountain Pass before talking to Voss during the githyanki patrol encounter — companion-quest beat locks out for that patrol window.",
     },
   ]),
-  template(
-    "sunlit-wetlands",
-    "Sunlit Wetlands",
-    "act-1",
-    undefined,
-  ),
-  template(
-    "overgrown-tunnel",
-    "Overgrown Tunnel",
-    "act-1",
-    undefined,
-  ),
+  template("sunlit-wetlands", "Sunlit Wetlands", "act-1", undefined),
+  template("overgrown-tunnel", "Overgrown Tunnel", "act-1", undefined),
   template(
     "blighted-village",
     "Blighted Village",
     "act-1",
     "An abandoned village occupied by goblins, with a hidden cellar and a route down into the Underdark.",
   ),
-  template(
-    "whispering-depths",
-    "Whispering Depths",
-    "act-1",
-    undefined,
-  ),
+  template("whispering-depths", "Whispering Depths", "act-1", undefined),
   template(
     "emerald-grove",
     "Emerald Grove",
@@ -64,6 +49,7 @@ export const act1Areas: Area[] = [
         "Multiple companions have personal reactions to the grove's outcome (Wyll cares about the tieflings, Shadowheart is neutral-suspicious)",
       confidence: "medium",
     },
+    undefined,
     [
       {
         id: "grove-resolution",
@@ -74,18 +60,8 @@ export const act1Areas: Area[] = [
       },
     ],
   ),
-  template(
-    "inner-sanctum",
-    "Inner Sanctum",
-    "act-1",
-    undefined,
-  ),
-  template(
-    "secluded-cove",
-    "Secluded Cove",
-    "act-1",
-    undefined,
-  ),
+  template("inner-sanctum", "Inner Sanctum", "act-1", undefined),
+  template("secluded-cove", "Secluded Cove", "act-1", undefined),
   template("the-hollow", "The Hollow", "act-1", undefined),
   template("forest", "Forest", "act-1", undefined),
   template("owlbear-nest", "Owlbear Nest", "act-1", undefined),
@@ -104,6 +80,7 @@ export const act1Areas: Area[] = [
         "Large multi-room fight if it goes loud; stealth builds can pick off leaders individually",
       confidence: "medium",
     },
+    undefined,
     [
       {
         id: "rescue-halsin",
@@ -114,13 +91,8 @@ export const act1Areas: Area[] = [
       },
     ],
   ),
-  template(
-    "the-risen-road",
-    "The Risen Road",
-    "act-1",
-    undefined,
-  ),
-  template("waukeens-rest", "Waukeen's Rest", "act-1", undefined, undefined, [
+  template("the-risen-road", "The Risen Road", "act-1", undefined),
+  template("waukeens-rest", "Waukeen's Rest", "act-1", undefined, undefined, undefined, [
     {
       id: "rescue-fire-survivors",
       text: "Rescue the fire survivors (Grand Duke's man + trapped man)",
@@ -129,45 +101,15 @@ export const act1Areas: Area[] = [
       note: "Any long rest after arriving at the burning inn — both NPCs die if you rest even once before finishing the rescue.",
     },
   ]),
-  template(
-    "zhentarim-basement",
-    "Zhentarim Basement",
-    "act-1",
-    undefined,
-  ),
-  template(
-    "rosymorn-monastery-trail",
-    "Rosymorn Monastery Trail",
-    "act-1",
-    undefined,
-  ),
-  template(
-    "rosymorn-monastery",
-    "Rosymorn Monastery",
-    "act-1",
-    undefined,
-  ),
-  template(
-    "creche-yllek",
-    "Crèche Y'llek",
-    "act-1",
-    undefined,
-  ),
-  template(
-    "arcane-tower",
-    "Arcane Tower",
-    "act-1",
-    undefined,
-  ),
+  template("zhentarim-basement", "Zhentarim Basement", "act-1", undefined),
+  template("rosymorn-monastery-trail", "Rosymorn Monastery Trail", "act-1", undefined),
+  template("rosymorn-monastery", "Rosymorn Monastery", "act-1", undefined),
+  template("creche-yllek", "Crèche Y'llek", "act-1", undefined),
+  template("arcane-tower", "Arcane Tower", "act-1", undefined),
   template("ebonlake-grotto", "Ebonlake Grotto", "act-1", undefined),
   template("decrepit-village", "Decrepit Village", "act-1", undefined),
   template("dread-hollow", "Dread Hollow", "act-1", undefined),
-  template(
-    "festering-cove",
-    "Festering Cove",
-    "act-1",
-    undefined,
-  ),
+  template("festering-cove", "Festering Cove", "act-1", undefined),
   template("selunite-outpost", "Selûnite Outpost", "act-1", undefined),
   template(
     "grymforge",
@@ -183,6 +125,7 @@ export const act1Areas: Area[] = [
       reason: "Cramped Underdark spaces amplify AoE risk",
       confidence: "low",
     },
+    undefined,
     [
       {
         id: "clear-rubble-nere",
@@ -193,16 +136,6 @@ export const act1Areas: Area[] = [
       },
     ],
   ),
-  template(
-    "abandoned-refuge",
-    "Abandoned Refuge",
-    "act-1",
-    undefined,
-  ),
-  template(
-    "astral-plane-act1",
-    "Astral Plane",
-    "act-1",
-    undefined,
-  ),
+  template("abandoned-refuge", "Abandoned Refuge", "act-1", undefined),
+  template("astral-plane-act1", "Astral Plane", "act-1", undefined),
 ];

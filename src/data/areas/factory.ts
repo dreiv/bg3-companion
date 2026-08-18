@@ -1,4 +1,4 @@
-import type { Area, AreaTodo, PartyRecommendation } from "../types";
+import type { Area, AreaTodo, CompanionSuggestion, PartyRecommendation } from "../types";
 
 /**
  * Build an `Area` from its core fields, filling in the optional collections
@@ -11,6 +11,7 @@ export const template = (
   actId: string,
   summary?: string,
   partyRecommendation?: PartyRecommendation,
+  suggestedCompanions: CompanionSuggestion[] = [],
   todos: AreaTodo[] = [],
 ): Area => ({
   id,
@@ -18,6 +19,6 @@ export const template = (
   actId,
   ...(summary ? { summary } : {}),
   todos,
-  suggestedCompanions: [],
+  suggestedCompanions,
   ...(partyRecommendation ? { partyRecommendation } : {}),
 });

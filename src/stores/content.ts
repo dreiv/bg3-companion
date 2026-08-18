@@ -18,6 +18,10 @@ export const useContentStore = defineStore("content", () => {
     return areas.filter((a) => a.actId === actId);
   }
 
+  function getAreaCountForAct(actId: string): number {
+    return getAreasForAct(actId).length;
+  }
+
   function getQuestsForAct(actId: string): AreaTodoWithArea[] {
     return getAreasForAct(actId).flatMap((area) =>
       area.todos
@@ -32,6 +36,7 @@ export const useContentStore = defineStore("content", () => {
     getArea,
     getAct,
     getAreasForAct,
+    getAreaCountForAct,
     getQuestsForAct,
   };
 });
