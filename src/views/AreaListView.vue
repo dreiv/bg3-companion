@@ -26,6 +26,26 @@ const filteredAreas = computed(() => {
 type ViewMode = 'list' | 'quests'
 const activeView = ref<ViewMode>('list')
 
+const tabs: { id: ViewMode; label: string }[] = [
+  { id: 'list', label: 'List' },
+  { id: 'quests', label: 'Quests' },
+]
+
+function onTabKeydown(e: KeyboardEvent) {
+  const i = tabs.findIndex((t) => t.id === activeView.value)
+  let next = -1
+  if (e.key === 'ArrowRight') next = (i + 1) % tabs.length
+  else if (e.key === 'ArrowLeft') next = (i - 1 + tabs.length) % tabs.length
+  else if (e.key === 'Home') next = 0
+  else if (e.key === 'End') next = tabs.length - 1
+  if (next < 0) return
+  const tab = tabs[next]
+  if (!tab) return
+  e.preventDefault()
+  activeView.value = tab.id
+  document.getElementById(`tab-${tab.id}`)?.focus()
+}
+
 function completion(area: Area) {
   const total = area.todos.length
   const done = area.todos.filter((t) => progress.isDone(t.id)).length
@@ -45,18 +65,17 @@ function areaRoute(areaId: string) {
       <h1>{{ act?.name ?? 'Unknown act' }}</h1>
     </header>
 
-    <div class="tabs" role="tablist" v-reveal="60">
-      <button role="tab" :aria-selected="activeView === 'list'" class="tab" :class="{ active: activeView === 'list' }"
-        @click="activeView = 'list'">
-        List
-      </button>
-      <button role="tab" :aria-selected="activeView === 'quests'" class="tab"
-        :class="{ active: activeView === 'quests' }" @click="activeView = 'quests'">
-        Quests
+    <div class="tabs" role="tablist" aria-label="Area views" v-reveal="60">
+      <button v-for="tab in tabs" :key="tab.id" :id="`tab-${tab.id}`" type="button" role="tab"
+        :aria-selected="activeView === tab.id" :aria-controls="`panel-${tab.id}`"
+        :tabindex="activeView === tab.id ? 0 : -1" class="tab" :class="{ active: activeView === tab.id }"
+        @click="activeView = tab.id" @keydown="onTabKeydown">
+        {{ tab.label }}
       </button>
     </div>
 
-    <section v-if="activeView === 'list'" class="tab-panel">
+    <section v-if="activeView === 'list'" id="panel-list" role="tabpanel" aria-labelledby="tab-list" tabindex="0"
+      class="tab-panel">
       <template v-if="areaList.length">
         <input v-if="areaList.length >= 10" v-model="filter" type="text" class="area-filter"
           placeholder="Filter areas by name…" aria-label="Filter areas by name" />
@@ -87,7 +106,8 @@ function areaRoute(areaId: string) {
       </template>
     </section>
 
-    <section v-else-if="activeView === 'quests'" class="tab-panel">
+    <section v-else-if="activeView === 'quests'" id="panel-quests" role="tabpanel" aria-labelledby="tab-quests"
+      tabindex="0" class="tab-panel">
       <ul v-if="quests.length" class="flat-list">
         <li v-for="(item, i) in quests" :key="item.id" class="flat-item" v-reveal="Math.min(i, 8) * 40">
           <RouterLink :to="areaRoute(item.areaId)" class="flat-area">
@@ -240,7 +260,8 @@ function areaRoute(areaId: string) {
 }
 
 .area-filter:focus {
-  outline: none;
   border-color: var(--accent);
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
 }
 </style>

@@ -65,6 +65,7 @@ function onToggle() {
   height: 1.05rem;
   accent-color: var(--accent);
   flex-shrink: 0;
+  border-radius: 4px;
 }
 
 .todo-text {

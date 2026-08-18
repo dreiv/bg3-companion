@@ -53,13 +53,11 @@ code {
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
-  border-radius: 4px;
 }
 
 .reveal {
   opacity: 0;
   transform: translateY(12px);
-  will-change: opacity, transform;
 }
 
 .reveal.reveal-visible {
