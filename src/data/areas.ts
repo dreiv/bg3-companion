@@ -8,6 +8,7 @@ export const areas: Area[] = [
     actId: "act-1",
     todos: [],
     vendors: [],
+    suggestedCompanions: [],
   },
   {
     id: "emerald-grove",
@@ -15,6 +16,7 @@ export const areas: Area[] = [
     actId: "act-1",
     todos: [],
     vendors: [],
+    suggestedCompanions: [],
   },
   {
     id: "blighted-village",
@@ -22,6 +24,7 @@ export const areas: Area[] = [
     actId: "act-1",
     todos: [],
     vendors: [],
+    suggestedCompanions: [],
   },
   {
     id: "goblin-camp",
@@ -29,6 +32,7 @@ export const areas: Area[] = [
     actId: "act-1",
     todos: [],
     vendors: [],
+    suggestedCompanions: [],
   },
   {
     id: "grymforge",
@@ -36,15 +40,7 @@ export const areas: Area[] = [
     actId: "act-1",
     todos: [],
     vendors: [],
-  },
-  // TODO(user): add more areas here
-  {
-    id: "act-1-placeholder",
-    name: "Act 1 — (add more areas)",
-    actId: "act-1",
-    summary: "Placeholder area so the list has something to render. Replace with real content.",
-    todos: [],
-    vendors: [],
+    suggestedCompanions: [],
   },
 
   // ── Act 2 — Shadow-Cursed Lands ────────────────────────────────────────────
@@ -54,6 +50,7 @@ export const areas: Area[] = [
     actId: "act-2",
     todos: [],
     vendors: [],
+    suggestedCompanions: [],
   },
   {
     id: "reithwin-town",
@@ -61,6 +58,7 @@ export const areas: Area[] = [
     actId: "act-2",
     todos: [],
     vendors: [],
+    suggestedCompanions: [],
   },
   {
     id: "moonrise-towers",
@@ -68,15 +66,7 @@ export const areas: Area[] = [
     actId: "act-2",
     todos: [],
     vendors: [],
-  },
-  // TODO(user): add more areas here
-  {
-    id: "act-2-placeholder",
-    name: "Act 2 — (add more areas)",
-    actId: "act-2",
-    summary: "Placeholder area so the list has something to render. Replace with real content.",
-    todos: [],
-    vendors: [],
+    suggestedCompanions: [],
   },
 
   // ── Act 3 — Baldur's Gate ──────────────────────────────────────────────────
@@ -86,6 +76,7 @@ export const areas: Area[] = [
     actId: "act-3",
     todos: [],
     vendors: [],
+    suggestedCompanions: [],
   },
   {
     id: "wyrms-crossing",
@@ -93,6 +84,7 @@ export const areas: Area[] = [
     actId: "act-3",
     todos: [],
     vendors: [],
+    suggestedCompanions: [],
   },
   {
     id: "lower-city",
@@ -100,14 +92,6 @@ export const areas: Area[] = [
     actId: "act-3",
     todos: [],
     vendors: [],
-  },
-  // TODO(user): add more areas here
-  {
-    id: "act-3-placeholder",
-    name: "Act 3 — (add more areas)",
-    actId: "act-3",
-    summary: "Placeholder area so the list has something to render. Replace with real content.",
-    todos: [],
-    vendors: [],
+    suggestedCompanions: [],
   },
 ];

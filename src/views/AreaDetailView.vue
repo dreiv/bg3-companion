@@ -3,6 +3,7 @@ import { computed, ref } from 'vue'
 import { useContentStore } from '@/stores/content'
 import AreaTodoItem from '@/components/AreaTodoItem.vue'
 import VendorCard from '@/components/VendorCard.vue'
+import CompanionSuggestions from '@/components/CompanionSuggestions.vue'
 
 const props = defineProps<{
   actId: string
@@ -13,15 +14,12 @@ const content = useContentStore()
 const area = computed(() => content.getArea(props.areaId))
 const act = computed(() => content.getAct(props.actId))
 
-const activeTab = ref<'todos' | 'vendors'>('todos')
+const activeTab = ref<'todos' | 'vendors' | 'companions'>('todos')
 </script>
 
 <template>
   <div class="view">
-    <RouterLink
-      :to="{ name: 'area-list', params: { actId: actId } }"
-      class="back-link"
-    >
+    <RouterLink :to="{ name: 'area-list', params: { actId: actId } }" class="back-link">
       ← {{ act?.name ?? 'Back' }}
     </RouterLink>
 
@@ -32,23 +30,17 @@ const activeTab = ref<'todos' | 'vendors'>('todos')
 
     <template v-if="area">
       <div class="tabs" role="tablist">
-        <button
-          role="tab"
-          :aria-selected="activeTab === 'todos'"
-          class="tab"
-          :class="{ active: activeTab === 'todos' }"
-          @click="activeTab = 'todos'"
-        >
+        <button role="tab" :aria-selected="activeTab === 'todos'" class="tab" :class="{ active: activeTab === 'todos' }"
+          @click="activeTab = 'todos'">
           Todos
         </button>
-        <button
-          role="tab"
-          :aria-selected="activeTab === 'vendors'"
-          class="tab"
-          :class="{ active: activeTab === 'vendors' }"
-          @click="activeTab = 'vendors'"
-        >
+        <button role="tab" :aria-selected="activeTab === 'vendors'" class="tab"
+          :class="{ active: activeTab === 'vendors' }" @click="activeTab = 'vendors'">
           Vendors
+        </button>
+        <button role="tab" :aria-selected="activeTab === 'companions'" class="tab"
+          :class="{ active: activeTab === 'companions' }" @click="activeTab = 'companions'">
+          Companions
         </button>
       </div>
 
@@ -61,17 +53,17 @@ const activeTab = ref<'todos' | 'vendors'>('todos')
         </ul>
       </section>
 
-      <section v-else class="tab-panel">
+      <section v-else-if="activeTab === 'vendors'" class="tab-panel">
         <p v-if="area.vendors.length === 0" class="empty">
           No entries yet — add some in <code>src/data/areas.ts</code>.
         </p>
         <div v-else class="vendor-grid">
-          <VendorCard
-            v-for="vendor in area.vendors"
-            :key="vendor.id"
-            :vendor="vendor"
-          />
+          <VendorCard v-for="vendor in area.vendors" :key="vendor.id" :vendor="vendor" />
         </div>
+      </section>
+
+      <section v-else class="tab-panel">
+        <CompanionSuggestions :companions="area.suggestedCompanions" />
       </section>
     </template>
   </div>

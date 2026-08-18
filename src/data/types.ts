@@ -20,6 +20,22 @@ export interface AreaTodo {
   note?: string;
 }
 
+export interface CompanionSuggestion {
+  name: string;
+  reason?: string; // why bring them here: approval check, unique banter/reaction,
+  // class-specific dialogue option, companion quest trigger, etc.
+}
+
+export interface MapHotspot {
+  x: number; // 0–100, percentage position on the act's map image
+  y: number; // 0–100
+}
+
+export interface ActMap {
+  image?: string; // path under /public/maps/, e.g. "/maps/act-1.png" — user-supplied,
+  // do not fabricate or reference an image that doesn't exist yet
+}
+
 export interface Area {
   id: string;
   name: string;
@@ -27,10 +43,13 @@ export interface Area {
   summary?: string;
   todos: AreaTodo[];
   vendors: Vendor[];
+  suggestedCompanions: CompanionSuggestion[];
+  mapHotspot?: MapHotspot;
 }
 
 export interface Act {
   id: string;
   name: string;
   areaIds: string[];
+  map?: ActMap;
 }

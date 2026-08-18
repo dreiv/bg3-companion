@@ -1,7 +1,9 @@
 import { defineStore } from "pinia";
 import { acts } from "@/data/acts";
 import { areas } from "@/data/areas";
-import type { Act, Area } from "@/data/types";
+import type { Act, Area, AreaTodo } from "@/data/types";
+
+type AreaTodoWithArea = AreaTodo & { areaName: string; areaId: string };
 
 export const useContentStore = defineStore("content", () => {
   function getArea(id: string): Area | undefined {
@@ -16,5 +18,29 @@ export const useContentStore = defineStore("content", () => {
     return areas.filter((a) => a.actId === actId);
   }
 
-  return { acts, areas, getArea, getAct, getAreasForAct };
+  function getQuestsForAct(actId: string): AreaTodoWithArea[] {
+    return getAreasForAct(actId).flatMap((area) =>
+      area.todos
+        .filter((t) => t.category === "quest")
+        .map((t) => ({ ...t, areaName: area.name, areaId: area.id })),
+    );
+  }
+
+  function getWildItemsForAct(actId: string): AreaTodoWithArea[] {
+    return getAreasForAct(actId).flatMap((area) =>
+      area.todos
+        .filter((t) => t.category === "loot")
+        .map((t) => ({ ...t, areaName: area.name, areaId: area.id })),
+    );
+  }
+
+  return {
+    acts,
+    areas,
+    getArea,
+    getAct,
+    getAreasForAct,
+    getQuestsForAct,
+    getWildItemsForAct,
+  };
 });
