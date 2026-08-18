@@ -188,7 +188,7 @@ function rarityColor(rarity: ItemRarity) {
                 </svg>
               </button>
 
-              <div v-if="openPopover === 'price'" class="popover" @click.stop>
+              <div v-if="openPopover === 'price'" class="popover popover-right" @click.stop>
                 <p class="popover-label">Price range</p>
                 <div class="price-range">
                   <label class="price-field">
@@ -322,6 +322,11 @@ function rarityColor(rarity: ItemRarity) {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
+}
+
+.popover-right {
+  left: auto;
+  right: 0;
 }
 
 .popover-label {
