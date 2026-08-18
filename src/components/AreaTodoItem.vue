@@ -48,6 +48,7 @@ function onToggle() {
   border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--surface);
+  transition: border-color 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
 }
 
 .todo-row {
@@ -68,6 +69,10 @@ function onToggle() {
 
 .todo-text {
   min-width: 0;
+}
+
+.todo-item.done {
+  opacity: 0.75;
 }
 
 .todo-item.done .todo-text {

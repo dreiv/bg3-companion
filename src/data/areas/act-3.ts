@@ -851,7 +851,7 @@ export const act3Areas: Area[] = [
       },
     ],
   ),
-  template("upper-city-sewers", "Upper City Sewers", "act-3", undefined, undefined, [
+  template("upper-city-sewers", "Upper City Sewers", "act-3", undefined, undefined, undefined, [
     {
       id: "upper-sewers-connection",
       text: "Use as a traversal route",

@@ -41,11 +41,11 @@ function areaRoute(areaId: string) {
   <div class="view">
     <RouterLink :to="{ name: 'act-list' }" class="back-link">← All acts</RouterLink>
 
-    <header class="view-header">
+    <header class="view-header" v-reveal>
       <h1>{{ act?.name ?? 'Unknown act' }}</h1>
     </header>
 
-    <div class="tabs" role="tablist">
+    <div class="tabs" role="tablist" v-reveal="60">
       <button role="tab" :aria-selected="activeView === 'list'" class="tab" :class="{ active: activeView === 'list' }"
         @click="activeView = 'list'">
         List
@@ -66,8 +66,9 @@ function areaRoute(areaId: string) {
         </p>
 
         <nav v-else class="area-list">
-          <RouterLink v-for="area in filteredAreas" :key="area.id"
-            :to="{ name: 'area-detail', params: { actId: actId, areaId: area.id } }" class="area-card">
+          <RouterLink v-for="(area, i) in filteredAreas" :key="area.id"
+            :to="{ name: 'area-detail', params: { actId: actId, areaId: area.id } }" class="area-card"
+            v-reveal="Math.min(i, 8) * 40">
             <span class="area-name">
               {{ area.name }}
               <svg v-if="area.entryWarning" class="area-warning-icon" viewBox="0 0 24 24" width="14" height="14"
@@ -88,7 +89,7 @@ function areaRoute(areaId: string) {
 
     <section v-else-if="activeView === 'quests'" class="tab-panel">
       <ul v-if="quests.length" class="flat-list">
-        <li v-for="item in quests" :key="item.id" class="flat-item">
+        <li v-for="(item, i) in quests" :key="item.id" class="flat-item" v-reveal="Math.min(i, 8) * 40">
           <RouterLink :to="areaRoute(item.areaId)" class="flat-area">
             {{ item.areaName }}
           </RouterLink>
@@ -199,11 +200,13 @@ function areaRoute(areaId: string) {
   background: var(--surface);
   color: var(--text);
   text-decoration: none;
-  transition: border-color 0.15s ease;
+  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .area-card:hover {
   border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px -10px rgba(0, 0, 0, 0.3);
 }
 
 .area-name {

@@ -19,14 +19,14 @@ const act = computed(() => content.getAct(props.actId))
       ← {{ act?.name ?? 'Back' }}
     </RouterLink>
 
-    <header class="view-header">
+    <header class="view-header" v-reveal>
       <h1>{{ area?.name ?? 'Unknown area' }}</h1>
     </header>
 
     <template v-if="area">
-      <p v-if="area.summary" class="summary">{{ area.summary }}</p>
+      <p v-if="area.summary" class="summary" v-reveal="60">{{ area.summary }}</p>
 
-      <div v-if="area.entryWarning" class="entry-warning">
+      <div v-if="area.entryWarning" class="entry-warning" v-reveal="100">
         <svg class="entry-warning-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
           stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
@@ -39,14 +39,14 @@ const act = computed(() => content.getAct(props.actId))
         </div>
       </div>
 
-      <section class="section">
+      <section class="section" v-reveal="140">
         <h2 class="section-title">Todos</h2>
         <ul v-if="area.todos.length" class="todo-list">
           <AreaTodoItem v-for="todo in area.todos" :key="todo.id" :todo="todo" />
         </ul>
       </section>
 
-      <section class="section">
+      <section class="section" v-reveal="180">
         <h2 class="section-title">Companions</h2>
         <div class="companion-suggestions">
           <ul v-if="area.suggestedCompanions.length" class="companion-list">
@@ -58,7 +58,7 @@ const act = computed(() => content.getAct(props.actId))
         </div>
       </section>
 
-      <section v-if="area.partyRecommendation" class="section">
+      <section v-if="area.partyRecommendation" class="section" v-reveal="220">
         <h2 class="section-title">Party</h2>
         <div class="party-rec">
           <h3 class="party-rec-quest">{{ area.partyRecommendation.quest }}</h3>

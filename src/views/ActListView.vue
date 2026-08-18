@@ -6,14 +6,14 @@ const content = useContentStore()
 
 <template>
   <div class="view">
-    <header class="view-header">
+    <header class="view-header" v-reveal>
       <h1>BG3 Companion</h1>
       <p class="subtitle">Pick an act to see its areas.</p>
     </header>
 
     <nav class="act-list">
-      <RouterLink v-for="act in content.acts" :key="act.id" :to="{ name: 'area-list', params: { actId: act.id } }"
-        class="act-card">
+      <RouterLink v-for="(act, i) in content.acts" :key="act.id" :to="{ name: 'area-list', params: { actId: act.id } }"
+        class="act-card" v-reveal="i * 60">
         <span class="act-name">{{ act.name }}</span>
         <span class="act-count">{{ content.getAreaCountForAct(act.id) }} areas</span>
       </RouterLink>
@@ -55,12 +55,13 @@ const content = useContentStore()
   background: var(--surface);
   color: var(--text);
   text-decoration: none;
-  transition: border-color 0.15s ease, transform 0.15s ease;
+  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .act-card:hover {
   border-color: var(--accent);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px -8px rgba(0, 0, 0, 0.25);
 }
 
 .act-name {
