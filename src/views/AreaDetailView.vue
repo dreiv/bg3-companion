@@ -41,20 +41,20 @@ const act = computed(() => content.getAct(props.actId))
 
       <section class="section" v-reveal="140">
         <h2 class="section-title">Todos</h2>
-        <ul v-if="area.todos.length" class="todo-list">
+        <TransitionGroup v-if="area.todos.length" name="list" tag="ul" class="todo-list">
           <AreaTodoItem v-for="todo in area.todos" :key="todo.id" :todo="todo" />
-        </ul>
+        </TransitionGroup>
       </section>
 
-      <section class="section" v-reveal="180">
+      <section v-if="area.suggestedCompanions.length" class="section" v-reveal="180">
         <h2 class="section-title">Companions</h2>
         <div class="companion-suggestions">
-          <ul v-if="area.suggestedCompanions.length" class="companion-list">
+          <TransitionGroup name="list" tag="ul" class="companion-list">
             <li v-for="companion in area.suggestedCompanions" :key="companion.name" class="companion">
               <span class="companion-name">{{ companion.name }}</span>
               <p v-if="companion.reason" class="companion-reason">{{ companion.reason }}</p>
             </li>
-          </ul>
+          </TransitionGroup>
         </div>
       </section>
 
@@ -64,9 +64,7 @@ const act = computed(() => content.getAct(props.actId))
           <h3 class="party-rec-quest">{{ area.partyRecommendation.quest }}</h3>
           <p class="party-rec-reason">{{ area.partyRecommendation.reason }}</p>
           <ul class="party-rec-list">
-            <li v-for="(comp, i) in area.partyRecommendation.recommendedComp" :key="i">
-              {{ comp }}
-            </li>
+            <li v-for="(comp, i) in area.partyRecommendation.recommendedComp" :key="i" v-html="comp"></li>
           </ul>
           <p class="party-rec-confidence">
             Confidence: {{ area.partyRecommendation.confidence }}
@@ -113,11 +111,10 @@ const act = computed(() => content.getAct(props.actId))
 .section-title {
   margin: 0 0 0.75rem;
   font-size: 1.1rem;
-  padding-bottom: 0.4rem;
-  border-bottom: 1px solid var(--border);
 }
 
 .todo-list {
+  position: relative;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -197,6 +194,7 @@ const act = computed(() => content.getAct(props.actId))
 }
 
 .companion-list {
+  position: relative;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -220,5 +218,31 @@ const act = computed(() => content.getAct(props.actId))
   margin: 0.25rem 0 0;
   font-size: 0.88rem;
   color: var(--text-muted);
+}
+
+.list-move,
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.list-leave-active {
+  position: absolute;
+  width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .list-move,
+  .list-enter-active,
+  .list-leave-active {
+    transition: none;
+  }
 }
 </style>

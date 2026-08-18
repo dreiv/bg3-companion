@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, onMounted, onBeforeUnmount } from 'vue'
 import { useContentStore } from '@/stores/content'
 import { useProgressStore } from '@/stores/progress'
 import AreaTodoItem from '@/components/AreaTodoItem.vue'
@@ -22,6 +22,19 @@ const filteredAreas = computed(() => {
   if (!q) return areaList.value
   return areaList.value.filter((a) => a.name.toLowerCase().includes(q))
 })
+
+const filterInput = ref<HTMLInputElement | null>(null)
+
+function onGlobalKeydown(e: KeyboardEvent) {
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+    e.preventDefault()
+    filterInput.value?.focus()
+    filterInput.value?.select()
+  }
+}
+
+onMounted(() => window.addEventListener('keydown', onGlobalKeydown))
+onBeforeUnmount(() => window.removeEventListener('keydown', onGlobalKeydown))
 
 type ViewMode = 'list' | 'quests'
 const activeView = ref<ViewMode>('list')
@@ -77,17 +90,16 @@ function areaRoute(areaId: string) {
     <section v-if="activeView === 'list'" id="panel-list" role="tabpanel" aria-labelledby="tab-list" tabindex="0"
       class="tab-panel">
       <template v-if="areaList.length">
-        <input v-if="areaList.length >= 10" v-model="filter" type="text" class="area-filter"
-          placeholder="Filter areas by name…" aria-label="Filter areas by name" />
+        <input v-if="areaList.length >= 10" v-model="filter" ref="filterInput" type="text" class="area-filter"
+          placeholder="Filter areas by name… (Ctrl+K)" aria-label="Filter areas by name" />
 
         <p v-if="!filteredAreas.length" class="empty">
           No areas match “{{ filter }}”.
         </p>
 
-        <nav v-else class="area-list">
-          <RouterLink v-for="(area, i) in filteredAreas" :key="area.id"
-            :to="{ name: 'area-detail', params: { actId: actId, areaId: area.id } }" class="area-card"
-            v-reveal="Math.min(i, 8) * 40">
+        <TransitionGroup v-else name="list" tag="nav" class="area-list">
+          <RouterLink v-for="area in filteredAreas" :key="area.id"
+            :to="{ name: 'area-detail', params: { actId: actId, areaId: area.id } }" class="area-card">
             <span class="area-name">
               {{ area.name }}
               <svg v-if="area.entryWarning" class="area-warning-icon" viewBox="0 0 24 24" width="14" height="14"
@@ -102,20 +114,20 @@ function areaRoute(areaId: string) {
               {{ completion(area).done }}/{{ completion(area).total }} done
             </span>
           </RouterLink>
-        </nav>
+        </TransitionGroup>
       </template>
     </section>
 
     <section v-else-if="activeView === 'quests'" id="panel-quests" role="tabpanel" aria-labelledby="tab-quests"
       tabindex="0" class="tab-panel">
-      <ul v-if="quests.length" class="flat-list">
-        <li v-for="(item, i) in quests" :key="item.id" class="flat-item" v-reveal="Math.min(i, 8) * 40">
+      <TransitionGroup v-if="quests.length" name="list" tag="ul" class="flat-list">
+        <li v-for="item in quests" :key="item.id" class="flat-item">
           <RouterLink :to="areaRoute(item.areaId)" class="flat-area">
             {{ item.areaName }}
           </RouterLink>
           <AreaTodoItem :todo="item" />
         </li>
-      </ul>
+      </TransitionGroup>
     </section>
   </div>
 </template>
@@ -174,6 +186,7 @@ function areaRoute(areaId: string) {
 }
 
 .flat-list {
+  position: relative;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -204,6 +217,7 @@ function areaRoute(areaId: string) {
 }
 
 .area-list {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
@@ -263,5 +277,31 @@ function areaRoute(areaId: string) {
   border-color: var(--accent);
   outline: 2px solid var(--accent);
   outline-offset: 1px;
+}
+
+.list-move,
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.list-leave-active {
+  position: absolute;
+  width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .list-move,
+  .list-enter-active,
+  .list-leave-active {
+    transition: none;
+  }
 }
 </style>
