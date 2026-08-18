@@ -1,12 +1,19 @@
-import type { Area } from "./types";
+import type { Area, AreaMapImage } from "./types";
 
-const template = (id: string, name: string, actId: string, summary?: string): Area => ({
+const template = (
+  id: string,
+  name: string,
+  actId: string,
+  summary?: string,
+  mapImages: AreaMapImage[] = [],
+): Area => ({
   id,
   name,
   actId,
   ...(summary ? { summary } : {}),
   todos: [],
   suggestedCompanions: [],
+  mapImages,
 });
 
 export const areas: Area[] = [
@@ -16,6 +23,17 @@ export const areas: Area[] = [
     "Nautiloid",
     "act-0",
     "The illithid ship you wake up on — the game's tutorial section. Becomes inaccessible once you leave it.",
+    [
+      { src: "prologue-01.webp" },
+      { src: "prologue-02.webp" },
+      { src: "prologue-03.webp" },
+      { src: "prologue-04.webp" },
+      { src: "prologue-05.webp" },
+      { src: "prologue-06.webp" },
+      { src: "prologue-07.webp" },
+      { src: "prologue-08.webp" },
+      { src: "prologue-09.webp" },
+    ],
   ),
 
   // ── Act 1 — Wilderness & Underdark ──────────────────────────────────────
@@ -27,8 +45,12 @@ export const areas: Area[] = [
   ),
   template("overgrown-ruins", "Overgrown Ruins", "act-1"),
   template("mountain-pass", "Mountain Pass", "act-1"),
-  template("sunlit-wetlands", "Sunlit Wetlands", "act-1"),
-  template("overgrown-tunnel", "Overgrown Tunnel", "act-1"),
+  template("sunlit-wetlands", "Sunlit Wetlands", "act-1", undefined, [
+    { src: "sunlit-wetlands-map.webp" },
+  ]),
+  template("overgrown-tunnel", "Overgrown Tunnel", "act-1", undefined, [
+    { src: "overgrown-tunnel-map.webp" },
+  ]),
   template(
     "blighted-village",
     "Blighted Village",
@@ -36,41 +58,76 @@ export const areas: Area[] = [
     "An abandoned village occupied by goblins, with a hidden cellar and a route down into the Underdark.",
   ),
   template("apothecarys-cellar", "Apothecary's Cellar", "act-1"),
-  template("whispering-depths", "Whispering Depths", "act-1"),
+  template("whispering-depths", "Whispering Depths", "act-1", undefined, [
+    { src: "whispering-depths-map.webp" },
+  ]),
   template(
     "emerald-grove",
     "Emerald Grove",
     "act-1",
     "Druid grove sheltering tiefling refugees — an early hub for companions and quests.",
   ),
-  template("inner-sanctum", "Inner Sanctum", "act-1"),
+  template("inner-sanctum", "Inner Sanctum", "act-1", undefined, [
+    { src: "inner-sanctum-map.webp" },
+    { src: "map-emerald-grove-inner-sanctum.webp" },
+  ]),
   template("sacred-pool", "Sacred Pool", "act-1"),
-  template("secluded-cove", "Secluded Cove", "act-1"),
-  template("the-hollow", "The Hollow", "act-1"),
-  template("underground-passage", "Underground Passage", "act-1"),
+  template("secluded-cove", "Secluded Cove", "act-1", undefined, [
+    { src: "secluded-cove-map.webp" },
+  ]),
+  template("the-hollow", "The Hollow", "act-1", undefined, [{ src: "hollow-map-combined.webp" }]),
+  template("underground-passage", "Underground Passage", "act-1", undefined, [
+    { src: "underground-passage-map.webp" },
+    { src: "grove-underground-passage-map.webp" },
+  ]),
   template("forest", "Forest", "act-1"),
-  template("owlbear-nest", "Owlbear Nest", "act-1"),
+  template("owlbear-nest", "Owlbear Nest", "act-1", undefined, [{ src: "owlbear-nest-map.webp" }]),
   template(
     "goblin-camp",
     "Goblin Camp",
     "act-1",
     "Cult of the Absolute stronghold occupying a ruined temple — can be approached peacefully or violently.",
+    [{ src: "goblin-camp-outer-map.webp" }],
   ),
   template("defiled-temple", "Defiled Temple", "act-1"),
-  template("shattered-sanctum", "Shattered Sanctum", "act-1"),
+  template("shattered-sanctum", "Shattered Sanctum", "act-1", undefined, [
+    { src: "screen-map-shattered-sanctum.webp" },
+  ]),
   template("worg-pens", "Worg Pens", "act-1"),
-  template("the-risen-road", "The Risen Road", "act-1"),
+  template("the-risen-road", "The Risen Road", "act-1", undefined, [
+    { src: "risen-road-map.webp" },
+  ]),
   template("waukeens-rest", "Waukeen's Rest", "act-1"),
-  template("zhentarim-basement", "Zhentarim Basement", "act-1"),
-  template("rosymorn-monastery-trail", "Rosymorn Monastery Trail", "act-1"),
-  template("rosymorn-monastery", "Rosymorn Monastery", "act-1"),
-  template("creche-yllek", "Crèche Y'llek", "act-1"),
+  template("zhentarim-basement", "Zhentarim Basement", "act-1", undefined, [
+    { src: "zhentarim-basement-map.webp" },
+  ]),
+  template("rosymorn-monastery-trail", "Rosymorn Monastery Trail", "act-1", undefined, [
+    { src: "rosymorn-monastery-trail.webp" },
+  ]),
+  template("rosymorn-monastery", "Rosymorn Monastery", "act-1", undefined, [
+    { src: "rosymorn-monastery-lower.webp", label: "Lower" },
+    { src: "rosymorn-monastery-upper.webp", label: "Upper" },
+    { src: "rosymorn-monastery-roof.webp", label: "Roof" },
+  ]),
+  template("creche-yllek", "Crèche Y'llek", "act-1", undefined, [
+    { src: "map-cr-che-y-llek-a-terrain-tex.webp" },
+  ]),
   template("secret-chamber", "Secret Chamber", "act-1"),
-  template("arcane-tower", "Arcane Tower", "act-1"),
+  template("arcane-tower", "Arcane Tower", "act-1", undefined, [
+    { src: "arcane-tower-basement-map.webp", label: "Basement" },
+    { src: "arcane-tower-ground-floor-map.webp", label: "Ground Floor" },
+    { src: "arcane-tower-mezzanine-map.webp", label: "Mezzanine" },
+    { src: "arcane-tower-1st-floor-map.webp", label: "1st Floor" },
+    { src: "arcane-tower-2nd-floor-map.webp", label: "2nd Floor" },
+    { src: "arcane-tower-3rd-floor-map.webp", label: "3rd Floor" },
+    { src: "arcane-tower-4th-floor-map.webp", label: "4th Floor" },
+  ]),
   template("ebonlake-grotto", "Ebonlake Grotto", "act-1"),
   template("decrepit-village", "Decrepit Village", "act-1"),
   template("dread-hollow", "Dread Hollow", "act-1"),
-  template("festering-cove", "Festering Cove", "act-1"),
+  template("festering-cove", "Festering Cove", "act-1", undefined, [
+    { src: "festering-cove-map.webp" },
+  ]),
   template("selunite-outpost", "Selûnite Outpost", "act-1"),
   template("storehouse", "Storehouse", "act-1"),
   template(
@@ -80,13 +137,20 @@ export const areas: Area[] = [
     "Ancient dwarven forge deep in the Underdark, gateway to the Adamantine Forge.",
   ),
   template("adamantine-forge", "Adamantine Forge", "act-1"),
-  template("abandoned-refuge", "Abandoned Refuge", "act-1"),
+  template("abandoned-refuge", "Abandoned Refuge", "act-1", undefined, [
+    { src: "screen-map-abandoned-refuge.webp" },
+  ]),
   template("ancient-temple", "Ancient Temple", "act-1"),
-  template("astral-plane-act1", "Astral Plane", "act-1"),
+  template("astral-plane-act1", "Astral Plane", "act-1", undefined, [
+    { src: "astral-map-1.webp" },
+    { src: "astral-map-2.webp" },
+  ]),
 
   // ── Act 2 — Shadow-Cursed Lands ──────────────────────────────────────────
   template("ruined-battlefield", "Ruined Battlefield", "act-2"),
-  template("house-in-deep-shadows", "House in Deep Shadows", "act-2"),
+  template("house-in-deep-shadows", "House in Deep Shadows", "act-2", undefined, [
+    { src: "house-in-deep-shadows-location.webp" },
+  ]),
   template(
     "last-light-inn",
     "Last Light Inn",
@@ -96,25 +160,45 @@ export const areas: Area[] = [
   template("last-light-inn-cellar", "Last Light Inn – Cellar", "act-2"),
   template("reithwin-town", "Reithwin Town", "act-2"),
   template("house-of-healing", "House of Healing", "act-2"),
-  template("house-of-healing-morgue", "House of Healing Morgue", "act-2"),
+  template("house-of-healing-morgue", "House of Healing Morgue", "act-2", undefined, [
+    { src: "map-house-of-healing-morgue.webp" },
+  ]),
   template("masons-guild", "Mason's Guild", "act-2"),
   template("reithwin-graveyard", "Reithwin Graveyard", "act-2"),
   template("reithwin-tollhouse", "Reithwin Tollhouse", "act-2"),
   template("sharran-sanctuary", "Sharran Sanctuary", "act-2"),
   template("the-waning-moon", "The Waning Moon", "act-2"),
   template("grand-mausoleum", "Grand Mausoleum", "act-2"),
-  template("gauntlet-of-shar", "Gauntlet of Shar", "act-2"),
+  template("gauntlet-of-shar", "Gauntlet of Shar", "act-2", undefined, [
+    { src: "gauntlet-shar-lower-east.webp", label: "Lower East" },
+    { src: "gauntlet-shar-upper.webp", label: "Upper" },
+    { src: "trials-shar-all.webp", label: "Trials" },
+  ]),
   template(
     "moonrise-towers",
     "Moonrise Towers",
     "act-2",
     "Seat of the Absolute's cult and a major story hub for Act 2.",
+    [
+      { src: "moonrise-docks-map.webp", label: "Docks" },
+      { src: "moonrise-main-floor-map.webp", label: "Main Floor" },
+      { src: "moonrise-rafters.webp", label: "Rafters" },
+      { src: "moonrise-rooms-map.webp", label: "Rooms" },
+    ],
   ),
-  template("mind-flayer-colony", "Mind Flayer Colony", "act-2"),
+  template("mind-flayer-colony", "Mind Flayer Colony", "act-2", undefined, [
+    { src: "mind-flayer-colony-map.webp" },
+    { src: "mindflayer-colony-map-quest.webp" },
+  ]),
   template("oubliette", "Oubliette", "act-2"),
-  template("moonrise-towers-prison", "Moonrise Towers Prison", "act-2"),
-  template("moonrise-towers-rooftop", "Moonrise Towers Rooftop", "act-2"),
-  template("shadowfell", "Shadowfell", "act-2"),
+  template("moonrise-towers-prison", "Moonrise Towers Prison", "act-2", undefined, [
+    { src: "moonrise-prison-map.webp" },
+    { src: "moonrise-towers-prison-map-quest.webp" },
+  ]),
+  template("moonrise-towers-rooftop", "Moonrise Towers Rooftop", "act-2", undefined, [
+    { src: "moonrise-rooftop-map.webp" },
+  ]),
+  template("shadowfell", "Shadowfell", "act-2", undefined, [{ src: "verge-shadowfell-map.webp" }]),
 
   // ── Act 3 — Baldur's Gate ────────────────────────────────────────────────
   template(
@@ -149,14 +233,23 @@ export const areas: Area[] = [
   template("stylin-horst-potion-shop", "Stylin' Horst Potion Shop", "act-3"),
   template("danthelons-dancing-axe", "Danthelon's Dancing Axe", "act-3"),
   template("sharess-caress", "Sharess' Caress", "act-3"),
-  template("wyrms-rock-fortress", "Wyrm's Rock Fortress", "act-3"),
-  template("the-wyrmway", "The Wyrmway", "act-3"),
-  template("wyrms-rock-prison", "Wyrm's Rock Prison", "act-3"),
+  template("wyrms-rock-fortress", "Wyrm's Rock Fortress", "act-3", undefined, [
+    { src: "wyrm-s-rock-fortress-thief-s-stash-map.webp", label: "Thief's Stash" },
+    { src: "wyrms-rock-archedukes-chambers.webp", label: "Archduke's Chambers" },
+    { src: "wyrms-rock-audience-hall.webp", label: "Audience Hall" },
+    { src: "wyrms-rock-groundfloor-map.webp", label: "Ground Floor" },
+    { src: "wyrms-rock-roof.webp", label: "Roof" },
+  ]),
+  template("the-wyrmway", "The Wyrmway", "act-3", undefined, [{ src: "wyrmway-map.webp" }]),
+  template("wyrms-rock-prison", "Wyrm's Rock Prison", "act-3", undefined, [
+    { src: "wyrms-rock_prison-map.webp" },
+  ]),
   template(
     "lower-city",
     "Lower City",
     "act-3",
     "The mercantile hub and largest district of Baldur's Gate — most of Act 3 takes place here.",
+    [{ src: "map-lower-city.webp" }, { src: "map-lower-city-a-terrain-tex.webp" }],
   ),
   template("beehive-general-goods", "Beehive General Goods", "act-3"),
   template("bonecloaks-apothecary", "Bonecloak's Apothecary", "act-3"),
@@ -178,48 +271,104 @@ export const areas: Area[] = [
   template("basilisk-gate-barracks", "Basilisk Gate Barracks", "act-3"),
   template("bloomridge-park", "Bloomridge Park", "act-3"),
   template("candulhallows-tombstones", "Candulhallow's Tombstones", "act-3"),
-  template("murder-tribunal", "Murder Tribunal", "act-3"),
+  template("murder-tribunal", "Murder Tribunal", "act-3", undefined, [
+    { src: "murder-tribunal-quest-map.webp" },
+  ]),
   template("counting-house", "Counting House", "act-3"),
   template("devils-fee", "Devil's Fee", "act-3"),
   template("elerrathins-home", "Elerrathin's Home", "act-3"),
   template("elfsong-tavern", "Elfsong Tavern", "act-3"),
   template("knights-of-the-shield-hideout", "Knights of the Shield Hideout", "act-3"),
   template("felogyrs-fireworks", "Felogyr's Fireworks", "act-3"),
-  template("flymm-cargo", "Flymm Cargo", "act-3"),
-  template("iron-throne", "Iron Throne", "act-3"),
-  template("forge-of-the-nine", "Forge of the Nine", "act-3"),
+  template("flymm-cargo", "Flymm Cargo", "act-3", undefined, [
+    { src: "flymm-cargo-basement-map.webp", label: "Basement" },
+  ]),
+  template("iron-throne", "Iron Throne", "act-3", undefined, [{ src: "iron-throne-map.webp" }]),
+  template("forge-of-the-nine", "Forge of the Nine", "act-3", undefined, [
+    { src: "bg3-forge-of-the-nine.webp" },
+  ]),
   template("graveyard-lower-city", "Graveyard (Lower City)", "act-3"),
-  template("ancient-mausoleum", "Ancient Mausoleum", "act-3"),
-  template("durinbold-mausoleum", "Durinbold Mausoleum", "act-3"),
-  template("gorion-mausoleum", "Gorion Mausoleum", "act-3"),
+  template("ancient-mausoleum", "Ancient Mausoleum", "act-3", undefined, [
+    { src: "ancient-mausoleum-map.webp" },
+  ]),
+  template("durinbold-mausoleum", "Durinbold Mausoleum", "act-3", undefined, [
+    { src: "durinbold-mausoleum-map.webp" },
+  ]),
+  template("gorion-mausoleum", "Gorion Mausoleum", "act-3", undefined, [
+    { src: "gorion-mausoleum-map.webp" },
+  ]),
   template("hhune-mausoleum", "Hhune Mausoleum", "act-3"),
   template("house-of-grief", "House of Grief", "act-3"),
-  template("cloister-of-sombre-embrace", "Cloister of Sombre Embrace", "act-3"),
-  template("lady-jannaths-estate", "Lady Jannath's Estate", "act-3"),
+  template("cloister-of-sombre-embrace", "Cloister of Sombre Embrace", "act-3", undefined, [
+    { src: "map-cloister-of-sombre-embrace.webp" },
+  ]),
+  template("lady-jannaths-estate", "Lady Jannath's Estate", "act-3", undefined, [
+    { src: "jannath-estate-map.webp" },
+  ]),
   template("lustrous-lass", "Lustrous Lass", "act-3"),
   template("old-garlows-place", "Old Garlow's Place", "act-3"),
-  template("philgraves-mansion", "Philgrave's Mansion", "act-3"),
-  template("vonayns-home", "Vonayn's Home", "act-3"),
+  template("philgraves-mansion", "Philgrave's Mansion", "act-3", undefined, [
+    { src: "philgrave-mansion-map.webp" },
+    { src: "philgrave-s-mansion-basement.webp", label: "Basement" },
+  ]),
+  template("vonayns-home", "Vonayn's Home", "act-3", undefined, [
+    { src: "map-vonayn-s-home-basement.webp" },
+  ]),
   template("steel-watch-foundry", "Steel Watch Foundry", "act-3"),
   template("sorcerous-sundries", "Sorcerous Sundries", "act-3"),
   template("ramaziths-tower", "Ramazith's Tower", "act-3"),
-  template("sorcerous-vault", "Sorcerous Vault", "act-3"),
+  template("sorcerous-vault", "Sorcerous Vault", "act-3", undefined, [
+    { src: "sorcerous-vault-map.webp" },
+  ]),
   template("stormshore-tabernacle", "Stormshore Tabernacle", "act-3"),
-  template("szarr-palace", "Szarr Palace", "act-3"),
-  template("cazadors-dungeon", "Cazador's Dungeon", "act-3"),
+  template("szarr-palace", "Szarr Palace", "act-3", undefined, [
+    { src: "map-szarr-palace-a-terrain-tex.webp" },
+    { src: "map-szarr-palace-b-terrain-tex.webp" },
+    { src: "szarr-palace-1st-floor-map.webp" },
+    { src: "szarr-palace-1st-floor-with-numbers-map.webp" },
+    { src: "szarr-palace-map-combined.webp" },
+  ]),
+  template("cazadors-dungeon", "Cazador's Dungeon", "act-3", undefined, [
+    { src: "cazadors-dungeon-map.webp" },
+    { src: "cazadors-dungeon-map-lower.webp", label: "Lower Level" },
+    { src: "map-cazador-s-dungeon.webp" },
+    { src: "quest-cazador-dungeon-map.webp", label: "Quest Overview" },
+  ]),
   template("the-blushing-mermaid", "The Blushing Mermaid", "act-3"),
   template("highberrys-home", "Highberry's Home", "act-3"),
-  template("the-lodge", "The Lodge", "act-3"),
+  template("the-lodge", "The Lodge", "act-3", undefined, [{ src: "the-lodge-map.webp" }]),
   template("water-queens-house", "Water Queen's House", "act-3"),
-  template("lower-city-sewers", "Lower City Sewers", "act-3"),
-  template("abandoned-cistern", "Abandoned Cistern", "act-3"),
-  template("guildhall", "Guildhall", "act-3"),
+  template("lower-city-sewers", "Lower City Sewers", "act-3", undefined, [
+    { src: "lower-city-sewers-map.webp" },
+    { src: "map-sewers-arabella-cave.webp" },
+    { src: "map-sewers-boat.webp" },
+    { src: "map-sewers-door-to-ruins.webp" },
+    { src: "map-sewers-eastern-tunnels.webp" },
+    { src: "map-sewers-grease.webp" },
+    { src: "map-sewers-large-pipe.webp" },
+  ]),
+  template("abandoned-cistern", "Abandoned Cistern", "act-3", undefined, [
+    { src: "map-sewers-cistern.webp" },
+  ]),
+  template("guildhall", "Guildhall", "act-3", undefined, [{ src: "map-sewers-guidhall.webp" }]),
   template("undercity-ruins", "Undercity Ruins", "act-3"),
-  template("ancient-lair", "Ancient Lair", "act-3"),
-  template("bhaal-temple", "Bhaal Temple", "act-3"),
-  template("morphic-pool", "Morphic Pool", "act-3"),
+  template("ancient-lair", "Ancient Lair", "act-3", undefined, [
+    { src: "map-ancient-lair.webp" },
+    { src: "map-ancient-lair-2.webp" },
+  ]),
+  template("bhaal-temple", "Bhaal Temple", "act-3", undefined, [
+    { src: "the-temple-of-bhaal-quest-map.webp" },
+  ]),
+  template("morphic-pool", "Morphic Pool", "act-3", undefined, [
+    { src: "map-morphic-pool.webp" },
+    { src: "morphic-pool-map-quest.webp" },
+  ]),
   template("upper-city", "Upper City", "act-3"),
   template("high-hall", "High Hall", "act-3"),
-  template("upper-city-sewers", "Upper City Sewers", "act-3"),
-  template("house-of-hope", "House of Hope", "act-3"),
+  template("upper-city-sewers", "Upper City Sewers", "act-3", undefined, [
+    { src: "upper-city-sewers.webp" },
+  ]),
+  template("house-of-hope", "House of Hope", "act-3", undefined, [
+    { src: "house-of-hope-map-quest.webp" },
+  ]),
 ];

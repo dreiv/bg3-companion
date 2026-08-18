@@ -3,6 +3,7 @@ import { computed, ref } from 'vue'
 import { useContentStore } from '@/stores/content'
 import AreaTodoItem from '@/components/AreaTodoItem.vue'
 import CompanionSuggestions from '@/components/CompanionSuggestions.vue'
+import AreaMapCarousel from '@/components/AreaMapCarousel.vue'
 
 const props = defineProps<{
   actId: string
@@ -13,7 +14,7 @@ const content = useContentStore()
 const area = computed(() => content.getArea(props.areaId))
 const act = computed(() => content.getAct(props.actId))
 
-const activeTab = ref<'todos' | 'companions'>('todos')
+const activeTab = ref<'todos' | 'companions' | 'map'>('todos')
 </script>
 
 <template>
@@ -50,6 +51,10 @@ const activeTab = ref<'todos' | 'companions'>('todos')
           :class="{ active: activeTab === 'companions' }" @click="activeTab = 'companions'">
           Companions
         </button>
+        <button role="tab" :aria-selected="activeTab === 'map'" class="tab" :class="{ active: activeTab === 'map' }"
+          @click="activeTab = 'map'">
+          Map
+        </button>
       </div>
 
       <section v-if="activeTab === 'todos'" class="tab-panel">
@@ -61,8 +66,12 @@ const activeTab = ref<'todos' | 'companions'>('todos')
         </ul>
       </section>
 
-      <section v-else class="tab-panel">
+      <section v-else-if="activeTab === 'companions'" class="tab-panel">
         <CompanionSuggestions :companions="area.suggestedCompanions" />
+      </section>
+
+      <section v-else-if="activeTab === 'map'" class="tab-panel">
+        <AreaMapCarousel :images="area.mapImages" />
       </section>
     </template>
   </div>

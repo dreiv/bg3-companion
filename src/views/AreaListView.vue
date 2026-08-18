@@ -67,8 +67,8 @@ function areaRoute(areaId: string) {
       </p>
 
       <template v-else>
-        <input v-model="filter" type="text" class="area-filter" placeholder="Filter areas by name…"
-          aria-label="Filter areas by name" />
+        <input v-if="areaList.length >= 10" v-model="filter" type="text" class="area-filter"
+          placeholder="Filter areas by name…" aria-label="Filter areas by name" />
 
         <p v-if="!filteredAreas.length" class="empty">
           No areas match “{{ filter }}”.

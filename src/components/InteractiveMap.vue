@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { Act, Area } from '@/data/types'
+import { resolveImage } from '@/data/images'
 
 const props = defineProps<{
   act: Act
@@ -10,17 +11,21 @@ const props = defineProps<{
 const pinnedAreas = computed(() =>
   props.areas.filter((area) => area.mapHotspot),
 )
+
+const mapUrl = computed(() =>
+  props.act.map?.image ? resolveImage(props.act.map.image) : undefined,
+)
 </script>
 
 <template>
   <div class="interactive-map">
-    <p v-if="!act.map?.image" class="map-placeholder">
-      No map image yet — add one to <code>public/maps/</code> and set
+    <p v-if="!mapUrl" class="map-placeholder">
+      No map image yet — add one to <code>src/assets/images/</code> and set
       <code>map.image</code> on this act in <code>acts.ts</code>.
     </p>
 
     <div v-else class="map-frame">
-      <img class="map-image" :src="act.map.image" :alt="`${act.name} map`" />
+      <img class="map-image" :src="mapUrl" :alt="`${act.name} map`" />
 
       <RouterLink v-for="area in pinnedAreas" :key="area.id"
         :to="{ name: 'area-detail', params: { actId: act.id, areaId: area.id } }" class="map-pin"
