@@ -165,10 +165,18 @@ function isFilterActive(column: PopoverColumn): boolean {
   }
 }
 
-/** Combined hover text for the Properties/Effects cell (effect + description). */
-function hoverInfo(item: Item): string {
-  const parts = [item.effect, item.description].filter(Boolean);
-  return parts.join("\n\n");
+/**
+ * Combined HTML for the info tooltip (effect + description). Each part is
+ * wrapped in a `<p>` so multi-line content stacks cleanly inside the tooltip,
+ * and embedded newlines become `<br>` so they render as line breaks.
+ */
+function hoverInfoHtml(item: Item): string {
+  const parts: string[] = [];
+  if (item.effect) parts.push(item.effect);
+  if (item.description) parts.push(item.description);
+  return parts
+    .map((part) => `<p>${part.replace(/\n/g, "<br>")}</p>`)
+    .join("");
 }
 </script>
 
@@ -232,16 +240,6 @@ function hoverInfo(item: Item): string {
                 </div>
               </div>
             </div>
-          </th>
-
-          <!-- Category (display only) -->
-          <th class="th-cell th-static">
-            <span>Category</span>
-          </th>
-
-          <!-- Properties / Special Effects (display only) -->
-          <th class="th-cell th-static">
-            <span>Properties</span>
           </th>
 
           <!-- Weight (sort + numeric range filter) -->
@@ -330,26 +328,31 @@ function hoverInfo(item: Item): string {
 
       <tbody>
         <tr v-if="!items.length">
-          <td colspan="7" class="empty-row">No items match the current filters.</td>
+          <td colspan="5" class="empty-row">No items match the current filters.</td>
         </tr>
         <tr v-for="item in items" :key="item.id" class="item-row">
           <td class="cell-name">
-            <a v-if="item.url" :href="item.url" target="_blank" rel="noopener noreferrer" class="item-name"
-              :style="{ color: rarityColor(item.rarity).text }">
-              {{ item.name }}
-            </a>
-            <span v-else class="item-name" :style="{ color: rarityColor(item.rarity).text }">
-              {{ item.name }}
-            </span>
+            <div class="name-main">
+              <a v-if="item.url" :href="item.url" target="_blank" rel="noopener noreferrer" class="item-name"
+                :style="{ color: rarityColor(item.rarity).text }" v-html="item.name"></a>
+              <span v-else class="item-name" :style="{ color: rarityColor(item.rarity).text }"
+                v-html="item.name"></span>
+              <div class="info-wrap">
+                <button type="button" class="info-icon" aria-label="Item details">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="16" x2="12" y2="12" />
+                    <line x1="12" y1="8" x2="12.01" y2="8" />
+                  </svg>
+                </button>
+                <div class="info-tooltip" v-html="hoverInfoHtml(item)"></div>
+              </div>
+            </div>
+            <span class="name-category">{{ item.category ?? "—" }}</span>
           </td>
           <td>
             <Pill :label="item.rarity" :color-scheme="item.rarity" />
-          </td>
-          <td class="cell-category">{{ item.category ?? "—" }}</td>
-          <td class="cell-props" :title="hoverInfo(item)">
-            <span v-if="item.effect" class="props-effect">{{ item.effect }}</span>
-            <span v-else-if="item.description" class="props-desc">{{ item.description }}</span>
-            <span v-else class="props-empty">—</span>
           </td>
           <td class="cell-weight">{{ item.weight ?? "—" }}</td>
           <td class="cell-price">{{ item.price }}</td>
@@ -573,6 +576,100 @@ function hoverInfo(item: Item): string {
   min-width: 160px;
 }
 
+.name-main {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.info-icon {
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 0.1rem;
+  margin: 0;
+  cursor: pointer;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.info-icon:hover,
+.info-icon:focus-visible {
+  color: var(--accent);
+  outline: none;
+}
+
+.info-icon:focus-visible {
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+.info-wrap {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.info-tooltip {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 6px);
+  z-index: 30;
+  width: 280px;
+  max-width: 70vw;
+  padding: 0.6rem 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.35);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--text);
+  text-align: left;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.12s ease;
+  pointer-events: none;
+}
+
+.info-wrap:hover .info-tooltip,
+.info-wrap:focus-within .info-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.info-tooltip p {
+  margin: 0 0 0.4rem;
+}
+
+.info-tooltip p:last-child {
+  margin-bottom: 0;
+}
+
+/* v-html content: links + emphasis inside the tooltip and item names. */
+.info-tooltip :deep(a),
+.item-name :deep(a) {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.info-tooltip :deep(b),
+.info-tooltip :deep(strong),
+.item-name :deep(b),
+.item-name :deep(strong) {
+  font-weight: 600;
+}
+
+.info-tooltip :deep(i),
+.info-tooltip :deep(em),
+.item-name :deep(i),
+.item-name :deep(em) {
+  font-style: italic;
+}
+
 .item-name {
   font-weight: 600;
   text-decoration: none;
@@ -582,29 +679,12 @@ a.item-name:hover {
   text-decoration: underline;
 }
 
-.cell-category {
-  color: var(--text-muted);
-  font-size: 0.85rem;
-}
-
-.cell-props {
-  max-width: 320px;
-}
-
-.props-effect {
+.name-category {
   display: block;
-  font-size: 0.82rem;
-  color: var(--text);
-}
-
-.props-desc {
-  display: block;
-  font-size: 0.82rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
-}
-
-.props-empty {
-  color: var(--text-muted);
+  margin-top: 0.15rem;
+  line-height: 1.2;
 }
 
 .cell-price {

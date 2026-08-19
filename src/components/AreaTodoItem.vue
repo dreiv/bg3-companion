@@ -3,13 +3,16 @@ import { computed } from 'vue'
 import { useProgressStore } from '@/stores/progress'
 import Pill from '@/components/ui/Pill.vue'
 import type { AreaTodo } from '@/data/types'
-import type { SearchSegment } from '@/types/search'
 
 const props = withDefaults(
   defineProps<{
     todo: AreaTodo
-    /** Optional; renders the todo text as search-highlight segments. */
-    highlight?: (text: string) => SearchSegment[]
+    /**
+     * Optional; returns HTML with `<mark>` highlights for the active query.
+     * The todo text is HTML (wiki links, emphasis), so highlighting must be
+     * HTML-aware rather than plain-text segmenting.
+     */
+    highlight?: (html: string) => string
   }>(),
   { highlight: undefined },
 )
@@ -18,8 +21,8 @@ const progress = useProgressStore()
 
 const done = computed(() => progress.isDone(props.todo.id))
 
-const textSegments = computed<SearchSegment[]>(() =>
-  props.highlight ? props.highlight(props.todo.text) : [{ text: props.todo.text, match: false }],
+const textHtml = computed<string>(() =>
+  props.highlight ? props.highlight(props.todo.text) : props.todo.text,
 )
 
 function onToggle() {
@@ -31,12 +34,7 @@ function onToggle() {
   <li class="todo-item" :class="{ done: done, timed: todo.timed }">
     <label class="todo-row">
       <input type="checkbox" class="todo-checkbox" :checked="done" @change="onToggle" />
-      <span class="todo-text">
-        <template v-for="(seg, i) in textSegments" :key="i">
-          <mark v-if="seg.match" class="search-highlight">{{ seg.text }}</mark>
-          <template v-else>{{ seg.text }}</template>
-        </template>
-      </span>
+      <span class="todo-text" v-html="textHtml"></span>
     </label>
 
     <Pill :label="todo.category" :color-scheme="todo.category" />
@@ -120,5 +118,26 @@ function onToggle() {
 
 .todo-note :deep(a) {
   color: var(--accent);
+}
+
+/* v-html content: links + emphasis injected into the todo text and note. */
+.todo-text :deep(a),
+.todo-note :deep(a) {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.todo-text :deep(b),
+.todo-text :deep(strong),
+.todo-note :deep(b),
+.todo-note :deep(strong) {
+  font-weight: 600;
+}
+
+.todo-text :deep(i),
+.todo-text :deep(em),
+.todo-note :deep(i),
+.todo-note :deep(em) {
+  font-style: italic;
 }
 </style>

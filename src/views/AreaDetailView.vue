@@ -24,7 +24,7 @@ const act = computed(() => content.getAct(props.actId))
     </header>
 
     <template v-if="area">
-      <p v-if="area.summary" class="summary" v-reveal="60">{{ area.summary }}</p>
+      <p v-if="area.summary" class="summary" v-reveal="60" v-html="area.summary"></p>
 
       <div v-if="area.entryWarning" class="entry-warning" v-reveal="100">
         <svg class="entry-warning-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
@@ -35,7 +35,7 @@ const act = computed(() => content.getAct(props.actId))
         </svg>
         <div class="entry-warning-body">
           <span class="entry-warning-label">Warning</span>
-          <p class="entry-warning-text">{{ area.entryWarning }}</p>
+          <p class="entry-warning-text" v-html="area.entryWarning"></p>
         </div>
       </div>
 
@@ -52,7 +52,7 @@ const act = computed(() => content.getAct(props.actId))
           <TransitionGroup name="list" tag="ul" class="companion-list">
             <li v-for="companion in area.suggestedCompanions" :key="companion.name" class="companion">
               <span class="companion-name">{{ companion.name }}</span>
-              <p v-if="companion.reason" class="companion-reason">{{ companion.reason }}</p>
+              <p v-if="companion.reason" class="companion-reason" v-html="companion.reason"></p>
             </li>
           </TransitionGroup>
         </div>
@@ -61,8 +61,8 @@ const act = computed(() => content.getAct(props.actId))
       <section v-if="area.partyRecommendation" class="section" v-reveal="220">
         <h2 class="section-title">Party</h2>
         <div class="party-rec">
-          <h3 class="party-rec-quest">{{ area.partyRecommendation.quest }}</h3>
-          <p class="party-rec-reason">{{ area.partyRecommendation.reason }}</p>
+          <h3 class="party-rec-quest" v-html="area.partyRecommendation.quest"></h3>
+          <p class="party-rec-reason" v-html="area.partyRecommendation.reason"></p>
           <ul class="party-rec-list">
             <li v-for="(comp, i) in area.partyRecommendation.recommendedComp" :key="i" v-html="comp"></li>
           </ul>
@@ -250,6 +250,43 @@ const act = computed(() => content.getAct(props.actId))
   margin: 0.25rem 0 0;
   font-size: 0.88rem;
   color: var(--text-muted);
+}
+
+/* v-html content: links + emphasis injected into summaries, warnings,
+   companion reasons, and party recommendations. */
+.summary :deep(a),
+.entry-warning-text :deep(a),
+.companion-reason :deep(a),
+.party-rec-quest :deep(a),
+.party-rec-reason :deep(a) {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.summary :deep(b),
+.summary :deep(strong),
+.entry-warning-text :deep(b),
+.entry-warning-text :deep(strong),
+.companion-reason :deep(b),
+.companion-reason :deep(strong),
+.party-rec-quest :deep(b),
+.party-rec-quest :deep(strong),
+.party-rec-reason :deep(b),
+.party-rec-reason :deep(strong) {
+  font-weight: 600;
+}
+
+.summary :deep(i),
+.summary :deep(em),
+.entry-warning-text :deep(i),
+.entry-warning-text :deep(em),
+.companion-reason :deep(i),
+.companion-reason :deep(em),
+.party-rec-quest :deep(i),
+.party-rec-quest :deep(em),
+.party-rec-reason :deep(i),
+.party-rec-reason :deep(em) {
+  font-style: italic;
 }
 
 .list-move,

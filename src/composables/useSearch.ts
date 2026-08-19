@@ -7,7 +7,7 @@ import {
   type MaybeRefOrGetter,
   type Ref,
 } from "vue";
-import { normalizeQuery, splitByQuery } from "@/utils/search";
+import { normalizeQuery, splitByQuery, highlightHtml } from "@/utils/search";
 import type { SearchSegment } from "@/types/search";
 
 export interface UseSearchOptions {
@@ -23,6 +23,11 @@ export interface UseSearchReturn {
   /** Filter items by a key extractor; returns all items when no query is active. */
   filter: <T>(items: readonly T[], key: (item: T) => string) => T[];
   highlight: (text: string) => SearchSegment[];
+  /**
+   * Highlight query matches inside an HTML string, returning a new HTML string
+   * with `<mark>` wrappers. Safe for content rendered via `v-html`.
+   */
+  highlightHtml: (html: string) => string;
   focus: () => void;
 }
 
@@ -43,6 +48,10 @@ export function useSearch(options: UseSearchOptions = {}): UseSearchReturn {
     return splitByQuery(text, query.value);
   }
 
+  function highlightHtmlFn(html: string): string {
+    return highlightHtml(html, query.value);
+  }
+
   function focus(): void {
     const el = input ? toValue(input) : null;
     el?.focus();
@@ -61,5 +70,5 @@ export function useSearch(options: UseSearchOptions = {}): UseSearchReturn {
     onBeforeUnmount(() => window.removeEventListener("keydown", onGlobalKeydown));
   }
 
-  return { query, isActive, filter, highlight, focus };
+  return { query, isActive, filter, highlight, highlightHtml: highlightHtmlFn, focus };
 }

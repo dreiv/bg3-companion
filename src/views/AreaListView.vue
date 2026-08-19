@@ -152,7 +152,7 @@ function areaRoute(areaId: string) {
             <RouterLink :to="areaRoute(item.areaId)" class="flat-area">
               {{ item.areaName }}
             </RouterLink>
-            <AreaTodoItem :todo="item" :highlight="search.highlight" />
+            <AreaTodoItem :todo="item" :highlight="search.highlightHtml" />
           </li>
         </TransitionGroup>
       </template>

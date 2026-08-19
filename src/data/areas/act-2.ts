@@ -1,12 +1,12 @@
 import type { Area } from "../types";
-import { template } from "./factory";
+import { template, wiki, wikiItem, wikiSpell } from "./factory";
 
 export const act2Areas: Area[] = [
   template(
     "ruined-battlefield",
     "Ruined Battlefield",
     "act-2",
-    "A desolate wasteland consumed by the Shadow Curse, connecting Grymforge to the Last Light Inn.",
+    "A desolate wasteland consumed by the Shadow Curse, connecting Grymforge to the Last Light Inn — your first real exposure to the curse itself, and a last chance to meet a missed NPC from Act 1.",
     {
       quest: "Find a Way to Protect Yourself from the Curse / Reach Last Light Inn",
       recommendedComp: [
@@ -20,24 +20,31 @@ export const act2Areas: Area[] = [
     [
       {
         id: "battlefield-elminster",
-        text: "Meet Elminster Aumar (if missed)",
+        text: `Meet ${wiki("Elminster Aumar", "Elminster")} (if missed)`,
         category: "companion",
-        timed: false,
-        note: "If missed in Act 1, Elminster is found here. He delivers Mystra's message to Gale.",
+        timed: true,
+        note: "If missed in Act 1 at the Mountain Pass, Elminster is found here instead. He delivers Mystra's message to Gale, stabilizing his orb. This is genuinely your last chance to meet him — he does not reappear again anywhere in the game.",
       },
       {
         id: "battlefield-harpers",
         text: "Help the Harpers fight the Shadows",
         category: "quest",
         timed: false,
-        note: "Assist Lassandra and her group against the shadow-corrupted Yonas. She will mark the location of Last Light Inn on your map.",
+        note: `Assist ${wiki("Lassandra")} and her group against the shadow-corrupted Yonas. She will mark the location of Last Light Inn on your map.`,
+      },
+      {
+        id: "battlefield-rolan",
+        text: `Rescue ${wiki("Rolan")} from the shadows`,
+        category: "quest",
+        timed: true,
+        note: `Only relevant once you've started "Resolve the Abduction" (his sisters' quest, given by the twins Lorroakan's shop or later contacts). Approaching Rolan's location here triggers combat between him and the shadows immediately — if you don't intervene fast, he's killed before you can save him.`,
       },
       {
         id: "battlefield-torches",
         text: "Light braziers to traverse safely",
         category: "quest",
         timed: false,
-        note: "Use Torches or light spells to avoid the <i>Shadow Curse</i> debuff. In deeper shadows, only the Moonlantern or Shadowheart's Sharran blessing provides protection.",
+        note: `Use Torches or light spells to avoid the ${wikiItem("Shadow Curse")} debuff. In deeper shadows, only the ${wikiItem("Moonlantern")} or Shadowheart's Sharran blessing provides protection.`,
       },
     ],
   ),
@@ -45,7 +52,7 @@ export const act2Areas: Area[] = [
     "last-light-inn",
     "Last Light Inn",
     "act-2",
-    "A warded sanctuary in the Shadow-Cursed Lands, held by Harpers and Flaming Fist.",
+    "A warded sanctuary in the Shadow-Cursed Lands, held by Harpers and the Flaming Fist under Jaheira and the cleric Isobel — the central hub for most of Act 2, and the site of one of the act's most brutal instant-fail timers.",
     {
       quest: "Infiltrate Moonrise Towers / Get Help from the Cleric Isobel",
       recommendedComp: [
@@ -57,37 +64,51 @@ export const act2Areas: Area[] = [
       confidence: "high",
     },
     [
-      { name: "Jaheira", reason: "High Harper leader; can join your party permanently later." },
-      { name: "Isobel", reason: "Selunite cleric; her ward protects the inn." },
+      { name: "Jaheira", reason: "High Harper leader running the defense of Last Light Inn; can join your party permanently later, once you've dealt with Ketheric. She's brusque and mission-focused in early dialogue — approval comes from competence, not flattery." },
+      { name: "Isobel", reason: "Selûnite cleric whose ward protects the inn from the Shadow Curse. Warm and earnest, but noticeably cagey about her own past — for good reason, as her true identity becomes a major Act 2 reveal." },
     ],
     [
       {
         id: "inn-meet-jaheira",
-        text: "Speak with Jaheira",
+        text: `Speak with ${wiki("Jaheira")}`,
         category: "quest",
         timed: false,
         note: "Show her the artifact. She explains Ketheric Thorm's invincibility and tasks you with infiltrating Moonrise Towers.",
       },
       {
         id: "inn-isobel-shield",
-        text: "Get Isobel's protection spell",
+        text: `Get ${wiki("Isobel")}'s protection spell`,
         category: "quest",
         timed: false,
         note: "Speak to Isobel upstairs. She grants you a temporary ward against the Shadow Curse.",
       },
       {
-        id: "inn-marcus-attack",
-        text: "Defend Isobel from Marcus",
+        id: "inn-florrick",
+        text: `Speak with ${wiki("Florrick")} before she leaves`,
         category: "quest",
         timed: true,
-        note: "As soon as you speak to Isobel, Marcus attacks. If you long rest at any point before defeating Marcus and his Winged Horrors, Isobel is kidnapped, the ward falls, and everyone in the inn dies instantly. Focus fire Marcus and use <i>Sanctuary</i> or <i>Shield of Faith</i> on Isobel.",
+        note: "Easy to miss: if you don't talk to Counsellor Florrick soon after arriving at the inn, she leaves on her own after a single long rest, only leaving behind a letter explaining where she went. Speak to her early if you want the full conversation.",
+      },
+      {
+        id: "inn-selunite-resistance",
+        text: "Investigate the Selunite Resistance",
+        category: "quest",
+        timed: false,
+        note: "Easy to miss: this quest starts down in the Inn's cellar, not from a marked NPC on the main floor. It sends you to several otherwise-optional locations across the Shadow-Cursed Lands and gives valuable context for the Isobel/Aylin story — worth grabbing before you commit to the main path.",
+      },
+      {
+        id: "inn-marcus-attack",
+        text: `Defend Isobel from ${wiki("Marcus")}`,
+        category: "quest",
+        timed: true,
+        note: `As soon as you speak to Isobel, Marcus attacks. If you long rest at any point before defeating Marcus and his Winged Horrors, Isobel is kidnapped, the ward falls, and everyone in the inn — Harpers, refugees, Jaheira included — dies instantly on your next visit. This fight cannot be postponed once triggered. Focus fire Marcus and use ${wikiSpell("Sanctuary")} or ${wikiSpell("Shield of Faith")} on Isobel.`,
       },
       {
         id: "inn-mizora-warning",
-        text: "WARNING: Rescue Mizora",
+        text: `WARNING: Rescue ${wiki("Mizora")}`,
         category: "companion",
         timed: true,
-        note: "After Marcus's attack, Wyll receives a quest to rescue Mizora from Moonrise Towers Prison. If you long rest too many times or assault Moonrise before entering the prison, Mizora dies and Wyll is dragged to Avernus (game over for Wyll).",
+        note: "After Marcus's attack, Wyll receives a quest to rescue Mizora from Moonrise Towers Prison. The real trigger to watch for isn't a rest counter — it's entering the Shadowfell as part of 'Find Ketheric Thorm's Relic'. Do that before freeing Mizora from her pod in the prison, and she dies, dragging Wyll to Avernus (a de facto game over for his arc).",
       },
     ],
   ),
@@ -95,7 +116,7 @@ export const act2Areas: Area[] = [
     "house-in-deep-shadows",
     "House in Deep Shadows",
     "act-2",
-    "A small, dilapidated house near the Last Light Inn.",
+    "A small, dilapidated house near the Last Light Inn, easy to walk past in the darkness.",
     undefined,
     undefined,
     [
@@ -104,7 +125,7 @@ export const act2Areas: Area[] = [
         text: "Loot the hidden chest",
         category: "loot",
         timed: false,
-        note: "A perception check reveals a chest containing minor loot.",
+        note: "A perception check reveals a chest containing minor loot. Blink dogs and an owner's diary here are easy to overlook if you don't search every room.",
       },
     ],
   ),
@@ -112,7 +133,7 @@ export const act2Areas: Area[] = [
     "reithwin-town",
     "Reithwin Town",
     "act-2",
-    "The ruins of a town overcome by the Shadow Curse, near the Masons' Guild.",
+    "The ruins of a town overcome by the Shadow Curse, near the Masons' Guild — quiet on the surface, but riddled with traps, undead, and one very well-hidden second loot room.",
     {
       quest: "Investigate the Thorm Mausoleum",
       recommendedComp: [
@@ -129,14 +150,21 @@ export const act2Areas: Area[] = [
         text: "Explore the Masons' Guild",
         category: "loot",
         timed: false,
-        note: "Find the <b>Helmet of Arcane Acuity</b> in a trapped chest in the basement.",
+        note: `Find the ${wikiItem("Helmet of Arcane Acuity")} in a trapped chest in the basement.`,
       },
       {
         id: "reithwin-rats",
         text: "Speak with the rats (if available)",
         category: "quest",
         timed: false,
-        note: "If you have <i>Speak with Animals</i>, learn about the rat swarm and the Justiciar turned rat.",
+        note: `If you have ${wikiSpell("Speak with Animals")}, learn about the rat swarm and the Justiciar turned rat.`,
+      },
+      {
+        id: "reithwin-tollhouse",
+        text: `Explore the ${wiki("Toll House of Reithwin", "Toll_House")} & defeat ${wiki("Gerringothe Thorm")}`,
+        category: "loot",
+        timed: false,
+        note: "Easy to miss depending on your route through the Shadow-Cursed Lands. On the top floor, a shadow-cursed gold dragon skeleton (Gerringothe Thorm) guards loot. After defeating her, smash the rotten floorboards in her office to drop into a second, well-hidden loot room most players never find.",
       },
     ],
   ),
@@ -144,7 +172,7 @@ export const act2Areas: Area[] = [
     "reithwin-graveyard",
     "Reithwin Graveyard",
     "act-2",
-    "A cemetery outside the Reithwin Town, housing the Grand Mausoleum.",
+    "A cemetery outside Reithwin Town, housing the Grand Mausoleum and the entrance to the Gauntlet of Shar.",
     undefined,
     undefined,
     [
@@ -157,10 +185,10 @@ export const act2Areas: Area[] = [
       },
       {
         id: "graveyard-loot",
-        text: "Loot sarcophagi",
+        text: `Loot sarcophagi for ${wikiItem("Boots of Apparent Death")} & ${wikiItem("Icebite Robe")}`,
         category: "loot",
         timed: false,
-        note: "Find the <b>Boots of Apparent Death</b> and <b>Icebite Robe</b> in the northern tombs.",
+        note: "Found in the northern tombs.",
       },
     ],
   ),
@@ -168,7 +196,7 @@ export const act2Areas: Area[] = [
     "house-of-healing",
     "House of Healing",
     "act-2",
-    "A corrupted clinic run by Malus Thorm, a necromancer.",
+    `A corrupted clinic run by the necromancer ${wiki("Malus Thorm")} — a small area with an unusually good hidden trade-off tucked in one of its rooms.`,
     {
       quest: "Find Protection / Loot",
       recommendedComp: [
@@ -182,17 +210,17 @@ export const act2Areas: Area[] = [
     [
       {
         id: "healing-malus-thorm",
-        text: "Defeat Malus Thorm",
+        text: `Defeat ${wiki("Malus Thorm")}`,
         category: "quest",
         timed: false,
-        note: "Use Deception to make the nurses attack him, or kill them all. Loot the <b>Cracked Helm of St. Damon</b>.",
+        note: `Use Deception to make the nurses attack him, or kill them all. Loot the ${wikiItem("Cracked Helm of St. Damon", "Helm_of_Saint_Dam'yon")}.`,
       },
       {
         id: "healing-dolly",
-        text: "Loot Dolly Dolly Dolly (Pixie)",
+        text: `Loot or free ${wiki("Dolly Dolly Dolly")} (Pixie)`,
         category: "loot",
-        timed: false,
-        note: "If you killed the Drider (Kar'niss) on the battlefield, you have the Moonlantern. Smash it to free Dolly for a permanent blessing, or keep the lantern.",
+        timed: true,
+        note: `If you killed the Drider (Kar'niss) on the battlefield, you have the ${wikiItem("Moonlantern")}. Smash it to free Dolly for a permanent blessing, or keep the lantern for its light. Easy to miss this trade-off — most players just keep the lantern and never realize what smashing it grants. <b>Timer:</b> if you never free her, Dolly dies once you leave for Act 3 — decide before you cross into Rivington.`,
       },
     ],
   ),
@@ -200,7 +228,7 @@ export const act2Areas: Area[] = [
     "grand-mausoleum",
     "Grand Mausoleum",
     "act-2",
-    "The tomb of Ketheric Thorm's family, hiding the entrance to the Gauntlet of Shar.",
+    "The tomb of Ketheric Thorm's family, hiding a logic-puzzle entrance to the Gauntlet of Shar.",
     {
       quest: "Investigate the Thorm Mausoleum",
       recommendedComp: [
@@ -232,7 +260,7 @@ export const act2Areas: Area[] = [
     "gauntlet-of-shar",
     "Gauntlet of Shar",
     "act-2",
-    "A massive underground temple dedicated to the goddess Shar.",
+    `A massive underground temple dedicated to Shar, and the setting for the climax of ${wiki("Shadowheart")}'s companion arc — three trials, a hidden library, and a boss fight all wrapped into one dungeon.`,
     {
       quest: "Trials of Shar / Infiltrate Moonrise Towers",
       recommendedComp: [
@@ -250,35 +278,35 @@ export const act2Areas: Area[] = [
         text: "Complete Soft-Step Trial",
         category: "quest",
         timed: false,
-        note: "Sneak through the maze to the key. Invisibility spells or <i>Dimension Door</i> bypass this easily.",
+        note: `Sneak through the maze to the key. Invisibility spells or ${wikiSpell("Dimension Door")} bypass this easily.`,
       },
       {
         id: "gauntlet-self-same",
         text: "Complete Self-Same Trial",
         category: "quest",
         timed: false,
-        note: "Defeat your clones. Remove your armor before starting to make the clones weaker. Do not attack clones other than your own to avoid the <i>Cheater's Folly</i> debuff.",
+        note: `Defeat your clones. Remove your armor before starting to make the clones weaker. Do not attack clones other than your own to avoid the ${wikiItem("Cheater's Folly")} debuff.`,
       },
       {
         id: "gauntlet-faith-leap",
         text: "Complete Faith-Leap Trial",
         category: "quest",
         timed: false,
-        note: "Use <i>Daylight</i> or <i>Fly</i> to bypass the invisible platform puzzle easily.",
+        note: `Use ${wikiSpell("Daylight")} or ${wikiSpell("Fly")} to bypass the invisible platform puzzle easily.`,
       },
       {
         id: "gauntlet-silent-library",
         text: "Solve the Silent Library",
         category: "loot",
         timed: false,
-        note: "Kill the Justiciars silently from range. Place the <b>Teachings of Loss: The Nightsinger</b> book on the pedestal to unlock the vault. Loot the <b>Spear of Night</b> and <b>Dark Justiciar Half-Plate</b>.",
+        note: `Kill the Justiciars silently from range. Place the ${wikiItem("Teachings of Loss: The Nightsinger")} book on the pedestal to unlock the vault. Loot the ${wikiItem("Spear of Night")} and ${wikiItem("Dark Justiciar Half-Plate")}.`,
       },
       {
         id: "gauntlet-balthazar",
-        text: "Defeat Balthazar",
+        text: `Defeat ${wiki("Balthazar")}`,
         category: "quest",
         timed: false,
-        note: "Convince him to help or kill him immediately. If you kill him, you can loot his body and retrieve the Moonlantern. If you let him live, he attacks in the Shadowfell.",
+        note: `Convince him to help or kill him immediately. If you kill him, you can loot his body and retrieve the ${wikiItem("Moonlantern")}. If you let him live, he attacks in the Shadowfell.`,
       },
       {
         id: "gauntlet-umbral-gems",
@@ -287,19 +315,26 @@ export const act2Areas: Area[] = [
         timed: false,
         note: "Insert the gems into the altar. This unlocks the entrance to the Shadowfell.",
       },
+      {
+        id: "gauntlet-shadowfell-warning",
+        text: "WARNING: entering the Shadowfell is a point of no return",
+        category: "quest",
+        timed: true,
+        note: "Every Act 2 map up to this point becomes permanently inaccessible once you enter the Shadowfell to rescue the Nightsong. It's also the hard trigger for the Wulbren/Tieflings prison timer in Moonrise Towers Prison, below — free them first.",
+      },
     ],
   ),
   template(
     "sharran-sanctuary",
     "Sharran Sanctuary",
     "act-2",
-    "The inner sanctum of the Gauntlet of Shar.",
+    "The inner sanctum of the Gauntlet of Shar, where the demon Yurgir waits under a binding contract.",
     undefined,
     undefined,
     [
       {
         id: "sanctuary-yurgir",
-        text: "Defeat or Ally with Yurgir",
+        text: `Defeat or Ally with ${wiki("Yurgir")}`,
         category: "quest",
         timed: false,
         note: "Kill the rats in the sanctuary to break Yurgir's contract and avoid fighting him. If you ally with him, he aids you in Act 3 (House of Hope).",
@@ -310,7 +345,7 @@ export const act2Areas: Area[] = [
     "shadowfell",
     "Shadowfell",
     "act-2",
-    "The astral domain of Shar, where the Nightsong is imprisoned.",
+    `The astral domain of Shar, where the Nightsong is imprisoned — the climax of ${wiki("Shadowheart")}'s personal quest, where her Sharran faith and her growing bond with the party come to a head.`,
     {
       quest: "Free the Nightsong",
       recommendedComp: [
@@ -324,17 +359,17 @@ export const act2Areas: Area[] = [
     [
       {
         id: "shadowfell-balthazar",
-        text: "Defeat Balthazar (if alive)",
+        text: `Defeat ${wiki("Balthazar")} (if alive)`,
         category: "quest",
         timed: false,
-        note: "If you didn't kill him in the Gauntlet, he attacks here. Focus him down quickly; use <i>Sanctuary</i> on Nightsong to protect her.",
+        note: `If you didn't kill him in the Gauntlet, he attacks here. Focus him down quickly; use ${wikiSpell("Sanctuary")} on Nightsong to protect her.`,
       },
       {
         id: "shadowfell-nightsong",
         text: "Persuade Shadowheart to spare Nightsong",
         category: "companion",
         timed: false,
-        note: "Pass a DC 21 Persuasion check (or pick the right dialogue) to make Shadowheart throw away the Spear of Night. This saves Dame Aylin, who becomes a crucial ally against Ketheric.",
+        note: `Pass a DC 21 Persuasion check (or pick the right dialogue) to make Shadowheart throw away the Spear of Night. This saves ${wiki("Dame Aylin", "Aylin")}, who becomes a crucial ally against Ketheric.`,
       },
     ],
   ),
@@ -342,7 +377,7 @@ export const act2Areas: Area[] = [
     "moonrise-towers",
     "Moonrise Towers",
     "act-2",
-    "Seat of the Absolute's cult and a major story hub for Act 2.",
+    "Seat of the Absolute's cult and Act 2's main story hub — playable as a stealth infiltration, a social 'True Soul' disguise, or a straight assault, with a forced confrontation with Ketheric Thorm waiting at the top.",
     {
       quest: "Infiltrate / confront the cult",
       recommendedComp: [
@@ -356,21 +391,21 @@ export const act2Areas: Area[] = [
     [
       {
         id: "moonrise-meet-zrell",
-        text: "Meet Disciple Z'rell",
+        text: `Meet Disciple ${wiki("Z'rell")}`,
         category: "quest",
         timed: false,
         note: "Play along as a True Soul. She tasks you with retrieving the relic (Nightsong) from Balthazar.",
       },
       {
         id: "moonrise-araj-oblodra",
-        text: "Deal with Araj Oblodra",
+        text: `Deal with ${wiki("Araj Oblodra")}`,
         category: "loot",
         timed: false,
-        note: "She offers a permanent +2 Strength potion if you let Astarion bite her. He will refuse and disapprove if you force him, but you still get the potion. Do NOT force him if you want his personal quest to resolve cleanly.",
+        note: `She offers a permanent +2 Strength potion if you let Astarion bite her. He will refuse and disapprove if you force him, but you still get the potion. Do NOT force him if you want his personal quest to resolve cleanly.`,
       },
       {
         id: "moonrise-ketheric-confrontation",
-        text: "Confront Ketheric Thorm",
+        text: `Confront ${wiki("Ketheric Thorm")}`,
         category: "quest",
         timed: false,
         note: "If you freed Nightsong, Aylin breaks through the roof. Fight Ketheric on the rooftop; he flees into the Mind Flayer Colony. Jaheira joins you permanently here.",
@@ -381,11 +416,11 @@ export const act2Areas: Area[] = [
     "moonrise-towers-prison",
     "Moonrise Towers Prison",
     "act-2",
-    "The dungeon beneath Moonrise Towers.",
+    "The dungeon beneath Moonrise Towers, holding Wulbren, the surviving tieflings, Mizora, and a scattering of missable Act 1 NPCs in its pod room.",
     {
       quest: "Free Wulbren & Tieflings",
       recommendedComp: [
-        "A party with <i>Telekinesis</i> or Thieves' Tools",
+        `A party with ${wikiSpell("Telekinesis")} or Thieves' Tools`,
         "high Stealth",
       ],
       reason: "Requires sneaking past Scrying Eyes and guards, or lockpicking doors.",
@@ -397,31 +432,38 @@ export const act2Areas: Area[] = [
     [
       {
         id: "moonrise-prison-warning",
-        text: "WARNING: Free prisoners before attacking Ketheric",
+        text: "WARNING: Free prisoners before entering the Shadowfell",
         category: "quest",
         timed: true,
-        note: "If you attack Moonrise or progress Ketheric's rooftop fight before freeing the tieflings and gnomes, they will be executed or killed in the crossfire. Free them first!",
+        note: "The real trigger here is entering the Shadowfell (via 'Find Ketheric Thorm's Relic'), not the rooftop fight itself: doing so before freeing Wulbren and the tieflings ends their rescue quests as failures. Free them first, then pursue the Nightsong.",
       },
       {
         id: "moonrise-prison-warden",
         text: "Kill the Warden & retrieve tools",
         category: "quest",
         timed: false,
-        note: "Sneak up the ladder to her office. Destroy the Scrying Eye first, then kill her. Loot the <b>Spellcrux Amulet</b> and key.",
+        note: `Sneak up the ladder to her office. Destroy the Scrying Eye first, then kill her. Loot the ${wikiItem("Spellcrux Amulet")} and key.`,
       },
       {
         id: "moonrise-prison-escape",
-        text: "Free Wulbren & Tieflings",
+        text: `Free ${wiki("Wulbren")} & Tieflings`,
         category: "quest",
         timed: false,
-        note: "Use the levers to open the cells. Give Wulbren a tool (or use <i>Telekinesis</i> on a rock) to break the wall. They escape to Last Light.",
+        note: `Use the levers to open the cells. Give Wulbren a tool (or use ${wikiSpell("Telekinesis")} on a rock) to break the wall. They escape to Last Light.`,
       },
       {
         id: "moonrise-prison-mizora",
-        text: "Free Mizora (Wyll Quest)",
+        text: `Free ${wiki("Mizora")} (Wyll Quest)`,
         category: "companion",
         timed: true,
-        note: "Located in the pod room. Use the Right Console to free her. If you use the Left Console, she dies and Wyll is dragged to Avernus. Must be done before confronting Ketheric.",
+        note: "Located in the pod room. Use the Right Console to free her. If you use the Left Console, she dies and Wyll is dragged to Avernus. Must be done before entering the Shadowfell.",
+      },
+      {
+        id: "moonrise-prison-yeva",
+        text: "Check the Tadpoling Centre pods for missed Act 1 NPCs",
+        category: "loot",
+        timed: false,
+        note: "Easy to miss: several Act 1 NPCs (e.g. Gauntlet Yeva, if she survived Waukeen's Rest) can turn up imprisoned in pods here. Freeing them can trigger a fight against already-transformed Intellect Devourers nearby, so be ready before releasing everyone at once.",
       },
     ],
   ),
@@ -429,13 +471,13 @@ export const act2Areas: Area[] = [
     "moonrise-towers-rooftop",
     "Moonrise Towers Rooftop",
     "act-2",
-    "The top of Moonrise, where Ketheric makes his last stand.",
+    "The top of Moonrise, where Ketheric makes his first stand against Aylin and the party.",
     undefined,
     undefined,
     [
       {
         id: "rooftop-ketheric-1",
-        text: "Fight Ketheric Thorm (Phase 1)",
+        text: `Fight ${wiki("Ketheric Thorm")} (Phase 1)`,
         category: "quest",
         timed: false,
         note: "Reduce his HP to zero. Aylin will swoop in, but a tentacle grabs her and Ketheric escapes into the colony below. Jump down the chasm to follow.",
@@ -446,7 +488,7 @@ export const act2Areas: Area[] = [
     "mind-flayer-colony",
     "Mind Flayer Colony",
     "act-2",
-    "An organic, fleshy dungeon beneath Moonrise Towers, housing the Elder Brain and Ketheric's true master.",
+    "An organic, fleshy dungeon beneath Moonrise Towers, housing the Elder Brain, Ketheric's true master — and Act 2's most consequential single choice, tucked inside a side room most players stumble into unprepared.",
     {
       quest: "Defeat Ketheric Thorm",
       recommendedComp: [
@@ -463,38 +505,38 @@ export const act2Areas: Area[] = [
     [
       {
         id: "colony-us",
-        text: "Free 'Us' (the Intellect Devourer)",
+        text: `Free 'Us' (the Intellect Devourer)`,
         category: "companion",
         timed: false,
-        note: "If you spared Us in Act 0, it appears here in a cage. Free it to gain the <b>Summon Us</b> item.",
+        note: `If you spared ${wiki("Us")} in Act 0, it appears here in a cage. Free it to gain the ${wikiItem("Summon Us")} item.`,
       },
       {
         id: "colony-resonance-stone",
-        text: "Retrieve the Resonance Stone",
+        text: `Retrieve the ${wikiItem("Resonance Stone")}`,
         category: "loot",
         timed: false,
-        note: "Found on a table in the Necrotic Laboratory. Causes the <i>Resonance Stone</i> effect, making party members feel emotions.",
+        note: "Found on a table in the Necrotic Laboratory. Causes the Resonance Stone effect, making party members feel emotions. Easy to miss — it's a small item on a cluttered lab table.",
       },
       {
         id: "colony-zevlor",
-        text: "Free Zevlor from the pod",
+        text: `Free ${wiki("Zevlor")} from the pod`,
         category: "companion",
         timed: false,
-        note: "Use <i>Help</i> to free him. He explains he was enthralled and surrendered the tieflings.",
+        note: "Use Help to free him. He explains he was enthralled and surrendered the tieflings.",
       },
       {
         id: "colony-gale-sacrifice",
         text: "WARNING: Gale's Alternate Ending",
         category: "companion",
         timed: true,
-        note: "If you choose to let Gale detonate the orb here, he dies instantly, destroying the Elder Brain but ending the game (bad ending). Do not trigger this if you want the full Act 3 experience.",
+        note: "If you choose to let Gale detonate the orb here, he dies instantly, destroying the Netherbrain but ending the game (bad ending) before Act 3 even starts. Do not trigger this if you want the full Act 3 experience — note that a second, better-telegraphed version of this same choice returns at the very end of Act 3 (Morphic Pool), so declining here doesn't lose the option permanently.",
       },
       {
         id: "colony-ketheric-2",
-        text: "Defeat Ketheric Thorm (Phase 2)",
+        text: `Defeat ${wiki("Ketheric Thorm")} (Phase 2)`,
         category: "quest",
         timed: false,
-        note: "He transforms into the Apostle of Myrkul. Focus the soul cage (Aylin) to make him vulnerable. Kill him, loot the <b>Netherstone</b>, and watch the cutscene with the Chosen of Bane and Bhaal.",
+        note: `He transforms into the Apostle of Myrkul. Focus the soul cage (Aylin) to make him vulnerable. Kill him, loot the ${wikiItem("Netherstone")}, and watch the cutscene with the Chosen of Bane and Bhaal.`,
       },
     ],
   ),
@@ -502,7 +544,7 @@ export const act2Areas: Area[] = [
     "oubliette",
     "Oubliette",
     "act-2",
-    "The bottom-most level of the Mind Flayer Colony.",
+    "The bottom-most level of the Mind Flayer Colony, a short combat detour before the Act 2 finale.",
     undefined,
     undefined,
     [
