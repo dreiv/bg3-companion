@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useProgressStore } from '@/stores/progress'
+import Pill from '@/components/ui/Pill.vue'
 import type { AreaTodo } from '@/data/types'
 import type { SearchSegment } from '@/types/search'
 
@@ -38,7 +39,7 @@ function onToggle() {
       </span>
     </label>
 
-    <span class="badge" :data-category="todo.category">{{ todo.category }}</span>
+    <Pill :label="todo.category" :color-scheme="todo.category" />
 
     <span v-if="todo.timed" class="timed-warning">
       <svg class="timed-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
@@ -94,48 +95,6 @@ function onToggle() {
 .todo-item.done .todo-text {
   text-decoration: line-through;
   color: var(--text-muted);
-}
-
-.badge {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  padding: 0.15rem 0.45rem;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  color: var(--text-muted);
-  background: var(--surface-2);
-}
-
-.badge[data-category="quest"] {
-  color: var(--cat-quest);
-  background: var(--cat-quest-surface);
-  border-color: var(--cat-quest);
-}
-
-.badge[data-category="companion"] {
-  color: var(--cat-companion);
-  background: var(--cat-companion-surface);
-  border-color: var(--cat-companion);
-}
-
-.badge[data-category="loot"] {
-  color: var(--cat-loot);
-  background: var(--cat-loot-surface);
-  border-color: var(--cat-loot);
-}
-
-.badge[data-category="lore"] {
-  color: var(--cat-lore);
-  background: var(--cat-lore-surface);
-  border-color: var(--cat-lore);
-}
-
-.badge[data-category="other"] {
-  color: var(--cat-other);
-  background: var(--cat-other-surface);
-  border-color: var(--cat-other);
 }
 
 .todo-item.timed {

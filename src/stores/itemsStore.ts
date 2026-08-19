@@ -1,8 +1,16 @@
 import { computed, ref } from "vue";
 import { defineStore } from "pinia";
+import { useRouter } from "vue-router";
 
 import itemsData from "@/data/items.json";
 import type { Item, ItemFilterState, ItemRarity } from "@/types/item";
+import {
+  compareBy,
+  inNumericRange,
+  matchesMultiSelect,
+  matchesText,
+  matchesWeightRange,
+} from "@/utils/tableHelpers";
 
 export type ViewTab = "list" | "quests" | "items";
 
@@ -13,45 +21,47 @@ function defaultFilter(): ItemFilterState {
     search: "",
     rarities: [],
     priceRange: [null, null],
+    weightRange: [null, null],
     sortBy: null,
     sortDirection: "asc",
   };
 }
 
 export const useItemsStore = defineStore("items", () => {
+  const router = useRouter();
+
   const activeTab = ref<ViewTab>("list");
   const currentAct = ref<number>(1);
   const filter = ref<ItemFilterState>(defaultFilter());
 
   /**
    * Items for the current act, with the full filter pipeline applied:
-   * act → search → rarity → price range → sort.
+   * act → name search → rarity → price range → weight range → sort.
+   *
+   * Each predicate is a small, reusable helper from `tableHelpers.ts`:
+   *  - `matchesText`        → case-insensitive name search
+   *  - `matchesMultiSelect` → strict rarity gate (empty selection = show all)
+   *  - `inNumericRange`     → price min/max bounds
+   *  - `matchesWeightRange` → weight min/max bounds (numeric, in lbs)
+   *
+   * Rarity filtering is strict: when the `rarities` selection is non-empty,
+   * an item is kept ONLY if its rarity is one of the selected rarities.
    */
   const filteredItems = computed<Item[]>(() => {
     const f = filter.value;
-    const q = f.search.trim().toLowerCase();
-    const [minPrice, maxPrice] = f.priceRange;
 
     const result = items.filter((item) => {
       if (item.act !== currentAct.value) return false;
-      if (q && !item.name.toLowerCase().includes(q)) return false;
-      if (f.rarities.length > 0 && !f.rarities.includes(item.rarity)) return false;
-      if (minPrice !== null && item.price < minPrice) return false;
-      if (maxPrice !== null && item.price > maxPrice) return false;
+      if (!matchesText(item.name, f.search)) return false;
+      if (!matchesMultiSelect(item.rarity, f.rarities)) return false;
+      if (!inNumericRange(item.price, f.priceRange)) return false;
+      if (!matchesWeightRange(item.weight, f.weightRange)) return false;
       return true;
     });
 
     const sortBy = f.sortBy;
     if (sortBy) {
-      const dir = f.sortDirection === "asc" ? 1 : -1;
-      result.sort((a, b) => {
-        const av = a[sortBy];
-        const bv = b[sortBy];
-        if (typeof av === "number" && typeof bv === "number") {
-          return (av - bv) * dir;
-        }
-        return String(av).localeCompare(String(bv)) * dir;
-      });
+      result.sort(compareBy(sortBy, f.sortDirection));
     }
 
     return result;
@@ -86,6 +96,14 @@ export const useItemsStore = defineStore("items", () => {
     filter.value.priceRange = [null, null];
   }
 
+  function setWeightRange(min: number | null, max: number | null) {
+    filter.value.weightRange = [min, max];
+  }
+
+  function clearWeightRange() {
+    filter.value.weightRange = [null, null];
+  }
+
   function toggleSort(key: keyof Item) {
     if (filter.value.sortBy === key) {
       filter.value.sortDirection = filter.value.sortDirection === "asc" ? "desc" : "asc";
@@ -93,6 +111,14 @@ export const useItemsStore = defineStore("items", () => {
       filter.value.sortBy = key;
       filter.value.sortDirection = "asc";
     }
+  }
+
+  /**
+   * Navigate to the area detail view for a given area id. The act id is
+   * derived from the item's act number (e.g. act 1 → "act-1").
+   */
+  function navigateToActArea(areaId: string, act: number) {
+    router.push({ name: "area-detail", params: { actId: `act-${act}`, areaId } });
   }
 
   /** Clear the query + all filters. Called on tab switch. */
@@ -112,7 +138,10 @@ export const useItemsStore = defineStore("items", () => {
     toggleRarity,
     setPriceRange,
     clearPriceRange,
+    setWeightRange,
+    clearWeightRange,
     toggleSort,
+    navigateToActArea,
     resetSearchAndFilters,
   };
 });

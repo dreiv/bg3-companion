@@ -9,6 +9,10 @@
   --warning: #b45309;
   --warning-surface: #fff7ed;
 
+  /* Active column-filter indicator */
+  --filter-active: #b45309;
+  --filter-active-surface: #fff7ed;
+
   /* Category badge colors */
   --cat-quest: #2f6fed;
   --cat-quest-surface: #eef3fe;
@@ -58,6 +62,10 @@
     --accent: #5b93f5;
     --warning: #f5a524;
     --warning-surface: #2a2113;
+
+    /* Active column-filter indicator */
+    --filter-active: #fbbf24;
+    --filter-active-surface: #2a2413;
 
     /* Category badge colors */
     --cat-quest: #5b93f5;

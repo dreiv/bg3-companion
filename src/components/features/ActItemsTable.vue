@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref, watch } from "vue";
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from "vue";
 import { useItemsStore } from "@/stores/itemsStore";
 import { RARITY_COLORS } from "@/utils/rarityColors";
-import type { ItemRarity } from "@/types/item";
+import { hasActiveRange } from "@/utils/tableHelpers";
+import Pill from "@/components/ui/Pill.vue";
+import type { Item, ItemRarity } from "@/types/item";
 
 const props = defineProps<{
   /** Act number (1, 2, 3…) whose items should be displayed. */
@@ -32,14 +34,29 @@ const ALL_RARITIES: ItemRarity[] = [
 /* Popover state                                                       */
 /* ------------------------------------------------------------------ */
 
-type PopoverColumn = "name" | "rarity" | "price";
+type PopoverColumn = "name" | "rarity" | "price" | "weight";
 const openPopover = ref<PopoverColumn | null>(null);
 
-function togglePopover(column: PopoverColumn) {
-  openPopover.value = openPopover.value === column ? null : column;
-  if (column === "price") {
-    priceMin.value = store.filter.priceRange[0];
-    priceMax.value = store.filter.priceRange[1];
+/** Ref to the name-search input so we can auto-focus it when the popover opens. */
+const nameSearchInput = ref<HTMLInputElement | null>(null);
+
+async function togglePopover(column: PopoverColumn) {
+  const opening = openPopover.value !== column;
+  openPopover.value = opening ? column : null;
+  // Hydrate the local min/max inputs from the store when a range popover opens.
+  if (opening) {
+    if (column === "price") {
+      priceMin.value = store.filter.priceRange[0];
+      priceMax.value = store.filter.priceRange[1];
+    } else if (column === "weight") {
+      weightMin.value = store.filter.weightRange[0];
+      weightMax.value = store.filter.weightRange[1];
+    }
+  }
+  // Auto-focus the name search field as soon as its popover opens.
+  if (column === "name" && opening) {
+    await nextTick();
+    nameSearchInput.value?.focus();
   }
 }
 
@@ -75,12 +92,33 @@ const priceMax = ref<number | null>(null);
 
 function applyPrice() {
   store.setPriceRange(priceMin.value, priceMax.value);
+  closePopover();
 }
 
 function clearPrice() {
   priceMin.value = null;
   priceMax.value = null;
   store.clearPriceRange();
+  closePopover();
+}
+
+/* ------------------------------------------------------------------ */
+/* Weight popover local state (same numeric-range UX as Price)         */
+/* ------------------------------------------------------------------ */
+
+const weightMin = ref<number | null>(null);
+const weightMax = ref<number | null>(null);
+
+function applyWeight() {
+  store.setWeightRange(weightMin.value, weightMax.value);
+  closePopover();
+}
+
+function clearWeight() {
+  weightMin.value = null;
+  weightMax.value = null;
+  store.clearWeightRange();
+  closePopover();
 }
 
 /* ------------------------------------------------------------------ */
@@ -96,17 +134,41 @@ const nameSearch = computed({
 /* Sorting helpers                                                     */
 /* ------------------------------------------------------------------ */
 
-function sortIndicator(key: "name" | "rarity" | "price"): string {
+function sortIndicator(key: keyof Item): string {
   if (store.filter.sortBy !== key) return "";
   return store.filter.sortDirection === "asc" ? "↑" : "↓";
 }
 
-function onSortClick(key: "name" | "rarity" | "price") {
+function onSortClick(key: keyof Item) {
   store.toggleSort(key);
 }
 
 function rarityColor(rarity: ItemRarity) {
   return RARITY_COLORS[rarity];
+}
+
+/**
+ * Whether a column currently has an active filter. Drives the amber
+ * "filter active" highlight on the column's filter button.
+ */
+function isFilterActive(column: PopoverColumn): boolean {
+  const f = store.filter;
+  switch (column) {
+    case "name":
+      return f.search.trim().length > 0;
+    case "rarity":
+      return f.rarities.length > 0;
+    case "price":
+      return hasActiveRange(f.priceRange);
+    case "weight":
+      return hasActiveRange(f.weightRange);
+  }
+}
+
+/** Combined hover text for the Properties/Effects cell (effect + description). */
+function hoverInfo(item: Item): string {
+  const parts = [item.effect, item.description].filter(Boolean);
+  return parts.join("\n\n");
 }
 </script>
 
@@ -124,8 +186,8 @@ function rarityColor(rarity: ItemRarity) {
                   {{ sortIndicator("name") }}
                 </span>
               </button>
-              <button type="button" class="th-filter" :aria-expanded="openPopover === 'name'"
-                aria-label="Filter by name" @click="togglePopover('name')">
+              <button type="button" class="th-filter" :class="{ active: isFilterActive('name') }"
+                :aria-expanded="openPopover === 'name'" aria-label="Filter by name" @click="togglePopover('name')">
                 <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
@@ -134,7 +196,7 @@ function rarityColor(rarity: ItemRarity) {
 
               <div v-if="openPopover === 'name'" class="popover" @click.stop>
                 <label class="popover-label" for="filter-name">Search name</label>
-                <input id="filter-name" v-model="nameSearch" type="text" class="popover-input"
+                <input id="filter-name" ref="nameSearchInput" v-model="nameSearch" type="text" class="popover-input"
                   placeholder="Filter by name…" />
               </div>
             </div>
@@ -149,8 +211,9 @@ function rarityColor(rarity: ItemRarity) {
                   {{ sortIndicator("rarity") }}
                 </span>
               </button>
-              <button type="button" class="th-filter" :aria-expanded="openPopover === 'rarity'"
-                aria-label="Filter by rarity" @click="togglePopover('rarity')">
+              <button type="button" class="th-filter" :class="{ active: isFilterActive('rarity') }"
+                :aria-expanded="openPopover === 'rarity'" aria-label="Filter by rarity"
+                @click="togglePopover('rarity')">
                 <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
@@ -171,7 +234,57 @@ function rarityColor(rarity: ItemRarity) {
             </div>
           </th>
 
-          <!-- Price -->
+          <!-- Category (display only) -->
+          <th class="th-cell th-static">
+            <span>Category</span>
+          </th>
+
+          <!-- Properties / Special Effects (display only) -->
+          <th class="th-cell th-static">
+            <span>Properties</span>
+          </th>
+
+          <!-- Weight (sort + numeric range filter) -->
+          <th class="th-cell" :class="{ open: openPopover === 'weight' }">
+            <div class="th-inner">
+              <button type="button" class="th-sort" @click="onSortClick('weight')">
+                <span>Weight</span>
+                <span class="sort-arrow" :class="{ active: store.filter.sortBy === 'weight' }">
+                  {{ sortIndicator("weight") }}
+                </span>
+              </button>
+              <button type="button" class="th-filter" :class="{ active: isFilterActive('weight') }"
+                :aria-expanded="openPopover === 'weight'" aria-label="Filter by weight"
+                @click="togglePopover('weight')">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
+                </svg>
+              </button>
+
+              <div v-if="openPopover === 'weight'" class="popover" @click.stop>
+                <p class="popover-label">Weight range (lb)</p>
+                <div class="price-range">
+                  <label class="price-field">
+                    <span>Min</span>
+                    <input v-model.number="weightMin" type="number" min="0" step="0.1" class="popover-input"
+                      placeholder="0" />
+                  </label>
+                  <label class="price-field">
+                    <span>Max</span>
+                    <input v-model.number="weightMax" type="number" min="0" step="0.1" class="popover-input"
+                      placeholder="∞" />
+                  </label>
+                </div>
+                <div class="popover-actions">
+                  <button type="button" class="btn-clear" @click="clearWeight">Clear</button>
+                  <button type="button" class="btn-apply" @click="applyWeight">Apply</button>
+                </div>
+              </div>
+            </div>
+          </th>
+
+          <!-- Price (sort + numeric range filter) -->
           <th class="th-cell" :class="{ open: openPopover === 'price' }">
             <div class="th-inner">
               <button type="button" class="th-sort" @click="onSortClick('price')">
@@ -180,8 +293,8 @@ function rarityColor(rarity: ItemRarity) {
                   {{ sortIndicator("price") }}
                 </span>
               </button>
-              <button type="button" class="th-filter" :aria-expanded="openPopover === 'price'"
-                aria-label="Filter by price" @click="togglePopover('price')">
+              <button type="button" class="th-filter" :class="{ active: isFilterActive('price') }"
+                :aria-expanded="openPopover === 'price'" aria-label="Filter by price" @click="togglePopover('price')">
                 <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
@@ -207,30 +320,46 @@ function rarityColor(rarity: ItemRarity) {
               </div>
             </div>
           </th>
+
+          <!-- Location (display + navigation) -->
+          <th class="th-cell th-static">
+            <span>Location</span>
+          </th>
         </tr>
       </thead>
 
       <tbody>
         <tr v-if="!items.length">
-          <td colspan="3" class="empty-row">No items match the current filters.</td>
+          <td colspan="7" class="empty-row">No items match the current filters.</td>
         </tr>
         <tr v-for="item in items" :key="item.id" class="item-row">
           <td class="cell-name">
-            <span class="item-name" :style="{ color: rarityColor(item.rarity).text }">
+            <a v-if="item.url" :href="item.url" target="_blank" rel="noopener noreferrer" class="item-name"
+              :style="{ color: rarityColor(item.rarity).text }">
+              {{ item.name }}
+            </a>
+            <span v-else class="item-name" :style="{ color: rarityColor(item.rarity).text }">
               {{ item.name }}
             </span>
-            <span v-if="item.category" class="item-category">{{ item.category }}</span>
           </td>
           <td>
-            <span class="rarity-badge" :style="{
-              color: rarityColor(item.rarity).text,
-              background: rarityColor(item.rarity).bg,
-              borderColor: rarityColor(item.rarity).border,
-            }">
-              {{ item.rarity }}
-            </span>
+            <Pill :label="item.rarity" :color-scheme="item.rarity" />
           </td>
+          <td class="cell-category">{{ item.category ?? "—" }}</td>
+          <td class="cell-props" :title="hoverInfo(item)">
+            <span v-if="item.effect" class="props-effect">{{ item.effect }}</span>
+            <span v-else-if="item.description" class="props-desc">{{ item.description }}</span>
+            <span v-else class="props-empty">—</span>
+          </td>
+          <td class="cell-weight">{{ item.weight ?? "—" }}</td>
           <td class="cell-price">{{ item.price }}</td>
+          <td class="cell-location">
+            <button v-if="item.locationAreaId" type="button" class="location-link"
+              @click="store.navigateToActArea(item.locationAreaId!, item.act)">
+              {{ item.location ?? "View area" }}
+            </button>
+            <span v-else class="location-plain">{{ item.location ?? "—" }}</span>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -256,9 +385,13 @@ function rarityColor(rarity: ItemRarity) {
   border-bottom: 1px solid var(--border);
   font-size: 0.8rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.th-static {
+  cursor: default;
 }
 
 .th-inner {
@@ -304,6 +437,15 @@ function rarityColor(rarity: ItemRarity) {
 
 .th-cell.open .th-filter {
   color: var(--accent);
+}
+
+/* Active filter indicator — amber highlight so the user sees a filter is on. */
+.th-filter.active {
+  color: var(--filter-active);
+}
+
+.th-filter.active:hover {
+  color: var(--filter-active);
 }
 
 /* Popover */
@@ -428,33 +570,75 @@ function rarityColor(rarity: ItemRarity) {
 }
 
 .cell-name {
-  display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
+  min-width: 160px;
 }
 
 .item-name {
   font-weight: 600;
+  text-decoration: none;
 }
 
-.item-category {
-  font-size: 0.75rem;
+a.item-name:hover {
+  text-decoration: underline;
+}
+
+.cell-category {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.cell-props {
+  max-width: 320px;
+}
+
+.props-effect {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--text);
+}
+
+.props-desc {
+  display: block;
+  font-size: 0.82rem;
   color: var(--text-muted);
 }
 
-.rarity-badge {
-  display: inline-block;
-  padding: 0.15rem 0.5rem;
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  border: 1px solid;
-  border-radius: 999px;
+.props-empty {
+  color: var(--text-muted);
 }
 
 .cell-price {
   font-variant-numeric: tabular-nums;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.cell-weight {
+  font-variant-numeric: tabular-nums;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.cell-location {
+  white-space: nowrap;
+}
+
+.location-link {
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: var(--accent);
+  text-align: left;
+}
+
+.location-link:hover {
+  text-decoration: underline;
+}
+
+.location-plain {
   color: var(--text-muted);
 }
 
