@@ -372,11 +372,11 @@ function hoverInfoHtml(item: Item): string {
 <style scoped>
 .items-table-wrap {
   width: 100%;
-  overflow-x: auto;
 }
 
 .items-table {
   width: 100%;
+  table-layout: fixed;
   border-collapse: collapse;
   font-size: 0.9rem;
 }

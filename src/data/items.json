@@ -1,5 +1,19 @@
 [
   {
+    "id": "act-0-everburn-blade",
+    "name": "Everburn Blade",
+    "act": 0,
+    "rarity": "uncommon",
+    "price": 130,
+    "category": "Greatswords",
+    "url": "https://bg3.wiki/wiki/Everburn_Blade",
+    "weight": "5.4 lb",
+    "description": "Carried by Commander Zhalk at the helm of the Nautiloid during the Prologue.",
+    "effect": "Deals 2d6 Slashing + 1d4 Fire damage. The earliest magical weapon obtainable — its physical damage ignores non-magical slashing resistance.",
+    "location": "Nautiloid",
+    "locationAreaId": "nautiloid"
+  },
+  {
     "id": "act-1-bracers-of-defence",
     "name": "Bracers of Defence",
     "act": 1,
