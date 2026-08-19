@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from "vue";
 import { useItemsStore } from "@/stores/itemsStore";
+import { useRangeFilter } from "@/composables/useRangeFilter";
 import { RARITY_COLORS } from "@/utils/rarityColors";
 import { hasActiveRange } from "@/utils/tableHelpers";
 import Pill from "@/components/ui/Pill.vue";
@@ -45,13 +46,8 @@ async function togglePopover(column: PopoverColumn) {
   openPopover.value = opening ? column : null;
   // Hydrate the local min/max inputs from the store when a range popover opens.
   if (opening) {
-    if (column === "price") {
-      priceMin.value = store.filter.priceRange[0];
-      priceMax.value = store.filter.priceRange[1];
-    } else if (column === "weight") {
-      weightMin.value = store.filter.weightRange[0];
-      weightMax.value = store.filter.weightRange[1];
-    }
+    if (column === "price") hydratePrice();
+    else if (column === "weight") hydrateWeight();
   }
   // Auto-focus the name search field as soon as its popover opens.
   if (column === "name" && opening) {
@@ -84,42 +80,34 @@ onBeforeUnmount(() => {
 });
 
 /* ------------------------------------------------------------------ */
-/* Price popover local state                                           */
+/* Range filter popovers (Price + Weight) — shared via useRangeFilter  */
 /* ------------------------------------------------------------------ */
 
-const priceMin = ref<number | null>(null);
-const priceMax = ref<number | null>(null);
+const {
+  min: priceMin,
+  max: priceMax,
+  hydrate: hydratePrice,
+  applyRange: applyPrice,
+  clearRange: clearPrice,
+} = useRangeFilter({
+  getRange: () => store.filter.priceRange,
+  apply: (range) => store.setPriceRange(range[0], range[1]),
+  clear: () => store.clearPriceRange(),
+  onClose: closePopover,
+});
 
-function applyPrice() {
-  store.setPriceRange(priceMin.value, priceMax.value);
-  closePopover();
-}
-
-function clearPrice() {
-  priceMin.value = null;
-  priceMax.value = null;
-  store.clearPriceRange();
-  closePopover();
-}
-
-/* ------------------------------------------------------------------ */
-/* Weight popover local state (same numeric-range UX as Price)         */
-/* ------------------------------------------------------------------ */
-
-const weightMin = ref<number | null>(null);
-const weightMax = ref<number | null>(null);
-
-function applyWeight() {
-  store.setWeightRange(weightMin.value, weightMax.value);
-  closePopover();
-}
-
-function clearWeight() {
-  weightMin.value = null;
-  weightMax.value = null;
-  store.clearWeightRange();
-  closePopover();
-}
+const {
+  min: weightMin,
+  max: weightMax,
+  hydrate: hydrateWeight,
+  applyRange: applyWeight,
+  clearRange: clearWeight,
+} = useRangeFilter({
+  getRange: () => store.filter.weightRange,
+  apply: (range) => store.setWeightRange(range[0], range[1]),
+  clear: () => store.clearWeightRange(),
+  onClose: closePopover,
+});
 
 /* ------------------------------------------------------------------ */
 /* Name popover (search) — proxies straight to the store               */

@@ -2,6 +2,8 @@
 import { computed } from 'vue'
 import { useContentStore } from '@/stores/content'
 import AreaTodoItem from '@/components/AreaTodoItem.vue'
+import EntryWarning from '@/components/features/EntryWarning.vue'
+import PartyRecommendation from '@/components/features/PartyRecommendation.vue'
 
 const props = defineProps<{
   actId: string
@@ -26,18 +28,7 @@ const act = computed(() => content.getAct(props.actId))
     <template v-if="area">
       <p v-if="area.summary" class="summary" v-reveal="60" v-html="area.summary"></p>
 
-      <div v-if="area.entryWarning" class="entry-warning" v-reveal="100">
-        <svg class="entry-warning-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
-          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
-          <line x1="12" y1="9" x2="12" y2="13" />
-          <line x1="12" y1="17" x2="12.01" y2="17" />
-        </svg>
-        <div class="entry-warning-body">
-          <span class="entry-warning-label">Warning</span>
-          <p class="entry-warning-text" v-html="area.entryWarning"></p>
-        </div>
-      </div>
+      <EntryWarning v-if="area.entryWarning" :message="area.entryWarning" v-reveal="100" />
 
       <section class="section" v-reveal="140">
         <h2 class="section-title">Todos</h2>
@@ -60,19 +51,7 @@ const act = computed(() => content.getAct(props.actId))
 
       <section v-if="area.partyRecommendation" class="section" v-reveal="220">
         <h2 class="section-title">Party</h2>
-        <div class="party-rec">
-          <h3 class="party-rec-quest" v-html="area.partyRecommendation.quest"></h3>
-          <p class="party-rec-reason" v-html="area.partyRecommendation.reason"></p>
-          <ul class="party-rec-list">
-            <li v-for="(comp, i) in area.partyRecommendation.recommendedComp" :key="i" v-html="comp"></li>
-          </ul>
-          <p class="party-rec-confidence">
-            Confidence:
-            <span class="confidence-badge" :data-confidence="area.partyRecommendation.confidence">
-              {{ area.partyRecommendation.confidence }}
-            </span>
-          </p>
-        </div>
+        <PartyRecommendation :recommendation="area.partyRecommendation" />
       </section>
     </template>
   </div>
@@ -126,105 +105,6 @@ const act = computed(() => content.getAct(props.actId))
   gap: 0.6rem;
 }
 
-.entry-warning {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.6rem;
-  margin-bottom: 1.25rem;
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--warning);
-  border-left: 4px solid var(--warning);
-  border-radius: 8px;
-  background: var(--warning-surface);
-  color: var(--warning);
-}
-
-.entry-warning-icon {
-  flex-shrink: 0;
-  margin-top: 0.1rem;
-}
-
-.entry-warning-body {
-  min-width: 0;
-}
-
-.entry-warning-label {
-  display: block;
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-}
-
-.entry-warning-text {
-  margin: 0.15rem 0 0;
-  font-size: 0.9rem;
-  color: var(--text);
-}
-
-.party-rec {
-  padding: 1rem;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--surface);
-}
-
-.party-rec-quest {
-  margin: 0 0 0.5rem;
-  font-size: 1.05rem;
-}
-
-.party-rec-reason {
-  margin: 0 0 0.75rem;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
-
-.party-rec-list {
-  margin: 0 0 0.75rem;
-  padding-left: 1.25rem;
-  font-size: 0.9rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.party-rec-confidence {
-  margin: 0;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-.confidence-badge {
-  display: inline-block;
-  margin-left: 0.25rem;
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  padding: 0.1rem 0.45rem;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-}
-
-.confidence-badge[data-confidence="high"] {
-  color: var(--conf-high);
-  background: var(--conf-high-surface);
-  border-color: var(--conf-high);
-}
-
-.confidence-badge[data-confidence="medium"] {
-  color: var(--conf-medium);
-  background: var(--conf-medium-surface);
-  border-color: var(--conf-medium);
-}
-
-.confidence-badge[data-confidence="low"] {
-  color: var(--conf-low);
-  background: var(--conf-low-surface);
-  border-color: var(--conf-low);
-}
-
 .companion-list {
   position: relative;
   list-style: none;
@@ -252,40 +132,24 @@ const act = computed(() => content.getAct(props.actId))
   color: var(--text-muted);
 }
 
-/* v-html content: links + emphasis injected into summaries, warnings,
-   companion reasons, and party recommendations. */
+/* v-html content: links + emphasis injected into summaries and companion reasons. */
 .summary :deep(a),
-.entry-warning-text :deep(a),
-.companion-reason :deep(a),
-.party-rec-quest :deep(a),
-.party-rec-reason :deep(a) {
+.companion-reason :deep(a) {
   color: var(--accent);
   text-decoration: underline;
 }
 
 .summary :deep(b),
 .summary :deep(strong),
-.entry-warning-text :deep(b),
-.entry-warning-text :deep(strong),
 .companion-reason :deep(b),
-.companion-reason :deep(strong),
-.party-rec-quest :deep(b),
-.party-rec-quest :deep(strong),
-.party-rec-reason :deep(b),
-.party-rec-reason :deep(strong) {
+.companion-reason :deep(strong) {
   font-weight: 600;
 }
 
 .summary :deep(i),
 .summary :deep(em),
-.entry-warning-text :deep(i),
-.entry-warning-text :deep(em),
 .companion-reason :deep(i),
-.companion-reason :deep(em),
-.party-rec-quest :deep(i),
-.party-rec-quest :deep(em),
-.party-rec-reason :deep(i),
-.party-rec-reason :deep(em) {
+.companion-reason :deep(em) {
   font-style: italic;
 }
 

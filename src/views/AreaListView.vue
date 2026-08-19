@@ -4,6 +4,7 @@ import { useContentStore } from '@/stores/content'
 import { useProgressStore } from '@/stores/progress'
 import { useItemsStore } from '@/stores/itemsStore'
 import { useSearch } from '@/composables/useSearch'
+import { useTabs } from '@/composables/useTabs'
 import AreaTodoItem from '@/components/AreaTodoItem.vue'
 import SearchInput from '@/components/ui/SearchInput.vue'
 import ActItemsTable from '@/components/features/ActItemsTable.vue'
@@ -39,7 +40,6 @@ const filteredAreas = computed(() => search.filter(areaList.value, (a) => a.name
 const filteredQuests = computed(() => search.filter(quests.value, (q) => q.text))
 
 type ViewMode = 'list' | 'quests' | 'items'
-const activeView = ref<ViewMode>('list')
 
 const tabs: { id: ViewMode; label: string }[] = [
   { id: 'list', label: 'List' },
@@ -47,32 +47,15 @@ const tabs: { id: ViewMode; label: string }[] = [
   { id: 'items', label: 'Items' },
 ]
 
-/**
- * Switch the active tab. Resets the global search query and item filters
- * whenever the user toggles between tabs.
- */
-function selectTab(tab: ViewMode) {
-  if (activeView.value === tab) return
-  activeView.value = tab
-  // Reset search + item filters on every tab switch.
-  search.query.value = ''
-  itemsStore.resetSearchAndFilters()
-}
-
-function onTabKeydown(e: KeyboardEvent) {
-  const i = tabs.findIndex((t) => t.id === activeView.value)
-  let next = -1
-  if (e.key === 'ArrowRight') next = (i + 1) % tabs.length
-  else if (e.key === 'ArrowLeft') next = (i - 1 + tabs.length) % tabs.length
-  else if (e.key === 'Home') next = 0
-  else if (e.key === 'End') next = tabs.length - 1
-  if (next < 0) return
-  const tab = tabs[next]
-  if (!tab) return
-  e.preventDefault()
-  selectTab(tab.id)
-  document.getElementById(`tab-${tab.id}`)?.focus()
-}
+const { activeView, selectTab, onTabKeydown } = useTabs<ViewMode>({
+  tabs,
+  initial: 'list',
+  onSwitch: () => {
+    // Reset search + item filters on every tab switch.
+    search.query.value = ''
+    itemsStore.resetSearchAndFilters()
+  },
+})
 
 function completion(area: Area) {
   const total = area.todos.length
