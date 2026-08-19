@@ -361,6 +361,14 @@ function hoverInfoHtml(item: Item): string {
 .items-table-wrap {
   width: 100%;
   overflow-x: auto;
+  /* Keep horizontal scroll for the 600px table on mobile, but stop the
+     wrapper from becoming a vertical scroll container. `overflow-x: auto`
+     otherwise forces `overflow-y` to `auto`, and the absolutely-positioned
+     .info-tooltip / .popover overlays that spill past the wrapper's box
+     would create a second (doubled) vertical scrollbar. Vertical scrolling
+     is owned by the page; the wrapper grows to the table's full height, so
+     no table content is clipped. */
+  overflow-y: hidden;
   border: 1px solid var(--glass-border);
   border-radius: 14px;
   background: var(--glass-bg);
