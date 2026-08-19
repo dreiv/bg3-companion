@@ -68,14 +68,27 @@ export function parseWeightLbs(weight: string | undefined): number | null {
   return Number.isFinite(n) ? n : null;
 }
 
+/** Numeric rank for each rarity tier (higher = rarer). */
+const RARITY_RANK: Record<string, number> = {
+  common: 0,
+  uncommon: 1,
+  rare: 2,
+  epic: 3,
+  legendary: 4,
+};
+
 /**
  * Extract the comparable value for a sort key. Weight is normalized to its
  * numeric pound value so it sorts numerically (not lexicographically); items
- * without a weight sort last.
+ * without a weight sort last. Rarity is mapped to a numeric rank so it sorts
+ * by tier (common → legendary) rather than alphabetically.
  */
 export function sortValue(item: Item, key: keyof Item): number | string {
   if (key === "weight") {
     return parseWeightLbs(item.weight) ?? Number.POSITIVE_INFINITY;
+  }
+  if (key === "rarity") {
+    return RARITY_RANK[item.rarity] ?? 0;
   }
   const v = item[key];
   if (typeof v === "number") return v;
