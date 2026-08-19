@@ -96,7 +96,7 @@ function areaRoute(areaId: string) {
 
         <TransitionGroup v-else name="list" tag="nav" class="area-list">
           <RouterLink v-for="area in filteredAreas" :key="area.id"
-            :to="{ name: 'area-detail', params: { actId: actId, areaId: area.id } }" class="area-card">
+            :to="{ name: 'area-detail', params: { actId: actId, areaId: area.id } }" class="area-card glass">
             <span class="area-name">
               <span class="area-name-text">
                 <template v-for="(seg, i) in search.highlight(area.name)" :key="i">
@@ -245,18 +245,16 @@ function areaRoute(areaId: string) {
   justify-content: space-between;
   gap: 1rem;
   padding: 0.85rem 1.1rem;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--surface);
+  border-radius: 12px;
   color: var(--text);
   text-decoration: none;
   transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .area-card:hover {
-  border-color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 60%, var(--glass-border));
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px -10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 24px -12px rgba(0, 0, 0, 0.3);
 }
 
 .area-name {

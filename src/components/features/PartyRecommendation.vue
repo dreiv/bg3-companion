@@ -8,7 +8,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="party-rec">
+  <div class="party-rec glass">
     <h3 class="party-rec-quest" v-html="recommendation.quest"></h3>
     <p class="party-rec-reason" v-html="recommendation.reason"></p>
     <ul class="party-rec-list">
@@ -26,9 +26,7 @@ defineProps<{
 <style scoped>
 .party-rec {
   padding: 1rem;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--surface);
+  border-radius: 12px;
 }
 
 .party-rec-quest {

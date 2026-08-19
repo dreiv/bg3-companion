@@ -41,7 +41,7 @@ const act = computed(() => content.getAct(props.actId))
         <h2 class="section-title">Companions</h2>
         <div class="companion-suggestions">
           <TransitionGroup name="list" tag="ul" class="companion-list">
-            <li v-for="companion in area.suggestedCompanions" :key="companion.name" class="companion">
+            <li v-for="companion in area.suggestedCompanions" :key="companion.name" class="companion glass">
               <span class="companion-name">{{ companion.name }}</span>
               <p v-if="companion.reason" class="companion-reason" v-html="companion.reason"></p>
             </li>
@@ -117,9 +117,7 @@ const act = computed(() => content.getAct(props.actId))
 
 .companion {
   padding: 0.6rem 0.75rem;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--surface);
+  border-radius: 10px;
 }
 
 .companion-name {

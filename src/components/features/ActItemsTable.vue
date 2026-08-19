@@ -361,6 +361,12 @@ function hoverInfoHtml(item: Item): string {
 .items-table-wrap {
   width: 100%;
   overflow-x: auto;
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  box-shadow: var(--glass-shadow);
 }
 
 .items-table {
@@ -375,7 +381,7 @@ function hoverInfoHtml(item: Item): string {
   position: relative;
   text-align: left;
   padding: 0.5rem 0.75rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--glass-border);
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -558,7 +564,7 @@ function hoverInfoHtml(item: Item): string {
 /* Rows */
 .item-row td {
   padding: 0.6rem 0.75rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid color-mix(in srgb, var(--glass-border) 60%, transparent);
   vertical-align: middle;
 }
 

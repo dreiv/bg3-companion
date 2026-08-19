@@ -27,10 +27,13 @@ defineProps<{
   gap: 0.6rem;
   margin-bottom: 1.25rem;
   padding: 0.75rem 1rem;
-  border: 1px solid var(--warning);
+  border: 1px solid color-mix(in srgb, var(--warning) 45%, var(--glass-border));
   border-left: 4px solid var(--warning);
-  border-radius: 8px;
-  background: var(--warning-surface);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--warning) 12%, var(--glass-bg));
+  backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  box-shadow: var(--glass-shadow);
   color: var(--warning);
 }
 

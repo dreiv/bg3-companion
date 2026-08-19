@@ -13,7 +13,7 @@ const content = useContentStore()
 
     <nav class="act-list">
       <RouterLink v-for="(act, i) in content.acts" :key="act.id" :to="{ name: 'area-list', params: { actId: act.id } }"
-        class="act-card" v-reveal="i * 60">
+        class="act-card glass" v-reveal="i * 60">
         <span class="act-name">{{ act.name }}</span>
         <span class="act-count">{{ content.getAreaCountForAct(act.id) }} areas</span>
       </RouterLink>
@@ -50,18 +50,16 @@ const content = useContentStore()
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem 1.25rem;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--surface);
+  border-radius: 12px;
   color: var(--text);
   text-decoration: none;
   transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .act-card:hover {
-  border-color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 60%, var(--glass-border));
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px -8px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 10px 28px -10px rgba(0, 0, 0, 0.3);
 }
 
 .act-name {

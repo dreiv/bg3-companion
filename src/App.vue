@@ -1,5 +1,17 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import RitualScarBackground from './components/RitualScarBackground.vue'
+</script>
 
 <template>
-  <RouterView />
+  <RitualScarBackground />
+  <div class="app-content">
+    <RouterView />
+  </div>
 </template>
+
+<style scoped>
+.app-content {
+  position: relative;
+  z-index: 1;
+}
+</style>

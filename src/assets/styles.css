@@ -1,54 +1,60 @@
 :root {
-  --bg: #f6f7f9;
-  --surface: #ffffff;
-  --surface-2: #eef0f3;
-  --text: #1a1d21;
-  --text-muted: #5b636e;
-  --border: #d9dde3;
-  --accent: #2f6fed;
-  --warning: #b45309;
-  --warning-surface: #fff7ed;
+  --bg: #0b0505;
+  --surface: #1a0d0f;
+  --surface-2: #241012;
+  --text: #f3e9e9;
+  --text-muted: #c4a0a0;
+  --border: #3a1a1c;
+  --accent: #ef4444;
+  --warning: #f5a524;
+  --warning-surface: #2a1513;
 
   /* Active column-filter indicator */
-  --filter-active: #b45309;
-  --filter-active-surface: #fff7ed;
+  --filter-active: #fbbf24;
+  --filter-active-surface: #2a2413;
 
   /* Category badge colors */
-  --cat-quest: #2f6fed;
-  --cat-quest-surface: #eef3fe;
-  --cat-companion: #7c3aed;
-  --cat-companion-surface: #f4effe;
-  --cat-loot: #ca8a04;
-  --cat-loot-surface: #fdf6e3;
-  --cat-lore: #0d9488;
-  --cat-lore-surface: #e6f6f4;
-  --cat-other: #5b636e;
-  --cat-other-surface: #eef0f3;
+  --cat-quest: #5b93f5;
+  --cat-quest-surface: #1a2540;
+  --cat-companion: #a78bfa;
+  --cat-companion-surface: #241d38;
+  --cat-loot: #fbbf24;
+  --cat-loot-surface: #2a2413;
+  --cat-lore: #2dd4bf;
+  --cat-lore-surface: #12282a;
+  --cat-other: #9aa3ad;
+  --cat-other-surface: #262a31;
 
   /* Confidence colors */
-  --conf-high: #15803d;
-  --conf-high-surface: #eef7ee;
-  --conf-medium: #b45309;
-  --conf-medium-surface: #fff7ed;
-  --conf-low: #b91c1c;
-  --conf-low-surface: #fdeeee;
+  --conf-high: #4ade80;
+  --conf-high-surface: #132a1a;
+  --conf-medium: #f5a524;
+  --conf-medium-surface: #2a2113;
+  --conf-low: #f87171;
+  --conf-low-surface: #2a1515;
 
   /* Rarity colors */
-  --rarity-common-text: #64748b;
-  --rarity-common-bg: #f1f5f9;
-  --rarity-common-border: #cbd5e1;
-  --rarity-uncommon-text: #059669;
-  --rarity-uncommon-bg: #ecfdf5;
-  --rarity-uncommon-border: #a7f3d0;
-  --rarity-rare-text: #2563eb;
-  --rarity-rare-bg: #eff6ff;
-  --rarity-rare-border: #bfdbfe;
-  --rarity-epic-text: #7c3aed;
-  --rarity-epic-bg: #f5f3ff;
-  --rarity-epic-border: #ddd6fe;
-  --rarity-legendary-text: #d97706;
-  --rarity-legendary-bg: #fffbeb;
-  --rarity-legendary-border: #fde68a;
+  --rarity-common-text: #94a3b8;
+  --rarity-common-bg: #1e293b;
+  --rarity-common-border: #334155;
+  --rarity-uncommon-text: #34d399;
+  --rarity-uncommon-bg: #064e3b;
+  --rarity-uncommon-border: #065f46;
+  --rarity-rare-text: #60a5fa;
+  --rarity-rare-bg: #1e3a5f;
+  --rarity-rare-border: #1e40af;
+  --rarity-epic-text: #a78bfa;
+  --rarity-epic-bg: #2e1065;
+  --rarity-epic-border: #4c1d95;
+  --rarity-legendary-text: #fbbf24;
+  --rarity-legendary-bg: #451a03;
+  --rarity-legendary-border: #92400e;
+
+  /* Glassmorphism */
+  --glass-bg: rgba(15, 6, 8, 0.45);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-blur: 14px;
+  --glass-shadow: 0 8px 32px -12px rgba(0, 0, 0, 0.5);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -59,7 +65,7 @@
     --text: #e6e8eb;
     --text-muted: #9aa3ad;
     --border: #333842;
-    --accent: #5b93f5;
+    --accent: #f87171;
     --warning: #f5a524;
     --warning-surface: #2a2113;
 
@@ -103,6 +109,12 @@
     --rarity-legendary-text: #fbbf24;
     --rarity-legendary-bg: #451a03;
     --rarity-legendary-border: #92400e;
+
+    /* Glassmorphism */
+    --glass-bg: rgba(15, 6, 8, 0.5);
+    --glass-border: rgba(255, 255, 255, 0.14);
+    --glass-blur: 16px;
+    --glass-shadow: 0 8px 32px -12px rgba(0, 0, 0, 0.5);
   }
 }
 
@@ -114,6 +126,7 @@ body {
 
 body {
   background: var(--bg);
+  background-attachment: fixed;
   color: var(--text);
   font-family:
     system-ui,
@@ -123,6 +136,16 @@ body {
     sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* Shared glassmorphism surface. Apply to any card-like element. */
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  box-shadow: var(--glass-shadow);
 }
 
 code {

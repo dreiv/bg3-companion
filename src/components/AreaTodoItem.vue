@@ -31,7 +31,7 @@ function onToggle() {
 </script>
 
 <template>
-  <li class="todo-item" :class="{ done: done, timed: todo.timed }">
+  <li class="todo-item glass" :class="{ done: done, timed: todo.timed }">
     <label class="todo-row">
       <input type="checkbox" class="todo-checkbox" :checked="done" @change="onToggle" />
       <span class="todo-text" v-html="textHtml"></span>
@@ -59,9 +59,7 @@ function onToggle() {
   align-items: center;
   gap: 0.5rem 0.75rem;
   padding: 0.6rem 0.75rem;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--surface);
+  border-radius: 10px;
   transition: border-color 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
 }
 
@@ -97,7 +95,7 @@ function onToggle() {
 
 .todo-item.timed {
   border-left: 4px solid var(--warning);
-  background: var(--warning-surface);
+  background: color-mix(in srgb, var(--warning) 14%, var(--glass-bg));
 }
 
 .timed-warning {
