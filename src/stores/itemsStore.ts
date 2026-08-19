@@ -12,8 +12,6 @@ import {
   matchesWeightRange,
 } from "@/utils/tableHelpers";
 
-export type ViewTab = "list" | "quests" | "items";
-
 const items = itemsData as unknown as Item[];
 
 function defaultFilter(): ItemFilterState {
@@ -30,22 +28,13 @@ function defaultFilter(): ItemFilterState {
 export const useItemsStore = defineStore("items", () => {
   const router = useRouter();
 
-  const activeTab = ref<ViewTab>("list");
   const currentAct = ref<number>(1);
   const filter = ref<ItemFilterState>(defaultFilter());
 
   /**
-   * Items for the current act, with the full filter pipeline applied:
-   * act → name search → rarity → price range → weight range → sort.
-   *
-   * Each predicate is a small, reusable helper from `tableHelpers.ts`:
-   *  - `matchesText`        → case-insensitive name search
-   *  - `matchesMultiSelect` → strict rarity gate (empty selection = show all)
-   *  - `inNumericRange`     → price min/max bounds
-   *  - `matchesWeightRange` → weight min/max bounds (numeric, in lbs)
-   *
-   * Rarity filtering is strict: when the `rarities` selection is non-empty,
-   * an item is kept ONLY if its rarity is one of the selected rarities.
+   * Items for the current act, with the full filter pipeline applied
+   * (act → name → rarity → price → weight → sort). Each predicate is a
+   * reusable helper from `tableHelpers.ts`.
    */
   const filteredItems = computed<Item[]>(() => {
     const f = filter.value;
@@ -66,13 +55,6 @@ export const useItemsStore = defineStore("items", () => {
 
     return result;
   });
-
-  /** Switch the active view tab and reset all item filters as a side effect. */
-  function setActiveTab(tab: ViewTab) {
-    if (activeTab.value === tab) return;
-    activeTab.value = tab;
-    resetSearchAndFilters();
-  }
 
   function setAct(act: number) {
     currentAct.value = act;
@@ -127,12 +109,9 @@ export const useItemsStore = defineStore("items", () => {
   }
 
   return {
-    items,
-    activeTab,
     currentAct,
     filter,
     filteredItems,
-    setActiveTab,
     setAct,
     setSearch,
     toggleRarity,

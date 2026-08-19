@@ -6,11 +6,6 @@ export function normalizeQuery(query: string): string | null {
   return q.length > 0 ? q : null;
 }
 
-export function matchesQuery(text: string, query: string): boolean {
-  const q = normalizeQuery(query);
-  return q === null || text.toLowerCase().includes(q);
-}
-
 export function splitByQuery(text: string, query: string): SearchSegment[] {
   const q = normalizeQuery(query);
   if (q === null) return [{ text, match: false }];

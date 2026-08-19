@@ -1,22 +1,8 @@
 import type { Item } from "@/types/item";
 
 /**
- * tableHelpers.ts
- * ---------------------------------------------------------------------------
- * Reusable, framework-agnostic helpers for the item table's filtering and
- * sorting pipeline. Centralizing these keeps `itemsStore.ts` and the table
- * component DRY and makes the filter semantics easy to unit-test.
- *
- * Supported filter types:
- *  - **Text match**      → `matchesText` (case-insensitive substring search)
- *  - **Multi-select**    → `matchesMultiSelect` (rarity, category, …)
- *  - **Numeric range**   → `inNumericRange` (price, weight)
- *
- * Sorting:
- *  - `compareBy` builds a comparator for any `keyof Item`. Weight is
- *    normalized to its numeric pound value so it sorts numerically rather
- *    than lexicographically.
- * ---------------------------------------------------------------------------
+ * Pure, framework-agnostic filter/sort predicates for the item table.
+ * Each function's doc comment documents its own semantics.
  */
 
 /** A `[min, max]` numeric range. `null` bounds are treated as unbounded. */
