@@ -61,9 +61,14 @@ const url = (base: string) => `url(#${id(base)})`
   --bg: #0b0505;
 
   position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* Lock to the small viewport height so the omnibar appearing/disappearing
+     on mobile never resizes (and re-centers) the background. `vh` is the
+     fallback for browsers without `svh` support. */
+  height: 100vh;
+  height: 100svh;
   overflow: hidden;
   z-index: 0;
   pointer-events: none;
@@ -76,6 +81,10 @@ const url = (base: string) => `url(#${id(base)})`
   left: 50%;
   width: min(78vw, 44.6vh);
   height: min(122vw, 66vh);
+  /* Repeat with `svh` so the size is also stable when the mobile omnibar
+     moves; `svh` overrides the `vh` fallback where supported. */
+  width: min(78vw, 44.6svh);
+  height: min(122vw, 66svh);
   transform: translate(-50%, -50%);
   overflow: visible;
 }
