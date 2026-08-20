@@ -7,9 +7,9 @@ import ActItemsTable from "@/components/features/ActItemsTable.vue";
 import { useItemsStore } from "@/stores/itemsStore";
 
 /**
- * The items store calls `useRouter()` at setup, so the component must be
- * mounted with a real (memory-history) router. We do NOT mock Pinia — the
- * store runs for real so the full filter pipeline is exercised.
+ * The items store calls `useRouter()` at setup, so mount with a real
+ * (memory-history) router. Pinia is NOT mocked — the full filter pipeline
+ * runs for real.
  */
 function createTestRouter() {
   return createRouter({
@@ -37,7 +37,6 @@ describe("ActItemsTable", () => {
   it("renders act items and filters them by name", async () => {
     const { wrapper, store } = await mountTable(1);
 
-    // Both are act-1 items and should render with no active filter.
     expect(wrapper.text()).toContain("Bracers of Defence");
     expect(wrapper.text()).toContain("Uncovered Mysteries");
 

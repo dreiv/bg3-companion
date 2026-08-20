@@ -135,10 +135,7 @@ function rarityColor(rarity: ItemRarity) {
   return RARITY_COLORS[rarity];
 }
 
-/**
- * Whether a column currently has an active filter. Drives the amber
- * "filter active" highlight on the column's filter button.
- */
+/** Whether a column has an active filter (drives the amber highlight). */
 function isFilterActive(column: PopoverColumn): boolean {
   const f = store.filter;
   switch (column) {
@@ -155,8 +152,7 @@ function isFilterActive(column: PopoverColumn): boolean {
 
 /**
  * Combined HTML for the info tooltip (effect + description). Each part is
- * wrapped in a `<p>` so multi-line content stacks cleanly inside the tooltip,
- * and embedded newlines become `<br>` so they render as line breaks.
+ * wrapped in a `<p>`; embedded newlines become `<br>`.
  */
 function hoverInfoHtml(item: Item): string {
   const parts: string[] = [];
@@ -362,12 +358,10 @@ function hoverInfoHtml(item: Item): string {
   width: 100%;
   overflow-x: auto;
   /* Keep horizontal scroll for the 600px table on mobile, but stop the
-     wrapper from becoming a vertical scroll container. `overflow-x: auto`
-     otherwise forces `overflow-y` to `auto`, and the absolutely-positioned
-     .info-tooltip / .popover overlays that spill past the wrapper's box
-     would create a second (doubled) vertical scrollbar. Vertical scrolling
-     is owned by the page; the wrapper grows to the table's full height, so
-     no table content is clipped. */
+     wrapper from becoming a vertical scroll container: `overflow-x: auto`
+     otherwise forces `overflow-y: auto`, and the absolutely-positioned
+     .info-tooltip / .popover overlays would create a second scrollbar.
+     Vertical scrolling is owned by the page. */
   overflow-y: hidden;
   border: 1px solid var(--glass-border);
   border-radius: 14px;
@@ -651,27 +645,6 @@ function hoverInfoHtml(item: Item): string {
 
 .info-tooltip p:last-child {
   margin-bottom: 0;
-}
-
-/* v-html content: links + emphasis inside the tooltip and item names. */
-.info-tooltip :deep(a),
-.item-name :deep(a) {
-  color: var(--accent);
-  text-decoration: underline;
-}
-
-.info-tooltip :deep(b),
-.info-tooltip :deep(strong),
-.item-name :deep(b),
-.item-name :deep(strong) {
-  font-weight: 600;
-}
-
-.info-tooltip :deep(i),
-.info-tooltip :deep(em),
-.item-name :deep(i),
-.item-name :deep(em) {
-  font-style: italic;
 }
 
 .item-name {

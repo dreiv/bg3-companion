@@ -120,7 +120,7 @@ const url = (base: string) => `url(#${id(base)})`
   background: radial-gradient(circle at 50% 42%, rgba(213, 38, 44, 0.16), transparent 58%);
 }
 
-/* base silhouette: exact geometry (lightly de-noised, see note in defs above) */
+/* base silhouette: exact geometry */
 .glyph-fill .rune-mass-a,
 .glyph-fill .rune-mass-b {
   fill: var(--ink);

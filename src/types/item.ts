@@ -3,7 +3,7 @@ export type ItemRarity = "common" | "uncommon" | "rare" | "epic" | "legendary";
 export interface Item {
   id: string;
   name: string;
-  act: number; // e.g., 1, 2, 3...
+  act: number;
   rarity: ItemRarity;
   price: number;
   category?: string;
@@ -19,8 +19,8 @@ export interface Item {
   location?: string;
   /**
    * Slug id of the matching area in `src/data/areas` (e.g. "last-light-inn").
-   * Present only when the location could be resolved to a known area; used to
-   * deep-link the Location column to the area detail view.
+   * Present only when the location resolved to a known area; deep-links the
+   * Location column to the area detail view.
    */
   locationAreaId?: string;
 }

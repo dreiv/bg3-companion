@@ -59,20 +59,4 @@ defineProps<{
   font-size: 0.9rem;
   color: var(--text);
 }
-
-/* v-html content: links + emphasis injected into the warning text. */
-.entry-warning-text :deep(a) {
-  color: var(--accent);
-  text-decoration: underline;
-}
-
-.entry-warning-text :deep(b),
-.entry-warning-text :deep(strong) {
-  font-weight: 600;
-}
-
-.entry-warning-text :deep(i),
-.entry-warning-text :deep(em) {
-  font-style: italic;
-}
 </style>

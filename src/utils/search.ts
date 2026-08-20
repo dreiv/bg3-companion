@@ -26,17 +26,14 @@ export function splitByQuery(text: string, query: string): SearchSegment[] {
 }
 
 /**
- * Highlight query matches inside an HTML string, wrapping each match in
- * `<mark class="search-highlight">`. Only plain-text runs (outside tags) are
- * searched, so embedded markup such as `<a>`, `<b>`, `<i>` is preserved intact.
- * Returns the original string unchanged when there is no active query.
+ * Wrap query matches in an HTML string with `<mark class="search-highlight">`.
+ * Only plain-text runs are searched, so embedded markup is preserved intact.
  */
 export function highlightHtml(html: string, query: string): string {
   const q = normalizeQuery(query);
   if (q === null) return html;
 
-  // Split into markup chunks (`<...>`) and text chunks; only the text chunks
-  // are searched so we never highlight across or inside a tag.
+  // Split into markup (`<...>`) and text chunks; only text is searched.
   return html
     .split(/(<[^>]*>)/g)
     .map((part) => (part.startsWith("<") ? part : highlightText(part, q)))

@@ -23,10 +23,7 @@ export interface UseSearchReturn {
   /** Filter items by a key extractor; returns all items when no query is active. */
   filter: <T>(items: readonly T[], key: (item: T) => string) => T[];
   highlight: (text: string) => SearchSegment[];
-  /**
-   * Highlight query matches inside an HTML string, returning a new HTML string
-   * with `<mark>` wrappers. Safe for content rendered via `v-html`.
-   */
+  /** Highlight query matches in an HTML string with `<mark>` wrappers (v-html safe). */
   highlightHtml: (html: string) => string;
   focus: () => void;
 }

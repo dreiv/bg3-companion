@@ -130,27 +130,6 @@ const act = computed(() => content.getAct(props.actId))
   color: var(--text-muted);
 }
 
-/* v-html content: links + emphasis injected into summaries and companion reasons. */
-.summary :deep(a),
-.companion-reason :deep(a) {
-  color: var(--accent);
-  text-decoration: underline;
-}
-
-.summary :deep(b),
-.summary :deep(strong),
-.companion-reason :deep(b),
-.companion-reason :deep(strong) {
-  font-weight: 600;
-}
-
-.summary :deep(i),
-.summary :deep(em),
-.companion-reason :deep(i),
-.companion-reason :deep(em) {
-  font-style: italic;
-}
-
 .list-move,
 .list-enter-active,
 .list-leave-active {

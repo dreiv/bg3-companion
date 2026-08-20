@@ -1,11 +1,8 @@
 import type { ItemRarity } from "@/types/item";
 
 /**
- * Rarity → color tokens.
- *
- * Values are CSS custom-property references (defined in `assets/styles.css`)
- * so the palette automatically adapts to light/dark mode and stays consistent
- * with the rest of the app's design tokens.
+ * Rarity → color tokens. Values are CSS custom-property references (defined in
+ * `assets/styles.css`) so the palette adapts to light/dark mode.
  */
 export const RARITY_COLORS: Record<ItemRarity, { text: string; bg: string; border: string }> = {
   common: {

@@ -7,11 +7,9 @@ import AreaDetailView from "@/views/AreaDetailView.vue";
 import { useProgressStore } from "@/stores/progress";
 
 /**
- * AreaDetailView renders RouterLinks and the progress store, so we mount with a
- * real Pinia + memory router. The `reveal` directive is left unregistered (a
- * no-op) since it is a pure visual enhancement and depends on browser APIs
- * (matchMedia) that jsdom does not implement. Pinia is NOT mocked — the todo
- * toggle flow is exercised end to end against the real progress store.
+ * Mount with a real Pinia + memory router. The `reveal` directive is left
+ * unregistered (a no-op) since it depends on browser APIs jsdom lacks. Pinia
+ * is NOT mocked — the todo toggle flow runs end to end.
  */
 function createTestRouter() {
   return createRouter({

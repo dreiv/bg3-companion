@@ -6,35 +6,22 @@ export interface Tab<T extends string> {
 }
 
 export interface UseTabsOptions<T extends string> {
-  /** The ordered list of tabs. */
   tabs: readonly Tab<T>[];
   /** Initial active tab id. Defaults to the first tab. */
   initial?: T;
-  /**
-   * Called after the active tab *changes* (not on the initial value). Lets the
-   * caller run side effects such as resetting filters without coupling the
-   * composable to any specific store.
-   */
+  /** Called after the active tab changes (not on the initial value). */
   onSwitch?: (tab: T) => void;
 }
 
 export interface UseTabsReturn<T extends string> {
-  /** The currently active tab id. */
   activeView: Ref<T>;
   /** Select a tab; no-op when it is already active. */
   selectTab: (tab: T) => void;
-  /**
-   * Roving-tablist keyboard handler. Arrow keys move selection (wrapping),
-   * Home/End jump to the first/last tab. Focus follows the new selection.
-   */
+  /** Roving-tablist keyboard handler: arrows wrap, Home/End jump, focus follows. */
   onTabKeydown: (e: KeyboardEvent) => void;
 }
 
-/**
- * Encapsulates accessible tab-list state and keyboard navigation. The active
- * tab is a simple `Ref<T>`; side effects on switch are delegated to `onSwitch`
- * so the composable stays store-agnostic and independently testable.
- */
+/** Accessible tab-list state and keyboard navigation. */
 export function useTabs<T extends string>(options: UseTabsOptions<T>): UseTabsReturn<T> {
   const { tabs, initial, onSwitch } = options;
 

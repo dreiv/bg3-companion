@@ -4,16 +4,9 @@ import { RARITY_COLORS } from "@/utils/rarityColors";
 import type { ItemRarity } from "@/types/item";
 
 /**
- * A single, reusable pill/badge.
- *
- * `colorScheme` selects a named color token set. It accepts:
- *  - any `ItemRarity` ("common" | "uncommon" | "rare" | "epic" | "legendary"),
- *    which maps onto the shared rarity palette, or
- *  - a category scheme ("quest" | "companion" | "loot" | "lore" | "other"),
- *    which maps onto the category palette.
- *
- * This replaces the fragmented `.rarity-badge` (ActItemsTable) and `.badge`
- * (AreaTodoItem) implementations with one source of truth.
+ * Reusable pill/badge. `colorScheme` is either an `ItemRarity` or a category
+ * name ("quest" | "companion" | "loot" | "lore" | "other"), each mapping to a
+ * shared color token set.
  */
 
 export type PillScheme =
@@ -60,9 +53,7 @@ const CATEGORY_COLORS: Record<string, PillColors> = {
 
 const props = withDefaults(
   defineProps<{
-    /** Text shown inside the pill. */
     label: string;
-    /** Color scheme — a rarity or a category name. */
     colorScheme: PillScheme;
   }>(),
   { colorScheme: "other" },

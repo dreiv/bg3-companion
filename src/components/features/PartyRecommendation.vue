@@ -84,25 +84,4 @@ defineProps<{
   background: var(--conf-low-surface);
   border-color: var(--conf-low);
 }
-
-/* v-html content: links + emphasis injected into the recommendation. */
-.party-rec-quest :deep(a),
-.party-rec-reason :deep(a) {
-  color: var(--accent);
-  text-decoration: underline;
-}
-
-.party-rec-quest :deep(b),
-.party-rec-quest :deep(strong),
-.party-rec-reason :deep(b),
-.party-rec-reason :deep(strong) {
-  font-weight: 600;
-}
-
-.party-rec-quest :deep(i),
-.party-rec-quest :deep(em),
-.party-rec-reason :deep(i),
-.party-rec-reason :deep(em) {
-  font-style: italic;
-}
 </style>

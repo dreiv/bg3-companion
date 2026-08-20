@@ -31,11 +31,7 @@ export const useItemsStore = defineStore("items", () => {
   const currentAct = ref<number>(1);
   const filter = ref<ItemFilterState>(defaultFilter());
 
-  /**
-   * Items for the current act, with the full filter pipeline applied
-   * (act → name → rarity → price → weight → sort). Each predicate is a
-   * reusable helper from `tableHelpers.ts`.
-   */
+  /** Items for the current act, with the full filter pipeline applied. */
   const filteredItems = computed<Item[]>(() => {
     const f = filter.value;
 
@@ -95,10 +91,7 @@ export const useItemsStore = defineStore("items", () => {
     }
   }
 
-  /**
-   * Navigate to the area detail view for a given area id. The act id is
-   * derived from the item's act number (e.g. act 1 → "act-1").
-   */
+  /** Navigate to the area detail view; the act id is derived from the act number. */
   function navigateToActArea(areaId: string, act: number) {
     router.push({ name: "area-detail", params: { actId: `act-${act}`, areaId } });
   }

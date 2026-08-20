@@ -9,8 +9,7 @@ const props = withDefaults(
     todo: AreaTodo
     /**
      * Optional; returns HTML with `<mark>` highlights for the active query.
-     * The todo text is HTML (wiki links, emphasis), so highlighting must be
-     * HTML-aware rather than plain-text segmenting.
+     * The todo text is HTML, so highlighting must be HTML-aware.
      */
     highlight?: (html: string) => string
   }>(),
@@ -112,30 +111,5 @@ function onToggle() {
   margin: 0;
   font-size: 0.85rem;
   color: var(--text-muted);
-}
-
-.todo-note :deep(a) {
-  color: var(--accent);
-}
-
-/* v-html content: links + emphasis injected into the todo text and note. */
-.todo-text :deep(a),
-.todo-note :deep(a) {
-  color: var(--accent);
-  text-decoration: underline;
-}
-
-.todo-text :deep(b),
-.todo-text :deep(strong),
-.todo-note :deep(b),
-.todo-note :deep(strong) {
-  font-weight: 600;
-}
-
-.todo-text :deep(i),
-.todo-text :deep(em),
-.todo-note :deep(i),
-.todo-note :deep(em) {
-  font-style: italic;
 }
 </style>

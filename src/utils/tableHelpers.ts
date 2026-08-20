@@ -1,37 +1,24 @@
 import type { Item } from "@/types/item";
 
-/**
- * Pure, framework-agnostic filter/sort predicates for the item table.
- * Each function's doc comment documents its own semantics.
- */
-
 /** A `[min, max]` numeric range. `null` bounds are treated as unbounded. */
 export type NumericRange = [number | null, number | null];
 
 export type SortDirection = "asc" | "desc";
 
-/**
- * Case-insensitive substring match. An empty / whitespace-only query matches
- * everything, so the filter is a no-op until the user types something.
- */
+/** Case-insensitive substring match; an empty query matches everything. */
 export function matchesText(value: string | undefined, query: string): boolean {
   const q = query.trim().toLowerCase();
   if (!q) return true;
   return (value ?? "").toLowerCase().includes(q);
 }
 
-/**
- * Multi-select membership check. An empty selection matches everything;
- * otherwise the item's value must be one of the selected options.
- */
+/** Multi-select membership check; an empty selection matches everything. */
 export function matchesMultiSelect<T extends string>(value: T, selected: readonly T[]): boolean {
   if (selected.length === 0) return true;
   return selected.includes(value);
 }
 
-/**
- * Numeric range check (inclusive). `null` bounds are unbounded.
- */
+/** Inclusive numeric range check; `null` bounds are unbounded. */
 export function inNumericRange(value: number, range: NumericRange): boolean {
   const [min, max] = range;
   if (min !== null && value < min) return false;
@@ -45,9 +32,8 @@ export function hasActiveRange(range: NumericRange): boolean {
 }
 
 /**
- * Weight-specific range check. When no bound is set, every item passes. When a
- * bound is set, items without weight data are excluded (they cannot be
- * verified against the range).
+ * Weight range check. No bound set → every item passes; otherwise items
+ * without weight data are excluded.
  */
 export function matchesWeightRange(weight: string | undefined, range: NumericRange): boolean {
   if (!hasActiveRange(range)) return true;
@@ -56,10 +42,7 @@ export function matchesWeightRange(weight: string | undefined, range: NumericRan
   return inNumericRange(lbs, range);
 }
 
-/**
- * Parse a normalized weight string (e.g. `"4.5 lb"`) into a number of pounds.
- * Returns `null` when the weight is absent or unparseable.
- */
+/** Parse a weight string (e.g. `"4.5 lb"`) into pounds; `null` if absent/unparseable. */
 export function parseWeightLbs(weight: string | undefined): number | null {
   if (!weight) return null;
   const m = weight.match(/[\d.]+/);
@@ -78,10 +61,8 @@ const RARITY_RANK: Record<string, number> = {
 };
 
 /**
- * Extract the comparable value for a sort key. Weight is normalized to its
- * numeric pound value so it sorts numerically (not lexicographically); items
- * without a weight sort last. Rarity is mapped to a numeric rank so it sorts
- * by tier (common → legendary) rather than alphabetically.
+ * Comparable value for a sort key. Weight → numeric pounds (missing sorts
+ * last); rarity → tier rank (common → legendary); otherwise the raw value.
  */
 export function sortValue(item: Item, key: keyof Item): number | string {
   if (key === "weight") {
@@ -95,9 +76,7 @@ export function sortValue(item: Item, key: keyof Item): number | string {
   return String(v ?? "");
 }
 
-/**
- * Build a comparator for the given sort key + direction.
- */
+/** Build a comparator for the given sort key + direction. */
 export function compareBy(key: keyof Item, direction: SortDirection): (a: Item, b: Item) => number {
   const dir = direction === "asc" ? 1 : -1;
   return (a, b) => {

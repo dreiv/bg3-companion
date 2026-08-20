@@ -7,9 +7,8 @@ import AreaListView from "@/views/AreaListView.vue";
 import { useItemsStore } from "@/stores/itemsStore";
 
 /**
- * AreaListView pulls the items store (which calls `useRouter()` at setup) and
- * renders RouterLinks, so we mount with a real Pinia + memory router. Pinia is
- * NOT mocked — the reset-on-tab-switch flow is exercised end to end.
+ * Mount with a real Pinia + memory router (the items store calls `useRouter()`
+ * at setup). Pinia is NOT mocked — the reset-on-tab-switch flow runs end to end.
  */
 function createTestRouter() {
   return createRouter({
@@ -76,14 +75,12 @@ describe("AreaListView", () => {
   it("filters areas by the search input and highlights matches", async () => {
     const { wrapper } = await mountView();
 
-    // Act 1 has 28 areas, so the search input is rendered.
     const search = wrapper.find('input[aria-label="Filter areas by name"]');
     expect(search.exists()).toBe(true);
 
     // Type a query that matches exactly one area.
     await search.setValue("Emerald");
 
-    // Only the matching area remains; the rest are filtered out.
     expect(wrapper.text()).toContain("Emerald Grove");
     expect(wrapper.text()).not.toContain("Ravaged Beach");
 

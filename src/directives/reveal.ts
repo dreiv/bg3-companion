@@ -2,18 +2,11 @@ import type { Directive, DirectiveBinding } from "vue";
 
 /**
  * `v-reveal` — fades/slides an element in the first time it scrolls into view.
+ * One-shot: a shared IntersectionObserver unobserves each element after it
+ * reveals, and the animation is a compositor-friendly CSS keyframe disabled
+ * under `prefers-reduced-motion`.
  *
- * Performance notes:
- * - A single shared IntersectionObserver is reused for every element, so there
- *   is no per-element observer overhead.
- * - Elements are unobserved as soon as they reveal (one-shot), so there is no
- *   ongoing observation cost.
- * - The actual animation is a CSS keyframe on `opacity`/`transform` only
- *   (compositor-friendly) and is disabled under `prefers-reduced-motion`.
- *
- * Usage:
- *   <div v-reveal>…</div>
- *   <div v-reveal="index * 40">…</div>   // staggered entrance
+ * Usage: `<div v-reveal>` or `<div v-reveal="index * 40">` (staggered).
  */
 
 const prefersReducedMotion = () =>

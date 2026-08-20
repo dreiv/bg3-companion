@@ -20,18 +20,11 @@ export const template = (
 });
 
 /**
- * bg3.wiki link helpers.
- *
- * bg3.wiki (the community-run MediaWiki, distinct from the Fandom/Fextralife
- * wikis) uses simple `/wiki/Page_Title` slugs that match in-game names with
- * spaces swapped for underscores. These helpers are used inline inside
- * `note`/`reason`/`summary` strings (which already render as HTML, per the
- * pre-existing <b>/<i> usage) so every named item, spell, NPC, or location
- * becomes a clickable reference.
- *
- * Pass an explicit `slug` for the rare cases where the display name doesn't
- * match the wiki's article title (disambiguation pages, apostrophes handled
- * differently, etc).
+ * bg3.wiki link helpers. bg3.wiki uses `/wiki/Page_Title` slugs matching
+ * in-game names (spaces → underscores). Used inline in `note`/`reason`/
+ * `summary` strings so named items, spells, NPCs, and locations become
+ * clickable. Pass an explicit `slug` when the display name differs from the
+ * article title.
  */
 const WIKI_BASE = "https://bg3.wiki/wiki/";
 

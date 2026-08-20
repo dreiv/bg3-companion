@@ -26,10 +26,9 @@ export interface UseRangeFilterReturn {
 }
 
 /**
- * Encapsulates the min/max numeric-range filter UX shared by the Price and
- * Weight columns: local draft state, hydration from the store on open, and
- * apply/clear round-trips. Keeps the two columns' logic identical and
- * independently testable.
+ * Min/max numeric-range filter UX shared by the Price and Weight columns:
+ * local draft state, hydration from the store on open, and apply/clear
+ * round-trips.
  */
 export function useRangeFilter(options: UseRangeFilterOptions): UseRangeFilterReturn {
   const { getRange, apply, clear, onClose } = options;
